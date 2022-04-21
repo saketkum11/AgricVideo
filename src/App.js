@@ -1,15 +1,9 @@
 import "./App.css";
-import logo from "./logo.png";
-import { Route, Routes } from "react-router-dom";
-import { Home } from "./index";
+import { MyRoutes } from "./Pages";
 function App() {
   return (
     <div className="App">
-      <header className="">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </header>
+      <MyRoutes></MyRoutes>
     </div>
   );
 }
