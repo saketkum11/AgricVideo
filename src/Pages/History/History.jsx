@@ -1,10 +1,11 @@
 import { Header } from "../index";
-const Home = () => {
+
+const History = () => {
   return (
     <>
       <Header></Header>
-      <div>This is home Page</div>
+      <div>This is histroy page</div>
     </>
   );
 };
-export { Home };
+export { History };

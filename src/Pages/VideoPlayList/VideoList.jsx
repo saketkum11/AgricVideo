@@ -1,0 +1,2 @@
+const VideoList = () => {};
+export { VideoList };
