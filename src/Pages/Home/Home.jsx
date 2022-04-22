@@ -27,15 +27,13 @@ const Home = () => {
           </div>
         </section>
         <section className="flex pd-y-8 wt-80 m-auto">
-          {" "}
-          <div className="box-shadow  flex flex-column  wt-30  rounded-s ">
-            <div>
+          <div className="box-shadow  flex flex-column  wt-30   ">
+            <div className="wt-100 >
               <img
                 src="./assets/video.jpg"
-                className="object-content wt-100 rounded-m"
+                className="object-content wt-100"
                 alt=""
               />
-              hju7jkio
             </div>
 
             <div className="pd-4">
@@ -45,14 +43,11 @@ const Home = () => {
               </div>
 
               <div className="flex flex-column m-y-3 justify-btw ">
-                <button className="cursor bg-blue-5 rounded-s border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                  Primary
-                </button>
-                <button className="cursor text-color-0 bg-black-4 rounded-s outline-none border-none pd-x-4 pd-y-3 text-s m-y-                                             2">
-                  Secondary
+                <button className="cursor bg-black-9 rounded-s border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
+                  Watch Now
                 </button>
               </div>
-            </div>
+            </div> 
           </div>
         </section>
       </main>
