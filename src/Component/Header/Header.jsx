@@ -8,9 +8,7 @@ const Header = () => {
   return (
     <>
       <header className="wt-100 ">
-        <div className="wt-20 flex flex-column overFlow ">
-          {sideNavFlag ? <SideNav></SideNav> : ""}
-        </div>
+        <div className="wt-20 flex flex-column overFlow "></div>
 
         <div className="flex wt-80 items-center m-auto pd-y-5 text-color-0 ">
           <div className="pd-x-4 cursor flex">

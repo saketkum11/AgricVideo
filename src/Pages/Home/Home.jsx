@@ -1,7 +1,6 @@
 import { Header } from "../index";
 import { FaPlayCircle, FaRegEye } from "react-icons/fa";
 import "../Home/Home.css";
-import Moment from "react-moment";
 const Home = () => {
   return (
     <>
@@ -19,20 +18,24 @@ const Home = () => {
               <FaPlayCircle className="fa-3x  fa-5x position-ab text-color-5 icon-position"></FaPlayCircle>
             </div>
 
-            <div className="flex items-center justify-start">
-              <span className="text-color-0 text-xm">
+            <div className="flex flex-column items-center justify-center">
+              <span className="text-color-0 text-xm pd-y-3">
                 The ultimate goal of farming is not the growing of crops, but
                 the cultivation and perfection of human beings.
               </span>
+
+              <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
+                Explore Video
+              </button>
             </div>
           </div>
         </section>
-        <section className=" flex flex-column card-gap pd-y-8 wt-80 m-auto justify-btw">
-          <div className="text-m text-semibold flex items-start">
+        <section className=" flex  flex-column  pd-y-8 wt-80 m-auto justify-btw">
+          <div className="text-m text-semibold flex items-start pd-y-5">
             <span>Recommend Video</span>
           </div>
-          <div className="flex card-gap">
-            <div className="box-shadow-1 flex flex-column ">
+          <div className="flex card-gap wrap">
+            <div className="box-shadow-1 wt-30 flex flex-column ">
               <div className="wt-100 ">
                 <img
                   src="./assets/farming.jpg"
@@ -52,7 +55,7 @@ const Home = () => {
                   <div className="flex items-center pd-y-3 pd-x-3">
                     <img
                       src="./assets/video.jpg"
-                      class="avatar rounded-full sm"
+                      className="avatar rounded-full sm"
                       alt="farming indian"
                     />
                     <span className="pd-x-2">Indian Farmer</span>
@@ -73,7 +76,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="box-shadow-1 flex flex-column ">
+            <div className="box-shadow-1 wt-30 flex flex-column ">
               <div className="wt-100 ">
                 <img
                   src="./assets/farming.jpg"
@@ -82,7 +85,7 @@ const Home = () => {
                 />
               </div>
 
-              <div className="pd-x-4 flex flex-column">
+              <div className="pd-x-4 flex  flex-column">
                 <div className=" flex ">
                   <span className="text-s flex items-start">
                     Palm Oil Farming | सरकार उठाएगी खर्च | पाम तेल की खेती |
@@ -93,7 +96,7 @@ const Home = () => {
                   <div className="flex items-center pd-y-3 pd-x-3">
                     <img
                       src="./assets/video.jpg"
-                      class="avatar rounded-full sm"
+                      className="avatar rounded-full sm"
                       alt="farming indian"
                     />
                     <span className="pd-x-2">Indian Farmer</span>
@@ -114,7 +117,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="box-shadow-1 flex flex-column ">
+            <div className="box-shadow-1  wt-30 flex flex-column ">
               <div className="wt-100 ">
                 <img
                   src="./assets/farming.jpg"
@@ -134,7 +137,7 @@ const Home = () => {
                   <div className="flex items-center pd-y-3 pd-x-3">
                     <img
                       src="./assets/video.jpg"
-                      class="avatar rounded-full sm"
+                      className="avatar rounded-full sm"
                       alt="farming indian"
                     />
                     <span className="pd-x-2">Indian Farmer</span>
@@ -155,11 +158,11 @@ const Home = () => {
                 </div>
               </div>
             </div>{" "}
-            <div className="box-shadow-1 flex flex-column ">
+            <div className="box-shadow-1 flex wt-30 flex-column ">
               <div className="wt-100 ">
                 <img
                   src="./assets/farming.jpg"
-                  className="object-content wt-100 h-80 "
+                  className="object-content wt-100  "
                   alt=""
                 />
               </div>
@@ -175,7 +178,7 @@ const Home = () => {
                   <div className="flex items-center pd-y-3 pd-x-3">
                     <img
                       src="./assets/video.jpg"
-                      class="avatar rounded-full sm"
+                      className="avatar rounded-full sm"
                       alt="farming indian"
                     />
                     <span className="pd-x-2">Indian Farmer</span>
@@ -199,8 +202,8 @@ const Home = () => {
           </div>
         </section>
         <footer className="">
-          <div>
-            <h1>hfdfkdjksjk</h1>
+          <div className="pd-y-7">
+            <span>Copyright @2022 Agric Video Library</span>
           </div>
         </footer>
       </main>
