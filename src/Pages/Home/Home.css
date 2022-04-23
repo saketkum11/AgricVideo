@@ -1,0 +1,14 @@
+.icon-position
+{
+    top: 30%;
+    right: 45%;
+    left: 45%;
+    
+}
+.card-gap{
+    gap:2rem;
+   
+}
+.wrap{
+    flex-wrap: wrap;
+}
