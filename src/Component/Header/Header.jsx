@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { SideNav } from "../SideNav/SideNav";
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
   const [sideNavFlag, setSideNavFlag] = useState(false);
@@ -17,11 +18,14 @@ const Header = () => {
               onClick={() => {
                 setSideNavFlag((flag) => !flag);
               }}
-              className="rounded-s border-none cursor  outline-none text-color-9 pd-x-3 pd-y-2 bg-transparent"
+              className="rounded-s border-none cursor  outline-none text-color-9 pd-x-5 pd-y-2 bg-transparent "
             >
-              <i class="fa-solid fa-bars"></i>
+              <FaBars></FaBars>
             </button>
-            <NavLink to="/" className="text-dec cursor text-color-9 text-lg">
+            <NavLink
+              to="/"
+              className="text-dec cursor text-color-9 text-lg pd-x-3"
+            >
               Agric
             </NavLink>
           </div>
@@ -29,19 +33,9 @@ const Header = () => {
           <div className="m-lf">
             <ul className="flex style-none justify-around pd-x-4 ">
               <li>
-                <button className="bg-green-5 rounded-s border-none  outline-none text-color-0 pd-x-3 pd-y-2">
-                  Primary
+                <button className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s">
+                  Logout
                 </button>
-              </li>
-              <li>
-                <a href="" className="text-dec  text-color-0 pd-4">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="" className="text-dec  text-color-0 pd-4">
-                  Contact
-                </a>
               </li>
             </ul>
           </div>

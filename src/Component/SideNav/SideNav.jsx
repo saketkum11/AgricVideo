@@ -1,7 +1,7 @@
 const SideNav = () => {
   return (
     <>
-      <div className="bg-transparent"></div>
+      <div className="bg-green-9">This will work</div>
     </>
   );
 };
