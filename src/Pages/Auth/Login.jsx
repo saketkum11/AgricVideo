@@ -5,16 +5,11 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log(userData);
+
   return (
     <>
       <div className=" m-auto wt-30 flex m-t-8 flex-column justify-even">
-        <form
-          className="bg-black-1 text-color-9 justify-even flex flex-column  pd-11"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
+        <div className="bg-black-1 text-color-9 justify-even flex flex-column  pd-11">
           <label
             htmlFor="email"
             className="flex items-start pd-y-5 pd-x-3 text-xm text-sm text-light"
@@ -59,7 +54,7 @@ const Login = () => {
           <button className="bg-black-0 rounded-xs outline-none pd-2 cursor">
             Login as Guest{" "}
           </button>
-        </form>
+        </div>
         <footer className="bg-black-4 "></footer>
       </div>
     </>
