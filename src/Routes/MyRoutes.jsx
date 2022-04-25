@@ -13,7 +13,7 @@ const MyRoutes = () => {
         <Route path="/history" element={<History />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/mock" element={<Mockman />}></Route>
+        <Route path="/signup" element={<Mockman />}></Route>
       </Routes>
     </>
   );
