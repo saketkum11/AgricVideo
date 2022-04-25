@@ -1,6 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { History, Home, Login, VideoList } from "../Pages";
+import { History, Home, Login, Signup, VideoList } from "../Pages";
+
+import Mockman from "mockman-js";
+
 const MyRoutes = () => {
   return (
     <>
@@ -9,6 +12,8 @@ const MyRoutes = () => {
         <Route path="/videoList" element={<VideoList />} />
         <Route path="/history" element={<History />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/mock" element={<Mockman />}></Route>
       </Routes>
     </>
   );
