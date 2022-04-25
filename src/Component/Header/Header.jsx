@@ -32,7 +32,7 @@ const Header = () => {
             <ul className="flex style-none justify-around pd-x-4 ">
               <li>
                 <button className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s">
-                  Logout
+                  <NavLink to="/login">Login</NavLink>
                 </button>
               </li>
             </ul>
