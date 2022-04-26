@@ -2,9 +2,12 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { SideNav } from "../SideNav/SideNav";
 import { FaBars } from "react-icons/fa";
+import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Header = () => {
   const [sideNavFlag, setSideNavFlag] = useState(false);
+  const { credentialData, setCredentailData } = useAuth();
+  const { tokenData, isAuth } = credentialData;
   return (
     <>
       <header className="wt-100 ">
@@ -31,11 +34,22 @@ const Header = () => {
           <div className="m-lf">
             <ul className="flex style-none justify-around pd-x-4 ">
               <li>
-                <button className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s">
-                  <NavLink to="/login" className="">
-                    Login
-                  </NavLink>
-                </button>
+                {isAuth ? (
+                  <button
+                    onClick={() => {}}
+                    className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s"
+                  >
+                    <NavLink to="/" className="text-dec text-color-0">
+                      {isAuth ? "logout" : "login"}
+                    </NavLink>
+                  </button>
+                ) : (
+                  <button className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s">
+                    <NavLink to="/login" className="text-dec text-color-0">
+                      login
+                    </NavLink>
+                  </button>
+                )}
               </li>
             </ul>
           </div>

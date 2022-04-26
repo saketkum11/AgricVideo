@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 const Signup = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -18,6 +19,7 @@ const Signup = () => {
             onSubmit={(event) => {
               event.preventDefault();
               signupHandler(values);
+              navigate("/login");
             }}
           >
             <span className="text-semibold text-m">SignUp</span>

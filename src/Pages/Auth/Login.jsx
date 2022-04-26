@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { loginHandler } = useAuth();
   const [values, setValues] = useState({
     email: "",
@@ -20,7 +21,8 @@ const Login = () => {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              loginHandler(email, password);
+              loginHandler(values);
+              navigate("/");
             }}
           >
             <div className="flex flex-column ">
@@ -37,6 +39,7 @@ const Login = () => {
                 className=" pd-4   text-s rounded-xs "
                 placeholder="Email Id"
                 value={email}
+                required
                 onChange={(e) => {
                   setValues({ ...values, email: e.target.value });
                 }}
@@ -57,6 +60,7 @@ const Login = () => {
                 className="pd-4 text-s rounded-xs outline-none "
                 placeholder="Password"
                 value={password}
+                required
                 onChange={(e) => {
                   setValues({ ...values, password: e.target.value });
                 }}
