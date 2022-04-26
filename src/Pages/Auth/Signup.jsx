@@ -35,6 +35,7 @@ const Signup = () => {
                 className="pd-4 text-s rounded-xs outline-none "
                 placeholder="FirstName"
                 value={firstName}
+                required
                 onChange={(e) => {
                   setValues({ ...values, firstName: e.target.value });
                 }}
@@ -54,6 +55,7 @@ const Signup = () => {
                 className="pd-4 text-s rounded-xs outline-none "
                 placeholder="LastName"
                 value={lastName}
+                required
                 onChange={(e) => {
                   setValues({ ...values, lastName: e.target.value });
                 }}
@@ -73,6 +75,7 @@ const Signup = () => {
                 className=" pd-4   text-s rounded-xs "
                 placeholder="Email Id"
                 value={email}
+                required
                 onChange={(e) => {
                   setValues({ ...values, email: e.target.value });
                 }}
@@ -93,6 +96,7 @@ const Signup = () => {
                 className="pd-4 text-s rounded-xs outline-none "
                 placeholder="Password"
                 value={password}
+                required
                 onChange={(e) => {
                   setValues({ ...values, password: e.target.value });
                 }}
