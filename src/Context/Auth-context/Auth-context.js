@@ -14,8 +14,9 @@ const AuthProvider = ({ children }) => {
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
+      console.log("response from signup handler", response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   const loginHandler = async ({ email, password }) => {
