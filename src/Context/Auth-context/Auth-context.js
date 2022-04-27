@@ -20,10 +20,6 @@ const AuthProvider = ({ children }) => {
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
-      setCredentailData({
-        ...credentialData,
-        isAuth: !credentialData.isAuth,
-      });
     } catch (error) {
       console.error(error);
     }
@@ -37,6 +33,7 @@ const AuthProvider = ({ children }) => {
         });
         // saving the encodedToken in the localStorage
         localStorage.setItem("token", response.data.encodedToken);
+        console.log("response from login", response);
       } catch (error) {
         console.error(error);
       }
@@ -48,7 +45,13 @@ const AuthProvider = ({ children }) => {
   console.log("usedata", credentialData);
   return (
     <authContext.Provider
-      value={{ loginHandler, signupHandler, credentialData, setCredentailData }}
+      value={{
+        loginHandler,
+        signupHandler,
+        credentialData,
+        setCredentailData,
+        isAuth,
+      }}
     >
       {children}
     </authContext.Provider>

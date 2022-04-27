@@ -36,7 +36,12 @@ const Header = () => {
               <li>
                 {isAuth ? (
                   <button
-                    onClick={() => {}}
+                    onClick={() => {
+                      setCredentailData({
+                        ...credentialData,
+                        isAuth: !credentialData.isAuth,
+                      });
+                    }}
                     className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s"
                   >
                     <NavLink to="/" className="text-dec text-color-0">

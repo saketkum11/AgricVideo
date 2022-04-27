@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Login = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { loginHandler } = useAuth();
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+  const { credentialData, setCredentailData } = useAuth();
   const { email, password } = values;
 
   return (
@@ -22,6 +24,10 @@ const Login = () => {
             onSubmit={(event) => {
               event.preventDefault();
               loginHandler(values);
+              setCredentailData({
+                ...credentialData,
+                isAuth: !credentialData.isAuth,
+              });
               navigate("/");
             }}
           >

@@ -116,7 +116,6 @@ const Signup = () => {
               <NavLink to="/login" className="">
                 Already Have Account?
               </NavLink>
-              <p>{JSON.stringify(values)}</p>
             </div>
           </form>
         </div>
