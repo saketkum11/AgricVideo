@@ -1,6 +1,7 @@
 import { Header } from "../index";
 import { FaPlayCircle, FaRegEye } from "react-icons/fa";
 import "../Home/Home.css";
+import { NavLink } from "react-router-dom";
 const Home = () => {
   return (
     <>
@@ -25,7 +26,9 @@ const Home = () => {
               </span>
 
               <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                Explore Video
+                <NavLink to="/videolist" className="text-dec text-color-0">
+                  Explore Video
+                </NavLink>
               </button>
             </div>
           </div>
