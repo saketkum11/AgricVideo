@@ -11,7 +11,7 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/videoList"
+          path="/videolist"
           element={
             <RequireAuth>
               <VideoList />
