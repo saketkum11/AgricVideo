@@ -1,29 +1,59 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-const authContext = createContext();
-const useAuth = () => useContext(authContext);
+const AuthContext = createContext();
+const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState([]);
+  const [credentialData, setCredentailData] = useState({
+    tokenData: localStorage.getItem("token"),
+    isAuth: localStorage.getItem("token") ? true : false,
+  });
+  const { tokenData, isAuth } = credentialData;
 
-  const loginHandler = async ({ email, password }) => {
+  const signupHandler = async ({ email, password, firstName, lastName }) => {
     try {
-      const response = await axios.post(`/api/auth/login`, {
+      const response = await axios.post("/api/auth/signup", {
         email: email,
         password: password,
+        firstName: firstName,
+        lastName: lastName,
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
-      setUserData(response.data.encodedToken);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+    }
+  };
+  const loginHandler = async ({ email, password }) => {
+    if (isAuth) {
+      try {
+        const response = await axios.post("/api/auth/login", {
+          email,
+          password,
+        });
+        // saving the encodedToken in the localStorage
+        localStorage.setItem("token", response.data.encodedToken);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.log("signup");
     }
   };
 
+  console.log("usedata", credentialData);
   return (
-    <authContext.Provider value={{ loginHandler }}>
+    <AuthContext.Provider
+      value={{
+        loginHandler,
+        signupHandler,
+        credentialData,
+        setCredentailData,
+        isAuth,
+      }}
+    >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 

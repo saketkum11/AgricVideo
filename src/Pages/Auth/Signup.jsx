@@ -1,36 +1,68 @@
-import { useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
-
-const Login = () => {
-  const location = useLocation();
+const Signup = () => {
   const navigate = useNavigate();
-  const { loginHandler } = useAuth();
   const [values, setValues] = useState({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
-  const { credentialData, setCredentailData } = useAuth();
-  const { email, password } = values;
-
+  const { email, firstName, lastName, password } = values;
+  const { signupHandler } = useAuth();
   return (
     <>
       <div className=" m-auto wt-30 flex m-t-8 flex-column justify-even">
         <div className="box-shadow-1 text-color-9 justify-even flex flex-column  pd-11">
-          <div>
-            <span className="text-semibold text-m">Login</span>
-          </div>
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              loginHandler(values);
-              setCredentailData({
-                ...credentialData,
-                isAuth: !credentialData.isAuth,
-              });
-              navigate("/");
+              signupHandler(values);
+              navigate("/login");
             }}
           >
+            <span className="text-semibold text-m">SignUp</span>
+            <div className="flex flex-column ">
+              <label
+                htmlFor="firstName"
+                className="flex items-start text-xm pd-y-5 pd-x-3 text-sm text-light"
+              >
+                Password{" "}
+              </label>
+
+              <input
+                type="text"
+                id="firstName"
+                className="pd-4 text-s rounded-xs outline-none "
+                placeholder="FirstName"
+                value={firstName}
+                required
+                onChange={(e) => {
+                  setValues({ ...values, firstName: e.target.value });
+                }}
+              />
+            </div>
+            <div className="flex flex-column ">
+              <label
+                htmlFor="lastName"
+                className="flex items-start text-xm pd-y-5 pd-x-3 text-sm text-light"
+              >
+                Password{" "}
+              </label>
+
+              <input
+                type="text"
+                id="lastName"
+                className="pd-4 text-s rounded-xs outline-none "
+                placeholder="LastName"
+                value={lastName}
+                required
+                onChange={(e) => {
+                  setValues({ ...values, lastName: e.target.value });
+                }}
+              />
+            </div>
             <div className="flex flex-column ">
               {" "}
               <label
@@ -78,17 +110,22 @@ const Login = () => {
                 type="Submit"
                 className="bg-black-9 wt-100  rounded-xs border-none outline-none text-s cursor text-color-0 pd-3 text-light"
               >
-                Login
+                SignUp
               </button>
 
-              <NavLink to="/signup" className="">
-                Create your account
+              <NavLink to="/login" className="">
+                Already Have Account?
               </NavLink>
             </div>
           </form>
         </div>
       </div>
+      <footer className="">
+        <div className="pd-y-7">
+          <span>Copyright @2022 Agric Video Library</span>
+        </div>
+      </footer>
     </>
   );
 };
-export { Login };
+export { Signup };
