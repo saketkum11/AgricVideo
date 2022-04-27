@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "./SideNav.css";
+import { FaHome, FaVideo, FaHistory, FaStopwatch } from "react-icons/fa";
+import { MdPlaylistAdd } from "react-icons/md";
+
 const SideNav = () => {
   return (
     <>
@@ -21,41 +24,46 @@ const SideNav = () => {
           <li className="  wt-100  ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-y-3 pd-x-4  items-start flex   "
+              className="text-dec text-color-0 sidenav-link pd-4  flex items-center  "
             >
-              Home
+              <FaHome className="text-xm"></FaHome>
+              <span className="pd-x-6">Home</span>
             </NavLink>
           </li>
           <li className="  wt-100   ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-y-3 pd-x-4  items-start flex "
+              className="text-dec text-color-0 sidenav-link pd-4  flex items-center"
             >
-              VideoList
+              <FaVideo className="text-xm"></FaVideo>
+              <span className="pd-x-6">VideoList</span>
             </NavLink>
           </li>
           <li className="wt-100  ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-y-3 pd-x-4  items-start flex "
+              className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
             >
-              History
+              <FaHistory className="text-xm"></FaHistory>
+              <span className="pd-x-6">History</span>
             </NavLink>
           </li>
           <li className=" wt-100 ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-y-3 pd-x-4  items-start flex "
+              className="text-dec text-color-0 sidenav-link pd-4  items-center flex "
             >
-              Watch Later
+              <FaStopwatch className="text-xm"></FaStopwatch>
+              <span className="pd-x-6">Watch Later</span>
             </NavLink>
           </li>
           <li className="  wt-100  ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-y-3 pd-x-4  items-start flex "
+              className="text-dec text-color-0 sidenav-link pd-y-4 pd-x-4  items-center flex "
             >
-              PlayList
+              <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
+              <span className="pd-x-6">PlayList</span>
             </NavLink>
           </li>
         </ul>
