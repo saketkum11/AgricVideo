@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-const authContext = createContext();
-const useAuth = () => useContext(authContext);
+const AuthContext = createContext();
+const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [credentialData, setCredentailData] = useState({
@@ -10,13 +10,13 @@ const AuthProvider = ({ children }) => {
   });
   const { tokenData, isAuth } = credentialData;
 
-  const signupHandler = async (data) => {
+  const signupHandler = async ({ email, password, firstName, lastName }) => {
     try {
       const response = await axios.post("/api/auth/signup", {
-        email: data.email,
-        password: data.password,
-        firstName: data.firstName,
-        lastName: data.lastName,
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
@@ -28,12 +28,11 @@ const AuthProvider = ({ children }) => {
     if (isAuth) {
       try {
         const response = await axios.post("/api/auth/login", {
-          email: email,
-          password: password,
+          email,
+          password,
         });
         // saving the encodedToken in the localStorage
         localStorage.setItem("token", response.data.encodedToken);
-        console.log("response from login", response);
       } catch (error) {
         console.error(error);
       }
@@ -44,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
   console.log("usedata", credentialData);
   return (
-    <authContext.Provider
+    <AuthContext.Provider
       value={{
         loginHandler,
         signupHandler,
@@ -54,7 +53,7 @@ const AuthProvider = ({ children }) => {
       }}
     >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
