@@ -1,7 +1,12 @@
+import { Card, SideNav } from "../index";
+import "./VideoList.css";
 const VideoList = () => {
   return (
     <>
-      <h1>This is videolisting page</h1>
+      <div className="video-grid">
+        <SideNav></SideNav>
+        <Card></Card>
+      </div>
     </>
   );
 };
