@@ -1,0 +1,7 @@
+.card-grid{
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 3fr 3fr 3fr ;
+  
+
+}
