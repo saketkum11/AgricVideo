@@ -69,7 +69,7 @@ export const videos = [
     profile:
       "https://yt3.ggpht.com/ytc/AKedOLQDkpUiywG94veaYlGzGyhgRqIc5-qsgi7zlmyswbA=s176-c-k-c0x00ffffff-no-rj",
     profileName: "Down To Earth",
-    thumbnail: "https://i.ytimg.com/vi/qkqtcXuogu4/hq720.jpg",
+    thumbnail: "https://i.ytimg.com/vi/Fw1SQSek5rk/hq720.jpg",
     duration: "11:27",
   },
   {
@@ -92,7 +92,7 @@ export const videos = [
     profile:
       "https://yt3.ggpht.com/HjXKmDGoAp6b-JdGYpqJYYeN4S_CMpD_kqWvldpN53cbzn-i73t6mVNo8mNki-xLPwi0BVSFi-o=s176-c-k-c0x00ffffff-no-rj",
     profileName: "TED-Ed",
-    thumbnail: "https://i.ytimg.com/vi/OqREBOP7A0I/hq720.jpg",
+    thumbnail: "https://i.ytimg.com/vi/xFqecEtdGZ0/hq720.jpg",
     duration: "7:09",
   },
 ];
