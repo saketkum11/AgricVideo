@@ -4,10 +4,8 @@ import "./VideoList.css";
 const VideoList = () => {
   return (
     <>
-      <main className="flex ">
-        <SideNav></SideNav>
-        <Card></Card>
-      </main>
+      <SideNav></SideNav>
+      <Card></Card>
     </>
   );
 };

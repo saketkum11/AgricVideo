@@ -3,20 +3,18 @@ import { useVideo } from "../../Context/Video-Context/video-context";
 import "./Card.css";
 const Card = () => {
   const { videoData } = useVideo();
-  console.log("data", videoData);
-
   return (
     <>
-      <div className="flex flex-column card-gap ">
-        <div className="wt-50 m-auto">
+      <div className="flex flex-column wt-80 card-grow m-y-5  ">
+        <div className="card-grow">
           <input
             type="text"
-            className="wt-100 pd-4  m-y-5 text-s rounded-m "
+            className="wt-50 pd-4 m-y-5 text-s rounded-m "
             placeholder="Search"
           />
         </div>
         <div
-          className="flex flex-wrap  card-gap grid-2 
+          className="flex flex-wrap  card-gap pd-x-7 justify-
         "
         >
           {videoData.map((data) => {
@@ -24,17 +22,17 @@ const Card = () => {
             return (
               <section
                 key={_id}
-                className="box-shadow-1 wt-20 flex m-auto flex-wrap flex-column "
+                className="box-shadow-2 wt-max-70   flex card-grow flex-wrap flex-column"
               >
-                <div className="wt-100">
+                <div className="flex flex-start">
                   <img
                     src={thumbnail}
-                    className=" object-content wt-100 "
+                    className=" object-content width card-grow"
                     alt="no image"
                   />
                 </div>
 
-                <div className="pd-x-4 flex  flex-column">
+                <div className="pd-x-4 flex  flex-column  ">
                   <div className=" flex ">
                     <span className="text-s flex items-start">{title}</span>
                   </div>

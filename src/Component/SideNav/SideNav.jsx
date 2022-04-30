@@ -6,8 +6,8 @@ import { MdPlaylistAdd } from "react-icons/md";
 const SideNav = () => {
   return (
     <>
-      <div className="bg-black-9  flex flex-column  wt-20 overfloe-hidden  text-color-0 pd-4">
-        <div className="flex m-auto items-center pd-x-11 pd-y-8 justify-start  h-100">
+      <div className="bg-black-9  flex flex-column  wt-20 h-100 text-color-0 pd-x-2 side-position">
+        <div className="flex  items-center justify-center  pd-y-8  ">
           <img
             src="./assets/video.jpg"
             className="object-content wt-20  rounded-full"
@@ -20,11 +20,11 @@ const SideNav = () => {
             Agric
           </span>
         </div>
-        <ul className="flex  flex-column   style-none pd-x-9 ">
+        <ul className="flex  flex-column side-grow style-none pd-x-6 ">
           <li className="  wt-100  ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-4  flex items-center  "
+              className="text-dec text-color-0 sidenav-link pd-4  flex items-center   "
             >
               <FaHome className="text-xm"></FaHome>
               <span className="pd-x-6">Home</span>
