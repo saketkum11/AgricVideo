@@ -16,21 +16,9 @@
 .card-main{
     flex: 1;
 }
-
-.card_title{
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-
-}
 .card-icon{
   width: 2rem;
   height: 2rem;
 }
 
-.card_footer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 
-}
