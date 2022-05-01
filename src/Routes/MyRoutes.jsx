@@ -10,14 +10,7 @@ const MyRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/videolist"
-          element={
-            <RequireAuth>
-              <VideoList />
-            </RequireAuth>
-          }
-        />
+        <Route path="/videolist" element={<VideoList />} />
 
         <Route path="/history" element={<History />}></Route>
         <Route path="/login" element={<Login />}></Route>
