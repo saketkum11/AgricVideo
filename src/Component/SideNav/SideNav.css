@@ -10,7 +10,7 @@
     flex-grow: 1;
 }
 .side-position{
-    position: fixed;
-    top: 0;
+    height: auto;
+    flex:0 0 300px;
 
 }

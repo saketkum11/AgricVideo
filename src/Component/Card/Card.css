@@ -1,13 +1,36 @@
 
-.card-gap{
-    gap:1rem;
- 
+
+
+.cards{
+ gap: 1rem;
 }
-.card-grow{
-    flex-grow: 1;
-    margin-left: 10rem;
+.card{
+  max-width: 300px;
 }
-.width{
-    width: 100%;
-    height: 10rem;
+.card_image{
+  flex:0 0 200px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.card-main{
+    flex: 1;
+}
+
+.card_title{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+}
+.card-icon{
+  width: 2rem;
+  height: 2rem;
+}
+
+.card_footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
 }

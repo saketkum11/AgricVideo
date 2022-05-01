@@ -6,7 +6,7 @@ import { MdPlaylistAdd } from "react-icons/md";
 const SideNav = () => {
   return (
     <>
-      <div className="bg-black-9  flex flex-column  wt-20 h-100 text-color-0 pd-x-2 side-position">
+      <div className="bg-black-9  flex flex-column   text-color-0 pd-x-2 side-position">
         <div className="flex  items-center justify-center  pd-y-8  ">
           <img
             src="./assets/video.jpg"
@@ -32,7 +32,7 @@ const SideNav = () => {
           </li>
           <li className="  wt-100   ">
             <NavLink
-              to="/"
+              to="/videolist"
               className="text-dec text-color-0 sidenav-link pd-4  flex items-center"
             >
               <FaVideo className="text-xm"></FaVideo>
@@ -41,7 +41,7 @@ const SideNav = () => {
           </li>
           <li className="wt-100  ">
             <NavLink
-              to="/"
+              to="/history"
               className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
             >
               <FaHistory className="text-xm"></FaHistory>
@@ -50,7 +50,7 @@ const SideNav = () => {
           </li>
           <li className=" wt-100 ">
             <NavLink
-              to="/"
+              to="/watchlater"
               className="text-dec text-color-0 sidenav-link pd-4  items-center flex "
             >
               <FaStopwatch className="text-xm"></FaStopwatch>
@@ -59,7 +59,7 @@ const SideNav = () => {
           </li>
           <li className="  wt-100  ">
             <NavLink
-              to="/"
+              to="/playlist"
               className="text-dec text-color-0 sidenav-link pd-y-4 pd-x-4  items-center flex "
             >
               <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>

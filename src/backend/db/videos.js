@@ -17,37 +17,39 @@ export const videos = [
   },
   {
     _id: "5Fq6PQl7fr8&t",
-    title: "Growing Tomatoes Indoors With 94% Less Water And No Soil",
+    title:
+      "How did ISRAEL turn the DESERT into an AGRICULTURAL POWER? - VisualPolitik EN",
     description:
       "With climate change and rising populations, we have to find more sustainable ways to farm our food. ",
     profile:
-      "https://yt3.ggpht.com/ytc/AKedOLS5nGmuLgpVbUKG2mUlvh9AiHd5rRl3b15wbt0T2g=s176-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/ytc/AKedOLTaGdNgJcxAJDkWP8cmWjXCGiepz97qSgMhtSrn=s68-c-k-c0x00ffffff-no-rj",
     profileName: "ABC Science",
     thumbnail: "https://i.ytimg.com/vi/5Fq6PQl7fr8/hq720.jpg",
     duration: "6:02",
   },
   {
-    _id: "v1DT4yvxpMw",
-    title: "7 Israeli Agriculture Technologies",
+    _id: "DI3VqTkbuRA",
+    title:
+      "How did ISRAEL turn the DESERT into an AGRICULTURAL POWER? - VisualPolitik EN",
     description:
-      "Today we celebrate Tu-Bishvat - the New Year of the Trees, a holiday dedicated to nature and the source of life on earth.Farming in Israel is not an easy task, but we have found creative ways to make the desert bloom.Here are 7 Israeli Technologies that are making farming more efficient and sustainable - drip irrigation, water recycling, biopesticides, biofertilizers and so much more! ",
+      "Can you imagine a country that irrigates plants with salt water, a country that has managed to transform an arid and barren desert into lush fields of crops, a country located in one of the driest and most arid places on earth that has been able to obtain an almost unlimited supply of water? Well, this is not a mirage or a fantasy, such a country exists and it’s called Israel. ",
     profile:
       "https://yt3.ggpht.com/ytc/AKedOLRgcTiCPhBqRuu-TyreFe-GYybigC7KXux4601Z=s176-c-k-c0x00ffffff-no-rj",
-    profileName: "Israel",
-    thumbnail: "https://i.ytimg.com/vi/v1DT4yvxpMw/hqdefault.jpg",
-    duration: "2:50",
+    profileName: "VisualPolitik",
+    thumbnail: "https://i.ytimg.com/vi/DI3VqTkbuRA/hq720.jpg",
+    duration: "15:13",
   },
   {
-    _id: "KfB2sx9uCkI",
-    title:
-      "The Futuristic Farms That Will Feed the World | Freethink | Future of Food",
+    id: 4,
+    _id: "DoVGbPa0jHw",
+    title: "15 Modern Farming Technologies that are NEXT LEVEL",
     description:
-      "How efficient farming in the Netherlands is producing 20 times more food with 1/4 the water and the most sustainable agriculture systems in the world.Amidst climate change, a growing population, and people consuming more of less sustainable food, how will we feed our future world? The answer may not be increasing resources--land, water, and employees--but rather improving production efficiency to create more sustainable farming of crops.",
+      "Farming technology is continuing to get more sophisticated, allowing for  larger food yields. Today we'll be taking a look at incredible and next level farming technology.",
     profile:
-      "https://yt3.ggpht.com/ytc/AKedOLQ7vsNeH5lAqaa0AaZHoMZOofTXMc5u__MSEpxt=s176-c-k-c0x00ffffff-no-rj",
-    profileName: "Freethink",
-    thumbnail: "https://i.ytimg.com/vi/KfB2sx9uCkI/hqdefault.jpg",
-    duration: "6:20",
+      "https://yt3.ggpht.com/ytc/AKedOLQZgc6gdu_sK_d9qZWWOF2Uj7pfvWpwr-w2iH6rEw=s176-c-k-c0x00ffffff-no-rj",
+    profileName: "Top Fives",
+    thumbnail: "https://i.ytimg.com/vi/DoVGbPa0jHw/hq720.jpg",
+    duration: "18:21",
   },
   {
     _id: "qkqtcXuogu4",

@@ -2,10 +2,13 @@ import { useVideo } from "../../Context/Video-Context/video-context";
 import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
+  const { videoData } = useVideo();
   return (
     <>
-      <SideNav></SideNav>
-      <Card></Card>
+      <main className="flex ">
+        <SideNav />
+        <Card />
+      </main>
     </>
   );
 };
