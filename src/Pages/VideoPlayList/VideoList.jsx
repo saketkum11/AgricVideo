@@ -1,7 +1,14 @@
+import { useVideo } from "../../Context/Video-Context/video-context";
+import { Card, SideNav } from "../index";
+import "./VideoList.css";
 const VideoList = () => {
+  const { videoData } = useVideo();
   return (
     <>
-      <h1>This is videolisting page</h1>
+      <main className="flex ">
+        <SideNav />
+        <Card />
+      </main>
     </>
   );
 };

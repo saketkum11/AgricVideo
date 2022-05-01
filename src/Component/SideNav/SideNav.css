@@ -1,0 +1,16 @@
+.sidenav-link:hover{
+    background-color: aliceblue;
+    border-radius: 1rem;
+    color: black;
+}
+.sidebar{
+    width: 250px;
+}
+.side-grow{
+    flex-grow: 1;
+}
+.side-position{
+    height: auto;
+    flex:0 0 300px;
+
+}
