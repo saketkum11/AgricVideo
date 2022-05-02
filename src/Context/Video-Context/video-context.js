@@ -12,12 +12,14 @@ const VideoProvider = ({ children }) => {
       try {
         const response = await axios.get("/api/videos");
         setVideoData(response.data.videos);
+        console.log("response from video context", response);
       } catch (error) {
         console.error(error);
       }
     };
     getVideoData();
   }, []);
+
   console.log("data from sever", videoData);
   return (
     <VideoContext.Provider value={{ videoData }}>

@@ -40,7 +40,6 @@ export const videos = [
     duration: "15:13",
   },
   {
-    id: 4,
     _id: "DoVGbPa0jHw",
     title: "15 Modern Farming Technologies that are NEXT LEVEL",
     description:
