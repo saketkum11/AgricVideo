@@ -12,10 +12,17 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/videolist" element={<VideoList />} />
         <Route path="/history" element={<History />}></Route>
-        <Route path="/watchlater" element={<WatchLater />}></Route>
+        <Route
+          path="/watchlater"
+          element={
+            <RequireAuth>
+              <WatchLater />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/signup" element={<Mockman />}></Route>
+        <Route path="/mock" element={<Mockman />}></Route>
       </Routes>
     </>
   );
