@@ -3,11 +3,22 @@ import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
   const { videoData } = useVideo();
+  console.log("videiData from ", videoData);
   return (
     <>
-      <main className="flex ">
+      <main className="flex  ">
         <SideNav />
-        <Card />
+
+        <section className="flex flex-wrap  justify-center  cards">
+          {videoData &&
+            videoData.map((data) => {
+              return (
+                <>
+                  <Card key={data._id} data={data} />
+                </>
+              );
+            })}
+        </section>
       </main>
     </>
   );
