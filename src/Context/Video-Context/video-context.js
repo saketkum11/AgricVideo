@@ -20,7 +20,6 @@ const VideoProvider = ({ children }) => {
     getVideoData();
   }, []);
 
-  console.log("data from sever", videoData);
   return (
     <VideoContext.Provider value={{ videoData }}>
       {children}
