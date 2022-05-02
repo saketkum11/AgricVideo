@@ -11,7 +11,6 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videolist" element={<VideoList />} />
-
         <Route path="/history" element={<History />}></Route>
         <Route path="/watchlater" element={<WatchLater />}></Route>
         <Route path="/login" element={<Login />}></Route>
