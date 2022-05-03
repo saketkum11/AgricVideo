@@ -1,8 +1,10 @@
 import React from "react";
 import { useVideo } from "../../Context/Video-Context/video-context";
+import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { SideNav, Card } from "../index";
 const WatchLater = () => {
   const { videoData } = useVideo();
+  const { watchVideo } = useWatch();
   return (
     <>
       <main className="flex">
@@ -17,8 +19,8 @@ const WatchLater = () => {
           </div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {videoData &&
-              videoData.map((data) => {
+            {watchVideo &&
+              watchVideo.map((data) => {
                 return (
                   <>
                     <Card key={data._id} data={data} />
