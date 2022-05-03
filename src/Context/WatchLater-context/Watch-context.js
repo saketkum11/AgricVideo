@@ -9,19 +9,18 @@ const WatchProvider = ({ children }) => {
   const { credentialData } = useAuth();
   const { tokenData, isAuth } = credentialData;
 
-  const getWatchLaterData = async () => {
+  async function getWatchLaterData() {
     try {
-      const response = await axios.post("/api/user/watchlater", {
+      const response = await axios.get("/api/user/watchlater", {
         headers: {
           authorization: tokenData,
         },
       });
-      console.log("response from watch context", response);
+      console.log("respopnse from watchcontext", response);
     } catch (error) {
       console.error(error);
     }
-  };
-
+  }
   return (
     <WatchContext.Provider value={{ getWatchLaterData }}>
       {children}
