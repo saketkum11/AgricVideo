@@ -3,7 +3,6 @@ import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
   const { videoData } = useVideo();
-  console.log("videiData from ", videoData);
   return (
     <>
       <main className="flex  ">
