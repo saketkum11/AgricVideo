@@ -12,7 +12,7 @@ const VideoProvider = ({ children }) => {
       try {
         const response = await axios.get("/api/videos");
         setVideoData(response.data.videos);
-        console.log("response from video context", response);
+        s;
       } catch (error) {
         console.error(error);
       }

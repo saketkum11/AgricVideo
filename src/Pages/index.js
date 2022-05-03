@@ -12,3 +12,5 @@ export { Card } from "../Component/Card/Card";
 export { WatchLater } from "../Pages/Watch-later/WatchLater";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
+
+export { useWatch } from "../Context/WatchLater-context/Watch-context";

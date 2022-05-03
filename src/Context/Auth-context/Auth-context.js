@@ -5,7 +5,7 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [credentialData, setCredentailData] = useState({
-    tokenData: localStorage.getItem("token"),
+    tokenData: localStorage.getItem("token") ?? "",
     isAuth: localStorage.getItem("token") ? true : false,
   });
   const { tokenData, isAuth } = credentialData;
@@ -25,8 +25,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginHandler = async ({ email, password }) => {
-    console.log("from login handler");
-    console.log("isauth", isAuth);
     if (!isAuth) {
       try {
         const response = await axios.post("/api/auth/login", {
