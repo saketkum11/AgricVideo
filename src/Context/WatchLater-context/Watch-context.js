@@ -27,7 +27,6 @@ const WatchProvider = ({ children }) => {
   }, []);
 
   const addWatchLater = async (video) => {
-    console.log("addWatchlater");
     try {
       const response = await axios.post(
         "/api/user/watchlater",
@@ -43,10 +42,24 @@ const WatchProvider = ({ children }) => {
       console.error(error);
     }
   };
+  const removeWatchLater = async (video) => {
+    try {
+      const response = await axios.delete(`/api/user/watchlater/${video._id}`, {
+        headers: {
+          authorization: tokenData,
+        },
+      });
+      setWatchVideo(response.data.watchlater);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   console.log("watchlater", watchVideo);
   return (
-    <WatchContext.Provider value={{ watchVideo, addWatchLater }}>
+    <WatchContext.Provider
+      value={{ watchVideo, addWatchLater, removeWatchLater }}
+    >
       {children}
     </WatchContext.Provider>
   );
