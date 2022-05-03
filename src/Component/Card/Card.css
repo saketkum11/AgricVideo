@@ -1,9 +1,7 @@
 
 
 
-.cards{
- gap: 1rem;
-}
+
 .card{
   max-width: 300px;
 }
@@ -20,5 +18,9 @@
   width: 2rem;
   height: 2rem;
 }
+.card-drawer{
+  top:40%;
+  right: 0;
 
+}
 

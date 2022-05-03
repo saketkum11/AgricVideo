@@ -1,11 +1,12 @@
-import { useVideo } from "../../Context/Video-Context/video-context";
-import { Card, SideNav } from "../index";
-import "./VideoList.css";
-const VideoList = () => {
-  const { videoData } = useVideo();
+import React from "react";
+import { useWatch } from "../../Context/WatchLater-context/Watch-context";
+
+import { SideNav, Card } from "../index";
+const WatchLater = () => {
+  const { watchVideo } = useWatch();
   return (
     <>
-      <main className="flex  ">
+      <main className="flex">
         <SideNav />
         <div className="flex flex-column   m-y-5 justify-center card-main">
           <div>
@@ -17,8 +18,8 @@ const VideoList = () => {
           </div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {videoData &&
-              videoData.map((data) => {
+            {watchVideo &&
+              watchVideo.map((data) => {
                 return (
                   <>
                     <Card key={data._id} data={data} />
@@ -31,4 +32,4 @@ const VideoList = () => {
     </>
   );
 };
-export { VideoList };
+export { WatchLater };

@@ -1,10 +1,12 @@
-import { Header } from "../index";
+import { Card } from "../../Component/Card/Card";
+import { Header, SideNav } from "../index";
 
 const History = () => {
   return (
     <>
-      <Header></Header>
-      <div>This is histroy page</div>
+      <main className="flex">
+        <div>This History page</div>
+      </main>
     </>
   );
 };
