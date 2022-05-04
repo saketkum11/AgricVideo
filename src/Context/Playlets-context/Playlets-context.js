@@ -8,6 +8,7 @@ const usePlay = () => useContext(PlayletsContext);
 const PlayProvider = ({ children }) => {
   const [playlist, setPlaylist] = useState([]);
   const { tokenData } = useAuth();
+  const [playlistFlag, setPlaylistFlag] = useState(false);
 
   const getPlaylist = async () => {
     try {
@@ -20,7 +21,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
-  const addPlaylist = async (playlist) => {
+  const createPlaylist = async (playlist) => {
     try {
       const respnse = await axios.post(
         "/api/user/playlists",
@@ -38,7 +39,15 @@ const PlayProvider = ({ children }) => {
   };
 
   return (
-    <PlayletsContext.Provider value={{ items: 0, getPlaylist, addPlaylist }}>
+    <PlayletsContext.Provider
+      value={{
+        items: 0,
+        getPlaylist,
+        createPlaylist,
+        playlistFlag,
+        setPlaylistFlag,
+      }}
+    >
       {children}
     </PlayletsContext.Provider>
   );

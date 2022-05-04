@@ -23,4 +23,11 @@
   right: 0;
 
 }
+.card-modal{
+  top: 50%;
+}
+.card-modal::backdrop{
+  background: black;
+  opacity: 0.5;
+}
 
