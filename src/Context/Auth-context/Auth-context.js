@@ -5,7 +5,7 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [credentialData, setCredentailData] = useState({
-    tokenData: localStorage.getItem("token") ?? "",
+    tokenData: localStorage.getItem("token"),
     isAuth: localStorage.getItem("token") ? true : false,
   });
   const { tokenData, isAuth } = credentialData;
@@ -46,7 +46,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  console.log("usedata", credentialData);
   return (
     <AuthContext.Provider
       value={{

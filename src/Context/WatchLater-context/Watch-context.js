@@ -55,7 +55,6 @@ const WatchProvider = ({ children }) => {
     }
   };
 
-  console.log("watchlater", watchVideo);
   return (
     <WatchContext.Provider
       value={{ watchVideo, addWatchLater, removeWatchLater }}

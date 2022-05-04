@@ -14,7 +14,7 @@ import { requiresAuth } from "../utils/authUtils";
 
 export const getWatchLaterVideosHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
-  console.log("user", user);
+
   try {
     if (!user) {
       return new Response(

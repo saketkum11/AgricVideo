@@ -9,6 +9,7 @@ import { useState } from "react";
 const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
   const { addWatchLater, watchVideo, removeWatchLater } = useWatch();
+
   const [showToggle, setShowToggel] = useState(false);
   return (
     <>
@@ -84,7 +85,10 @@ const Card = ({ data }) => {
                             <span className="pd-x-3">Watch Later</span>
                           </li>
                         )}
-                        <li className="style-none flex items-centers pd-y-2 cursor">
+                        <li
+                          onClick={() => {}}
+                          className="style-none flex items-centers pd-y-2 cursor"
+                        >
                           <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
                           <span className="pd-x-3">Add to playlist</span>
                         </li>
