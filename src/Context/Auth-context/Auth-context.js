@@ -54,6 +54,7 @@ const AuthProvider = ({ children }) => {
         credentialData,
         setCredentailData,
         isAuth,
+        tokenData,
       }}
     >
       {children}

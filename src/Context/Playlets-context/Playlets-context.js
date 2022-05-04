@@ -1,26 +1,44 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "../Auth-context/Auth-context";
 
 const PlayletsContext = createContext();
 const usePlay = () => useContext(PlayletsContext);
 
 const PlayProvider = ({ children }) => {
   const [playlist, setPlaylist] = useState([]);
-  const { credentialData } = useAuth();
+  const { tokenData } = useAuth();
 
   const getPlaylist = async () => {
     try {
       const response = await axios.get("/api/user/playlists", {
-        headers: {},
+        headers: { authorization: tokenData },
       });
-      console.log("response from playlist", response);
+      setPlaylist(response.data.playlist);
+      console.log("respnse forom play context", response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const addPlaylist = async (playlist) => {
+    try {
+      const respnse = await axios.post(
+        "/api/user/playlists",
+        { playlist },
+        {
+          headers: {
+            authorization: tokenData,
+          },
+        }
+      );
+      console.log("response from addplaylist", respnse);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <PlayletsContext.Provider value={{ items: 0, getPlaylist }}>
+    <PlayletsContext.Provider value={{ items: 0, getPlaylist, addPlaylist }}>
       {children}
     </PlayletsContext.Provider>
   );

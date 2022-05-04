@@ -11,7 +11,7 @@ const VideoList = () => {
           <div>
             <input
               type="text"
-              class=" pd-4  m-y-4 text-s rounded-s search wt-50"
+              className=" pd-4  m-y-4 text-s rounded-s search wt-50"
               placeholder="Search"
             />
           </div>
@@ -21,7 +21,7 @@ const VideoList = () => {
               videoData.map((data) => {
                 return (
                   <>
-                    <Card key={data._id} data={data} />
+                    <Card key={data.id} data={data} />
                   </>
                 );
               })}

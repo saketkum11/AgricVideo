@@ -5,10 +5,15 @@ import { NavLink } from "react-router-dom";
 import "./Card.css";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { useState } from "react";
+import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
   const { addWatchLater, watchVideo, removeWatchLater } = useWatch();
+  const { getPlaylist, addPlaylist } = usePlay();
+  const [playlistTag, setPlaylistTag] = useState({
+    title: "check",
+  });
 
   const [showToggle, setShowToggel] = useState(false);
   return (
@@ -59,8 +64,8 @@ const Card = ({ data }) => {
               </button>
               <div className="position-ab z-index card-drawer">
                 {showToggle ? (
-                  <div class="z-index bg-black-0  m-auto justify-around flex flex-column pd-4 m-y-8  box-shadow-2">
-                    <div class="flex flex-column h-100">
+                  <div className="z-index bg-black-0  m-auto justify-around flex flex-column pd-4 m-y-8  box-shadow-2">
+                    <div className="flex flex-column h-100">
                       <ul className="flex flex-wrap flex-column items-start ">
                         {watchVideo.some((video) => video._id === _id) ? (
                           <li
@@ -86,7 +91,10 @@ const Card = ({ data }) => {
                           </li>
                         )}
                         <li
-                          onClick={() => {}}
+                          onClick={() => {
+                            getPlaylist();
+                            addPlaylist(playlistTag);
+                          }}
                           className="style-none flex items-centers pd-y-2 cursor"
                         >
                           <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>

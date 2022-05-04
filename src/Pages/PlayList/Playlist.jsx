@@ -1,9 +1,8 @@
 import React from "react";
-import { Card } from "../index";
-import { SideNav } from "../index";
-import { useVideo } from "../../Context/Video-Context/video-context";
+import { Card, SideNav } from "../index";
+import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 const Playlist = () => {
-  const { videoData } = useVideo();
+  const { playlist } = usePlay();
   return (
     <>
       <main className="flex  ">
@@ -18,8 +17,8 @@ const Playlist = () => {
           </div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {videoData &&
-              videoData.map((data) => {
+            {playlist &&
+              playlist.map((data) => {
                 return (
                   <>
                     <Card key={data.id} data={data} />
