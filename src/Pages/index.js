@@ -9,5 +9,6 @@ export { SideNav } from "../Component/SideNav/SideNav";
 export { Card } from "../Component/Card/Card";
 export { WatchLater } from "../Pages/Watch-later/WatchLater";
 export { Playlist } from "../Pages/PlayList/Playlist";
+export { AddPlaylist } from "../Component/AddPlaylist/AddPlaylist";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
