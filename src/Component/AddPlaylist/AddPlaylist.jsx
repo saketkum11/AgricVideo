@@ -1,6 +1,6 @@
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
-const AddPlaylist = () => {
+const AddPlaylist = ({ data }) => {
   const { playlistFlag, setPlaylistFlag } = usePlay();
   return (
     <>

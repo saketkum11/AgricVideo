@@ -106,7 +106,7 @@ const Card = ({ data }) => {
                         </li>
                         {videoData.some((video) => video._id === _id) ? (
                           <div className="z-index position-ab card-modal  flex">
-                            <AddPlaylist></AddPlaylist>
+                            <AddPlaylist data={data}></AddPlaylist>
                           </div>
                         ) : (
                           ""
