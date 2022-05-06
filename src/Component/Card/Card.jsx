@@ -1,25 +1,23 @@
 import { FaShareAlt, FaStopwatch } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdPlaylistAdd, MdRemoveCircle } from "react-icons/md";
+import { MdPlaylistAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import "./Card.css";
-import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { useState } from "react";
+import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
-import { AddPlaylist } from "../../Pages/index";
-import { useVideo } from "../../Context/Video-Context/video-context";
+import { AddPlaylist, VideoModal } from "../../Pages/index";
 
 const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
-  const { addWatchLater, watchVideo, removeWatchLater } = useWatch();
-  const { videoData } = useVideo();
-  const { createPlaylist, setPlaylistFlag, playlist, playlistFlag } = usePlay();
-  const [playlistTag, setPlaylistTag] = useState({
-    title: "check",
-  });
-
+  const { watchVideo } = useWatch();
+  const { playlist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
-
+  const [playlistFlag, setPlaylistFlag] = useState(false);
+  const [createPlaylistData, setCreatePlaylistData] = useState({
+    title: "foo",
+    description: "bar bar bar",
+  });
   return (
     <>
       <div className="card flex cards  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
@@ -60,60 +58,24 @@ const Card = ({ data }) => {
               </button>
               <button
                 onClick={() => {
-                  setShowToggel(!showToggle);
+                  setShowToggel((showToggel) => !showToggel);
+                  setPlaylistFlag((showPlayFlag) => !showPlayFlag);
                 }}
                 className="cursor   border-none  outline-none text-color-9 text-s card-icon rounded-full "
               >
                 <BsThreeDotsVertical />
               </button>
               <div className="position-ab z-index card-drawer">
-                {showToggle && (
-                  <div className=" bg-black-0  m-auto justify-around flex flex-column pd-4 m-y-8  box-shadow-2">
-                    <div className="flex flex-column h-100">
-                      <ul className="flex flex-wrap flex-column items-start ">
-                        {watchVideo.some((video) => video._id === _id) ? (
-                          <li
-                            onClick={() => {
-                              removeWatchLater(data);
-                            }}
-                            className="style-none flex items-center pd-y-2 cursor"
-                          >
-                            <MdRemoveCircle className="text-xm"></MdRemoveCircle>
-                            <span className="pd-x-3">
-                              Remove from watchLater
-                            </span>
-                          </li>
-                        ) : (
-                          <li
-                            onClick={() => {
-                              addWatchLater(data);
-                            }}
-                            className="style-none flex items-center pd-y-2 cursor"
-                          >
-                            <FaStopwatch className="text-xm"></FaStopwatch>
-                            <span className="pd-x-3">Watch Later</span>
-                          </li>
-                        )}
-
-                        <li
-                          onClick={() => {
-                            setPlaylistFlag((previous) => !previous);
-                          }}
-                          className="style-none flex items-centers pd-y-2 cursor"
-                        >
-                          <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
-                          <span className="pd-x-3">Add to playlist</span>
-                        </li>
-                        {playlistFlag ? (
-                          <div className="z-index position-ab card-modal  flex">
-                            <AddPlaylist data={data}></AddPlaylist>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-                      </ul>
-                    </div>
-                  </div>
+                {showToggle ? (
+                  <VideoModal
+                    watchVideo={watchVideo}
+                    data={data}
+                    showPlayFlag={playlistFlag}
+                    playlist={playlist}
+                    createplaylist={createPlaylistData}
+                  />
+                ) : (
+                  ""
                 )}
               </div>
             </div>
