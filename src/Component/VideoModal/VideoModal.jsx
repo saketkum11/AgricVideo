@@ -51,7 +51,6 @@ const VideoModal = ({
               <li
                 onClick={() => {
                   setPlaylistFlag((flag) => !flag);
-                  createPlaylist(createplaylist);
                 }}
                 className="style-none flex items-center pd-y-2 cursor"
               >

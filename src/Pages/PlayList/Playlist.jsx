@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, SideNav } from "../index";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
+import { PlaylistCard } from "../../Component/PlaylistCard/PlaylistCard";
 const Playlist = () => {
   const { playlist } = usePlay();
   return (
@@ -22,7 +23,7 @@ const Playlist = () => {
               playlist.map((data) => {
                 return (
                   <>
-                    <Card key={data.id} data={data} />
+                    <PlaylistCard data={data} key={data._id} />
                   </>
                 );
               })}

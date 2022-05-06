@@ -15,10 +15,6 @@ const Card = ({ data }) => {
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
 
-  const [createPlaylistData, setCreatePlaylistData] = useState({
-    title: "foo",
-    description: "bar bar bar",
-  });
   return (
     <>
       <div className="card flex cards  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
@@ -73,7 +69,6 @@ const Card = ({ data }) => {
                     showPlayFlag={playlistFlag}
                     setPlaylistFlag={setPlaylistFlag}
                     playlist={playlist}
-                    createplaylist={createPlaylistData}
                   />
                 )}
               </div>

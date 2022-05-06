@@ -13,5 +13,6 @@ export { WatchLater } from "../Pages/Watch-later/WatchLater";
 export { Playlist } from "../Pages/PlayList/Playlist";
 export { AddPlaylist } from "../Component/AddPlaylist/AddPlaylist";
 export { VideoModal } from "../Component/VideoModal/VideoModal";
+export { PlaylistCard } from "../Component/PlaylistCard/PlaylistCard";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
