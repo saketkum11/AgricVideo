@@ -2,7 +2,13 @@ import { MdRemoveCircle, MdPlaylistAdd } from "react-icons/md";
 import { FaStopwatch } from "react-icons/fa";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
-const VideoModal = ({ data, watchVideo, playlistFlag, createplaylist }) => {
+const VideoModal = ({
+  data,
+  watchVideo,
+  playlistFlag,
+  createplaylist,
+  setPlaylistFlag,
+}) => {
   const { removeWatchLater, addWatchLater } = useWatch();
   const { createPlaylist } = usePlay();
   const isInWatchLater = watchVideo.some((video) => video._id === data._id);
@@ -44,7 +50,8 @@ const VideoModal = ({ data, watchVideo, playlistFlag, createplaylist }) => {
             ) : (
               <li
                 onClick={() => {
-                  console.log("click");
+                  setPlaylistFlag((flag) => !flag);
+                  createPlaylist(createplaylist);
                 }}
                 className="style-none flex items-center pd-y-2 cursor"
               >

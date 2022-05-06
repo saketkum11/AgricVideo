@@ -16,7 +16,6 @@ const PlayProvider = ({ children }) => {
           headers: { authorization: tokenData },
         });
         setPlaylist(response.data.playlists);
-        console.log("respnse forom play context", response);
       } catch (error) {
         console.error(error);
       }
@@ -35,7 +34,7 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      console.log("response from addplaylist", response);
+      console.log("response from addplaylist", response.data.playlists);
       setPlaylist(response.data.playlists);
     } catch (error) {
       console.error(error);

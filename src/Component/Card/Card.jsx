@@ -11,9 +11,10 @@ import { AddPlaylist, VideoModal } from "../../Pages/index";
 const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
   const { watchVideo } = useWatch();
-  const { playlist } = usePlay();
+  const { playlist, createPlaylist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
+
   const [createPlaylistData, setCreatePlaylistData] = useState({
     title: "foo",
     description: "bar bar bar",
@@ -59,23 +60,31 @@ const Card = ({ data }) => {
               <button
                 onClick={() => {
                   setShowToggel((showToggel) => !showToggel);
-                  setPlaylistFlag((showPlayFlag) => !showPlayFlag);
                 }}
                 className="cursor   border-none  outline-none text-color-9 text-s card-icon rounded-full "
               >
                 <BsThreeDotsVertical />
               </button>
               <div className="position-ab z-index card-drawer">
-                {showToggle ? (
+                {showToggle && (
                   <VideoModal
                     watchVideo={watchVideo}
                     data={data}
                     showPlayFlag={playlistFlag}
+                    setPlaylistFlag={setPlaylistFlag}
                     playlist={playlist}
                     createplaylist={createPlaylistData}
                   />
-                ) : (
-                  ""
+                )}
+              </div>
+              <div className="position-ab z-index card-drawer">
+                {playlistFlag && (
+                  <AddPlaylist
+                    playlist={playlist}
+                    setPlaylistFlag={setPlaylistFlag}
+                    showPlayFlag={showToggle}
+                    createPlaylist={createPlaylist}
+                  />
                 )}
               </div>
             </div>
