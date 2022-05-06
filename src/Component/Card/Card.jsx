@@ -13,7 +13,7 @@ const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
   const { addWatchLater, watchVideo, removeWatchLater } = useWatch();
   const { videoData } = useVideo();
-  const { createPlaylist, setPlaylistFlag, playlist } = usePlay();
+  const { createPlaylist, setPlaylistFlag, playlist, playlistFlag } = usePlay();
   const [playlistTag, setPlaylistTag] = useState({
     title: "check",
   });
@@ -104,7 +104,7 @@ const Card = ({ data }) => {
                           <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
                           <span className="pd-x-3">Add to playlist</span>
                         </li>
-                        {videoData.some((video) => video._id === _id) ? (
+                        {playlistFlag ? (
                           <div className="z-index position-ab card-modal  flex">
                             <AddPlaylist data={data}></AddPlaylist>
                           </div>

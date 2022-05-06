@@ -1,10 +1,11 @@
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const AddPlaylist = ({ data }) => {
-  const { playlistFlag, setPlaylistFlag } = usePlay();
+  const { playlistFlag, setPlaylistFlag, playlist } = usePlay();
+
   return (
     <>
-      {playlistFlag ? (
+      {playlist.some((video) => video._id === _id) ? (
         <div class="bg-black-0 wt-50 m-auto justify-around flex flex-column pd-4  box-shadow-2 wt-100">
           <div class="flex flex-column m-y-6">
             <span class="text-xm">create playlist</span>
