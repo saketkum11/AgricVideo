@@ -75,6 +75,7 @@ const Card = ({ data }) => {
               <div className="position-ab z-index card-drawer">
                 {playlistFlag && (
                   <AddPlaylist
+                    data={data}
                     playlist={playlist}
                     setPlaylistFlag={setPlaylistFlag}
                     showPlayFlag={showToggle}

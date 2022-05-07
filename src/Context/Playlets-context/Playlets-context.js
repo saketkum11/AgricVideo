@@ -63,7 +63,7 @@ const PlayProvider = ({ children }) => {
           authorization: tokenData,
         },
       });
-      setPlaylist(response.data.playlists);
+      setPlaylist(response.data.playlist);
       console.log("getPlaylistdata from play context", response);
     } catch (error) {
       console.error(error);

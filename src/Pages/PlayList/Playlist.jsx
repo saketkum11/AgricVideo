@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, SideNav } from "../index";
+import { SideNav } from "../index";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { PlaylistCard } from "../../Component/PlaylistCard/PlaylistCard";
 const Playlist = () => {

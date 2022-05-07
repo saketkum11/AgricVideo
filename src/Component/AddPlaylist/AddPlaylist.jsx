@@ -5,7 +5,7 @@ import "./AddPlaylist.css";
 const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { addedPlaylist } = usePlay();
-
+  console.log("from addPlaylist", data);
   return (
     <>
       {
@@ -14,18 +14,10 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             <span class="text-xm">create playlist</span>
           </div>
           <ul>
-            {playlist.map((playlists) => {
-              return (
-                <>
-                  <li
-                    className="style-none flex items-center pd-y-2 cursor list-cover"
-                    onClick={() => addedPlaylist(playlists, data)}
-                  >
-                    {playlists.title}
-                  </li>
-                </>
-              );
-            })}
+            <li
+              className="style-none flex items-center pd-y-2 cursor list-cover"
+              onClick={() => {}}
+            ></li>
           </ul>
           <div>
             <input
@@ -52,6 +44,7 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             <button
               onClick={() => {
                 createPlaylist(createdPlayList);
+                addedPlaylist(playlist, data);
               }}
               class="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
             >
