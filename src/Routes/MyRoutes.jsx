@@ -19,15 +19,14 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videolist" element={<VideoList />} />
-        <Route path="/history" element={<History />}></Route>
+        <Route path="/history" element={<History />} />
         <Route
-          path="/watchlater"
           element={
             <RequireAuth>
               <WatchLater />
             </RequireAuth>
           }
-        ></Route>
+        />
         <Route
           path="/playlist"
           element={
@@ -35,10 +34,14 @@ const MyRoutes = () => {
               <Playlist />
             </RequireAuth>
           }
-        ></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/mock" element={<Mockman />}></Route>
+        />
+        <Route
+          path="/playlist/:playlistId"
+          element={<RequireAuth></RequireAuth>}
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/mock" element={<Mockman />} />
       </Routes>
     </>
   );

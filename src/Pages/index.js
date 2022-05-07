@@ -14,5 +14,6 @@ export { Playlist } from "../Pages/PlayList/Playlist";
 export { AddPlaylist } from "../Component/AddPlaylist/AddPlaylist";
 export { VideoModal } from "../Component/VideoModal/VideoModal";
 export { PlaylistCard } from "../Component/PlaylistCard/PlaylistCard";
+export { SinglePlaylist } from "../Pages/PlayList/SinglePlaylist";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";

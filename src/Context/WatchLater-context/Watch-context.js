@@ -54,7 +54,7 @@ const WatchProvider = ({ children }) => {
       console.error(error);
     }
   };
-
+  console.log("data from watct context", watchVideo);
   return (
     <WatchContext.Provider
       value={{ watchVideo, addWatchLater, removeWatchLater }}

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
-
+import "./AddPlaylist.css";
 const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { addedPlaylist } = usePlay();
-  const { videoData } = useVideo();
+
   return (
     <>
       {
@@ -15,14 +15,14 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
           </div>
           <ul>
             {playlist.map((playlists) => {
-              console.log("playlist", playlists);
               return (
                 <>
-                  {/*playlists.some((lists) => playlists._id === data._id) && (
-                    <li onClick={() => addedPlaylist(playlists, data)}>
-                      {playlists.title}
-                    </li>
-                  )*/}
+                  <li
+                    className="style-none flex items-center pd-y-2 cursor list-cover"
+                    onClick={() => addedPlaylist(playlists, data)}
+                  >
+                    {playlists.title}
+                  </li>
                 </>
               );
             })}

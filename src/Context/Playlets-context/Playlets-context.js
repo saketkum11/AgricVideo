@@ -63,6 +63,8 @@ const PlayProvider = ({ children }) => {
           authorization: tokenData,
         },
       });
+      setPlaylist(response.data.playlists);
+      console.log("getPlaylistdata from play context", response);
     } catch (error) {
       console.error(error);
     }
@@ -98,7 +100,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
-  console.log("playlist from play  context", s);
+  console.log("playlist from play  context", playlist);
   return (
     <PlayletsContext.Provider
       value={{
@@ -106,6 +108,7 @@ const PlayProvider = ({ children }) => {
         playlist,
         addedPlaylist,
         deletePlaylist,
+        getPlaylistData,
       }}
     >
       {children}
