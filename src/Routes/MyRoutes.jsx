@@ -8,7 +8,8 @@ import {
   Signup,
   VideoList,
   WatchLater,
-} from "../Pages";
+  SinglePlaylist,
+} from "../Pages/index";
 
 import Mockman from "mockman-js";
 import { RequireAuth } from "../Context/RequireAuth/RequireAuth";
@@ -37,7 +38,11 @@ const MyRoutes = () => {
         />
         <Route
           path="/playlist/:playlistId"
-          element={<RequireAuth></RequireAuth>}
+          element={
+            <RequireAuth>
+              <SinglePlaylist />
+            </RequireAuth>
+          }
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
