@@ -12,7 +12,7 @@ const VideoModal = ({
   const { removeWatchLater, addWatchLater } = useWatch();
   const { createPlaylist } = usePlay();
   const isInWatchLater = watchVideo.some((video) => video._id === data._id);
-  console.log("data from videoModal", createplaylist);
+
   return (
     <>
       <div className=" bg-black-0  m-auto justify-around flex flex-column pd-4 m-y-8  box-shadow-2">

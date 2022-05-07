@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
+import { useVideo } from "../../Context/Video-Context/video-context";
 
 const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
-  console.log("playlistTitile from addplaylist modal", createdPlayList);
+  const { addedPlaylist } = usePlay();
+  const { videoData } = useVideo();
   return (
     <>
       {
@@ -11,6 +13,20 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
           <div class="flex flex-column m-y-6">
             <span class="text-xm">create playlist</span>
           </div>
+          <ul>
+            {playlist.map((playlists) => {
+              console.log("playlist", playlists);
+              return (
+                <>
+                  {/*playlists.some((lists) => playlists._id === data._id) && (
+                    <li onClick={() => addedPlaylist(playlists, data)}>
+                      {playlists.title}
+                    </li>
+                  )*/}
+                </>
+              );
+            })}
+          </ul>
           <div>
             <input
               type="text"
@@ -24,6 +40,7 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             />
           </div>
           <div class="flex justify-end items-center m-t-2 ">
+            (
             <button
               onClick={() => {
                 setPlaylistFlag((flag) => !flag);
@@ -40,6 +57,7 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             >
               Add
             </button>
+            )
           </div>
         </div>
       }

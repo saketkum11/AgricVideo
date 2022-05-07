@@ -44,13 +44,14 @@ const PlayProvider = ({ children }) => {
     try {
       const response = await axios.delete(
         `/api/user/playlists/${playlist._id}`,
-        { playlist },
         {
           headers: {
             authorization: tokenData,
           },
         }
       );
+      setPlaylist(response.data.playlists);
+      console.log("response from deleteplaylist", response);
     } catch (error) {
       console.error(error);
     }
@@ -66,7 +67,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
-  const addedPlaylist = async (playlist) => {
+  const addedPlaylist = async (playlist, video) => {
     try {
       const response = await axios.post(
         `/api/user/playlists/${playlist._id}`,
@@ -77,6 +78,7 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
+      console.log("response from addedPlaylist", response);
     } catch (error) {
       console.error(error);
     }
@@ -96,11 +98,14 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
+  console.log("playlist from play  context", s);
   return (
     <PlayletsContext.Provider
       value={{
         createPlaylist,
         playlist,
+        addedPlaylist,
+        deletePlaylist,
       }}
     >
       {children}
