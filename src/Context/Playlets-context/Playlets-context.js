@@ -34,7 +34,7 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      console.log("response from addplaylist", response.data.playlists);
+      console.log("response from Createplaylist", response.data.playlists);
       setPlaylist(response.data.playlists);
     } catch (error) {
       console.error(error);

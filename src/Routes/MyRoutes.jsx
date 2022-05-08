@@ -9,7 +9,7 @@ import {
   VideoList,
   WatchLater,
   SinglePlaylist,
-} from "../Pages/index";
+} from "../Pages";
 
 import Mockman from "mockman-js";
 import { RequireAuth } from "../Context/RequireAuth/RequireAuth";
@@ -22,6 +22,7 @@ const MyRoutes = () => {
         <Route path="/videolist" element={<VideoList />} />
         <Route path="/history" element={<History />} />
         <Route
+          path="/watchlater"
           element={
             <RequireAuth>
               <WatchLater />

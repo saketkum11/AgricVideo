@@ -11,7 +11,7 @@ import { AddPlaylist, VideoModal } from "../../Pages/index";
 const Card = ({ data }) => {
   const { _id, thumbnail, title, profile, profileName } = data;
   const { watchVideo } = useWatch();
-  const { playlist, createPlaylist } = usePlay();
+  const { playlist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
 
@@ -68,7 +68,6 @@ const Card = ({ data }) => {
                     data={data}
                     showPlayFlag={playlistFlag}
                     setPlaylistFlag={setPlaylistFlag}
-                    playlist={playlist}
                   />
                 )}
               </div>
@@ -78,8 +77,6 @@ const Card = ({ data }) => {
                     data={data}
                     playlist={playlist}
                     setPlaylistFlag={setPlaylistFlag}
-                    showPlayFlag={showToggle}
-                    createPlaylist={createPlaylist}
                   />
                 )}
               </div>

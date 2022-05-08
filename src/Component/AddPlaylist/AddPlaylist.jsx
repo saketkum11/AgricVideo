@@ -2,10 +2,14 @@ import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import "./AddPlaylist.css";
-const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
-  const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
-  const { addedPlaylist } = usePlay();
-  console.log("from addPlaylist", data);
+const AddPlaylist = ({ data, setPlaylistFlag }) => {
+  const [createdPlayList, setCreatedPlayList] = useState("");
+  const { createPlaylist, playlist } = usePlay();
+  const isAddPlaylist = {};
+  {
+    /* console.log("from addPlaylist", data, "playlist created", createdPlayList);*/
+  }
+
   return (
     <>
       {
@@ -23,11 +27,9 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             <input
               type="text"
               className=" pd-y-4  text-s rounded-s "
+              value={createdPlayList}
               onChange={(e) => {
-                setCreatedPlayList({
-                  ...createdPlayList,
-                  title: e.target.value,
-                });
+                setCreatedPlayList(e.target.value);
               }}
             />
           </div>
@@ -41,10 +43,10 @@ const AddPlaylist = ({ data, playlist, setPlaylistFlag, createPlaylist }) => {
             >
               close
             </button>
+            {}
             <button
               onClick={() => {
                 createPlaylist(createdPlayList);
-                addedPlaylist(playlist, data);
               }}
               class="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
             >
