@@ -4,6 +4,7 @@ import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { PlaylistCard } from "../../Component/PlaylistCard/PlaylistCard";
 const Playlist = () => {
   const { playlist } = usePlay();
+  console.log("from playlist page", playlist);
   return (
     <>
       <main className="flex  ">

@@ -100,7 +100,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
-  console.log("playlist from play  context", playlist);
+
   return (
     <PlayletsContext.Provider
       value={{

@@ -5,7 +5,7 @@ const VideoList = () => {
   const { videoData } = useVideo();
   return (
     <>
-      <main className="flex  ">
+      <main className="flex video-flex ">
         <SideNav />
         <div className="flex flex-column   m-y-5 justify-center card-main">
           <div>
