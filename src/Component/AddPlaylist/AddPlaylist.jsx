@@ -3,7 +3,7 @@ import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import "./AddPlaylist.css";
 const AddPlaylist = ({ data, setPlaylistFlag }) => {
-  const [createdPlayList, setCreatedPlayList] = useState("");
+  const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { createPlaylist, playlist } = usePlay();
   const isAddPlaylist = {};
   {
@@ -29,7 +29,10 @@ const AddPlaylist = ({ data, setPlaylistFlag }) => {
               className=" pd-y-4  text-s rounded-s "
               value={createdPlayList}
               onChange={(e) => {
-                setCreatedPlayList(e.target.value);
+                setCreatedPlayList({
+                  ...createdPlayList,
+                  title: e.target.value,
+                });
               }}
             />
           </div>
