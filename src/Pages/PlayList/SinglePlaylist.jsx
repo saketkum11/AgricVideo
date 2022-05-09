@@ -20,7 +20,9 @@ const SinglePlaylist = ({ data }) => {
           <div></div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            <h1>{playlist.title}</h1>
+            {playlist.map((list) => {
+              return <h1>{list.title}</h1>;
+            })}
           </section>
         </div>
       </main>

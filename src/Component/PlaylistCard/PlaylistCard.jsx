@@ -10,7 +10,7 @@ const PlaylistCard = ({ data }) => {
         onClick={() => {
           getPlaylistData(playlist);
         }}
-        to="/playlist/${}"
+        to="/playlist/:playlistId"
       >
         <div className="card flex cards  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec ">
           <div className="flex h-100 flex-column justify-even pd-5">

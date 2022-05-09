@@ -5,10 +5,6 @@ import "./AddPlaylist.css";
 const AddPlaylist = ({ data, setPlaylistFlag }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { createPlaylist, playlist } = usePlay();
-  const isAddPlaylist = {};
-  {
-    /* console.log("from addPlaylist", data, "playlist created", createdPlayList);*/
-  }
 
   return (
     <>
@@ -27,7 +23,7 @@ const AddPlaylist = ({ data, setPlaylistFlag }) => {
             <input
               type="text"
               className=" pd-y-4  text-s rounded-s "
-              value={createdPlayList}
+              value={createdPlayList.title}
               onChange={(e) => {
                 setCreatedPlayList({
                   ...createdPlayList,

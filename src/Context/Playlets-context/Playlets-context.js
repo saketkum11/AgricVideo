@@ -56,6 +56,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
+
   const getPlaylistData = async (playlist) => {
     try {
       const response = await axios.get(`/api/user/playlists/${playlist._id}`, {
@@ -69,6 +70,7 @@ const PlayProvider = ({ children }) => {
       console.error(error);
     }
   };
+
   const addedPlaylist = async (playlist, video) => {
     try {
       const response = await axios.post(
