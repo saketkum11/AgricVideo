@@ -81,7 +81,7 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      setPlaylist(response.data.playlist);
+
       console.log("video added to playlist", response.data.playlist);
     } catch (error) {
       console.error(error);

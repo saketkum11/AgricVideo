@@ -1,3 +1,4 @@
+import exitHandler from "npm/lib/utils/exit-handler";
 import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
@@ -5,8 +6,7 @@ import "./AddPlaylist.css";
 const AddPlaylist = ({ data, setPlaylistFlag }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { createPlaylist, addedPlaylist, playlist } = usePlay();
-  const { videoData } = useVideo();
-  console.log("plalysit from addplaylist", playlist);
+  console.log("from addPlaylist", playlist);
   return (
     <>
       {
@@ -15,20 +15,12 @@ const AddPlaylist = ({ data, setPlaylistFlag }) => {
             <span class="text-xm">create playlist</span>
           </div>
           <ul>
-            {playlist.map((lists) => {
-              return (
-                <li
-                  key={lists._id}
-                  value={lists}
-                  className="style-none flex items-center pd-y-2 cursor list-cover"
-                  onClick={() => {
-                    addedPlaylist(lists, data);
-                  }}
-                >
-                  {lists.title}
-                </li>
-              );
-            })}
+            <li
+              className="style-none flex items-center pd-y-2 cursor list-cover"
+              onClick={() => {}}
+            >
+              Name
+            </li>
           </ul>
           <div>
             <input
