@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { Card } from "../../Component/Card/Card";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { SideNav } from "../index";
-const SinglePlaylist = ({ data }) => {
-  const { playlist, getPlaylistData } = usePlay();
+const SinglePlaylist = () => {
+  const { playlist } = usePlay();
 
   console.log("data from single playlist page", playlist);
   return (
@@ -20,9 +21,14 @@ const SinglePlaylist = ({ data }) => {
           <div></div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {playlist.map((list) => {
-              return <h1>{list.title}</h1>;
-            })}
+            {/*playlist &&
+              playlist.map((video) => {
+                return (
+                  <>
+                    <Card key={video._id} data={video} />
+                  </>
+                );
+              })*/}
           </section>
         </div>
       </main>

@@ -17,7 +17,7 @@ const Playlist = () => {
               placeholder="Search"
             />
           </div>
-          <div></div>
+          <div>{}</div>
 
           <section className="flex flex-wrap  justify-center  cards">
             {playlist &&

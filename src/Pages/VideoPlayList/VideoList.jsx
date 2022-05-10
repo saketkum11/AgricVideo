@@ -21,7 +21,7 @@ const VideoList = () => {
               videoData.map((data) => {
                 return (
                   <>
-                    <Card key={data.id} data={data} />
+                    <Card key={data._id} data={data} />
                   </>
                 );
               })}

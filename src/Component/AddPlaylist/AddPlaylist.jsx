@@ -4,8 +4,9 @@ import { useVideo } from "../../Context/Video-Context/video-context";
 import "./AddPlaylist.css";
 const AddPlaylist = ({ data, setPlaylistFlag }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
-  const { createPlaylist, playlist } = usePlay();
-
+  const { createPlaylist, addedPlaylist, playlist } = usePlay();
+  const { videoData } = useVideo();
+  console.log("plalysit from addplaylist", playlist);
   return (
     <>
       {
@@ -14,10 +15,20 @@ const AddPlaylist = ({ data, setPlaylistFlag }) => {
             <span class="text-xm">create playlist</span>
           </div>
           <ul>
-            <li
-              className="style-none flex items-center pd-y-2 cursor list-cover"
-              onClick={() => {}}
-            ></li>
+            {playlist.map((lists) => {
+              return (
+                <li
+                  key={lists._id}
+                  value={lists}
+                  className="style-none flex items-center pd-y-2 cursor list-cover"
+                  onClick={() => {
+                    addedPlaylist(lists, data);
+                  }}
+                >
+                  {lists.title}
+                </li>
+              );
+            })}
           </ul>
           <div>
             <input
