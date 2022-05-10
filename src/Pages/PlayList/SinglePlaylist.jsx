@@ -5,7 +5,7 @@ import { SideNav } from "../index";
 const SinglePlaylist = () => {
   const { playlist } = usePlay();
 
-  console.log("data from single playlist page", playlist);
+  console.log("data from single playlist page", playlist.videos);
   return (
     <>
       <main className="flex  ">
