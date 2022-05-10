@@ -1,16 +1,17 @@
 import { FaShareAlt, FaStopwatch } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdPlaylistAdd } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import "./Card.css";
 import { useState } from "react";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { AddPlaylist, VideoModal } from "../../Pages/index";
+import { useVideo } from "../../Context/Video-Context/video-context";
 
-const Card = ({ data }) => {
-  const { _id, thumbnail, title, profile, profileName } = data;
-  const { watchVideo } = useWatch();
+const Card = ({ video }) => {
+  const { _id, thumbnail, title, profile, profileName } = video;
+
   const { playlist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
@@ -42,7 +43,7 @@ const Card = ({ data }) => {
           <div className=" flex flex-wrap justify-btw">
             <button
               onClick={() => {
-                addWatchLater(data);
+                addWatchLater(video);
               }}
               className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
             >
@@ -51,7 +52,7 @@ const Card = ({ data }) => {
 
             <div className="flex items-center justify-btw">
               <button className="cursor  text-color-9  border-none  outline-none text-color-0  card-icon text-s rounded-full">
-                <FaShareAlt />
+                <MdDelete />
               </button>
               <button
                 onClick={() => {
@@ -64,8 +65,7 @@ const Card = ({ data }) => {
               <div className="position-ab z-index card-drawer">
                 {showToggle && (
                   <VideoModal
-                    watchVideo={watchVideo}
-                    data={data}
+                    video={video}
                     showPlayFlag={playlistFlag}
                     setPlaylistFlag={setPlaylistFlag}
                   />
@@ -74,7 +74,7 @@ const Card = ({ data }) => {
               <div className="position-ab z-index card-drawer">
                 {playlistFlag && (
                   <AddPlaylist
-                    data={data}
+                    video={video}
                     playlist={playlist}
                     setPlaylistFlag={setPlaylistFlag}
                   />

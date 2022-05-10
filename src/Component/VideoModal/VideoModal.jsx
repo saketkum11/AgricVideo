@@ -2,10 +2,15 @@ import { MdRemoveCircle, MdPlaylistAdd } from "react-icons/md";
 import { FaStopwatch } from "react-icons/fa";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
-const VideoModal = ({ data, watchVideo, playlistFlag, setPlaylistFlag }) => {
+import { useVideo } from "../../Context/Video-Context/video-context";
+const VideoModal = ({ video, playlistFlag, setPlaylistFlag }) => {
   const { removeWatchLater, addWatchLater } = useWatch();
   const { createPlaylist } = usePlay();
-  const isInWatchLater = watchVideo.some((video) => video._id === data._id);
+  const { videoState } = useVideo();
+  const { watchlater, playlist } = videoState;
+  const isInWatchLater = watchlater.some(
+    (watchLater) => watchLater._id === video._id
+  );
 
   return (
     <>
@@ -15,7 +20,7 @@ const VideoModal = ({ data, watchVideo, playlistFlag, setPlaylistFlag }) => {
             {isInWatchLater ? (
               <li
                 onClick={() => {
-                  removeWatchLater(data);
+                  removeWatchLater(video);
                 }}
                 className="style-none flex items-center pd-y-2 cursor"
               >
@@ -25,7 +30,7 @@ const VideoModal = ({ data, watchVideo, playlistFlag, setPlaylistFlag }) => {
             ) : (
               <li
                 onClick={() => {
-                  addWatchLater(data);
+                  addWatchLater(video);
                 }}
                 className="style-none flex items-center pd-y-2 cursor"
               >
@@ -35,11 +40,13 @@ const VideoModal = ({ data, watchVideo, playlistFlag, setPlaylistFlag }) => {
             )}
             {playlistFlag ? (
               <li
-                onClick={() => {}}
+                onClick={() => {
+                  console.log("click");
+                }}
                 className="style-none flex items-center pd-y-2 cursor"
               >
                 <MdRemoveCircle className="text-xm" />
-                <span className="pd-x-3">Remove from watchLater</span>
+                <span className="pd-x-3">Remove from PLaylist</span>
               </li>
             ) : (
               <li

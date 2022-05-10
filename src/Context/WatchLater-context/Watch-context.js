@@ -1,12 +1,15 @@
 import axios from "axios";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
+import { ACTION_TYPE } from "../../Reducer/sevice";
 import { useAuth } from "../Auth-context/Auth-context";
+import { useVideo } from "../Video-Context/video-context";
 
 const WatchContext = createContext();
 const useWatch = () => useContext(WatchContext);
 
 const WatchProvider = ({ children }) => {
-  const [watchVideo, setWatchVideo] = useState([]);
+  const { videoDispatch } = useVideo();
+
   const { credentialData } = useAuth();
   const { tokenData, isAuth } = credentialData;
 
@@ -18,7 +21,10 @@ const WatchProvider = ({ children }) => {
             authorization: tokenData,
           },
         });
-        setWatchVideo(response.data.watchlater);
+        videoDispatch({
+          type: ACTION_TYPE.WATCHLATER_VIDEO,
+          payload: response.data.watchlater,
+        });
       } catch (error) {
         console.error(error);
       }
@@ -37,7 +43,11 @@ const WatchProvider = ({ children }) => {
           },
         }
       );
-      setWatchVideo(response.data.watchlater);
+
+      videoDispatch({
+        type: ACTION_TYPE.WATCHLATER_VIDEO,
+        payload: response.data.watchlater,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -49,16 +59,17 @@ const WatchProvider = ({ children }) => {
           authorization: tokenData,
         },
       });
-      setWatchVideo(response.data.watchlater);
+      videoDispatch({
+        type: ACTION_TYPE.WATCHLATER_VIDEO,
+        payload: response.data.watchlater,
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <WatchContext.Provider
-      value={{ watchVideo, addWatchLater, removeWatchLater }}
-    >
+    <WatchContext.Provider value={{ addWatchLater, removeWatchLater }}>
       {children}
     </WatchContext.Provider>
   );

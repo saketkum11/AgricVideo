@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
-const PlaylistCard = ({ data }) => {
+const PlaylistCard = ({ playlists }) => {
   const { deletePlaylist, playlist, getPlaylistData } = usePlay();
-  const isPlaylist = playlist.some((list) => list._id === data._id);
+
   return (
     <>
       <NavLink
         onClick={() => {
-          getPlaylistData(playlist);
+          getPlaylistData(playlists);
         }}
         to="/playlist/:playlistId"
       >
@@ -20,12 +20,11 @@ const PlaylistCard = ({ data }) => {
               </div>
 
               <div>
-                <span>{data.title}</span>
-                {isPlaylist ? (
-                  <button onClick={() => deletePlaylist(data)}>remove</button>
-                ) : (
-                  ""
-                )}
+                <span>{playlists.title}</span>
+
+                <button onClick={() => deletePlaylist(playlists)}>
+                  remove
+                </button>
               </div>
             </div>
           </div>{" "}

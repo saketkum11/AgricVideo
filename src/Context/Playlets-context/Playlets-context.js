@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { ACTION_TYPE } from "../../Reducer/sevice";
 import { useAuth } from "../Auth-context/Auth-context";
+import { useVideo } from "../Video-Context/video-context";
 
 const PlayletsContext = createContext();
 const usePlay = () => useContext(PlayletsContext);
 
 const PlayProvider = ({ children }) => {
-  const [playlist, setPlaylist] = useState([]);
+  const { videoDispatch } = useVideo();
+
   const { tokenData } = useAuth();
 
   useEffect(() => {
@@ -15,7 +18,10 @@ const PlayProvider = ({ children }) => {
         const response = await axios.get("/api/user/playlists", {
           headers: { authorization: tokenData },
         });
-        setPlaylist(response.data.playlists);
+        videoDispatch({
+          type: ACTION_TYPE.PLAYLIST,
+          payload: response.data.playlists,
+        });
       } catch (error) {
         console.error(error);
       }
@@ -34,8 +40,10 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      console.log("response from Createplaylist", response.data.playlists);
-      setPlaylist(response.data.playlists);
+      videoDispatch({
+        type: ACTION_TYPE.PLAYLIST,
+        payload: response.data.playlists,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -50,8 +58,10 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      setPlaylist(response.data.playlists);
-      console.log("response from deleteplaylist", response);
+      videoDispatch({
+        type: ACTION_TYPE.PLAYLIST,
+        payload: response.data.playlists,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -64,13 +74,17 @@ const PlayProvider = ({ children }) => {
           authorization: tokenData,
         },
       });
-      setPlaylist(response.data.playlist);
+      videoDispatch({
+        type: ACTION_TYPE.SINGLE_PLAYLIST,
+        payload: response.data.playlist,
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
   const addedPlaylist = async (playlist, video) => {
+    console.log("value", playlist, video);
     try {
       const response = await axios.post(
         `/api/user/playlists/${playlist._id}`,
@@ -81,8 +95,10 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-
-      console.log("video added to playlist", response.data.playlist);
+      videoDispatch({
+        type: ACTION_TYPE.VIDEO_TO_PLAYLIST,
+        payload: response.data.playlist,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -107,7 +123,6 @@ const PlayProvider = ({ children }) => {
     <PlayletsContext.Provider
       value={{
         createPlaylist,
-        playlist,
         addedPlaylist,
         deletePlaylist,
         getPlaylistData,

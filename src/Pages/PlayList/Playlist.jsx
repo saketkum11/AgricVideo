@@ -2,9 +2,11 @@ import React from "react";
 import { SideNav } from "../index";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { PlaylistCard } from "../../Component/PlaylistCard/PlaylistCard";
+import { useVideo } from "../../Context/Video-Context/video-context";
 const Playlist = () => {
-  const { playlist } = usePlay();
-  console.log("from playlist page", playlist);
+  const { videoState, videoDispatch } = useVideo();
+  const { playlists, video } = videoState;
+
   return (
     <>
       <main className="flex  ">
@@ -20,11 +22,11 @@ const Playlist = () => {
           <div>{}</div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {playlist &&
-              playlist.map((data) => {
+            {playlists &&
+              playlists.map((playlists) => {
                 return (
                   <>
-                    <PlaylistCard data={data} key={data._id} />
+                    <PlaylistCard playlists={playlists} key={playlists._id} />
                   </>
                 );
               })}

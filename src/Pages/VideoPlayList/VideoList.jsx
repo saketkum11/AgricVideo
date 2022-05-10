@@ -2,7 +2,9 @@ import { useVideo } from "../../Context/Video-Context/video-context";
 import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
-  const { videoData } = useVideo();
+  const { videoState } = useVideo();
+  const { video, playlist } = videoState;
+
   return (
     <>
       <main className="flex video-flex ">
@@ -17,11 +19,11 @@ const VideoList = () => {
           </div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {videoData &&
-              videoData.map((data) => {
+            {video &&
+              video.map((video) => {
                 return (
                   <>
-                    <Card key={data._id} data={data} />
+                    <Card key={video._id} video={video} />
                   </>
                 );
               })}
