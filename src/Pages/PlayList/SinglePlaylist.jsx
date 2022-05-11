@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Card } from "../../Component/Card/Card";
+import { SinglePlaylistCard } from "../../Component/SinglePlaylistCard/SinglePlaylistCard";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import { SideNav } from "../index";
 const SinglePlaylist = () => {
   const { videoState } = useVideo();
   const { playlist } = videoState;
-  const playlistVideo = playlist.videos;
 
   return (
     <>
@@ -26,7 +26,7 @@ const SinglePlaylist = () => {
               playlistVideo.map((video) => {
                 return (
                   <>
-                    <Card key={video._id} video={video} />
+                    <SinglePlaylistCard key={video._id} video={video} />
                   </>
                 );
               })}

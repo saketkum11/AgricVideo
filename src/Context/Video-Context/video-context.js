@@ -15,7 +15,7 @@ const VideoProvider = ({ children }) => {
   const initialState = {
     video: [],
     playlists: [],
-    playlist: {},
+    playlist: [],
     watchlater: [],
     like: [],
     dislike: [],

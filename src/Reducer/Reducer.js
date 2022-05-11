@@ -26,6 +26,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         playlist: payload,
       };
+    case ACTION_TYPE.DELETED_VIDEO:
+      return {
+        ...state,
+        playlist: payload,
+      };
     default:
       return state;
   }

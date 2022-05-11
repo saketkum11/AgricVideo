@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ACTION_TYPE } from "../../Reducer/sevice";
 import { useAuth } from "../Auth-context/Auth-context";
 import { useVideo } from "../Video-Context/video-context";
@@ -9,7 +10,7 @@ const usePlay = () => useContext(PlayletsContext);
 
 const PlayProvider = ({ children }) => {
   const { videoDispatch } = useVideo();
-
+  const navigate = useNavigate();
   const { tokenData } = useAuth();
 
   useEffect(() => {
@@ -62,6 +63,7 @@ const PlayProvider = ({ children }) => {
         type: ACTION_TYPE.PLAYLIST,
         payload: response.data.playlists,
       });
+      navigate("/videolist");
     } catch (error) {
       console.error(error);
     }
@@ -104,16 +106,21 @@ const PlayProvider = ({ children }) => {
     }
   };
 
-  const deletedPlaylist = async (playlist) => {
+  const deletedPlaylist = async (playlist, video) => {
     try {
       const response = await axios.delete(
-        `/api/user/playlists/:playlistId/${playlist._id}`,
+        `/api/user/playlists/${playlist._id}/${video._id}`,
         {
           headers: {
             authorization: tokenData,
           },
         }
       );
+      console.log("from deleted playlist", response);
+      videoDispatch({
+        type: ACTION_TYPE.DELETED_VIDEO,
+        payload: response.data.playlist,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -126,6 +133,7 @@ const PlayProvider = ({ children }) => {
         addedPlaylist,
         deletePlaylist,
         getPlaylistData,
+        deletedPlaylist,
       }}
     >
       {children}

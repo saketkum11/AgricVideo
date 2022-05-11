@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const PlaylistCard = ({ playlists }) => {
   const { deletePlaylist, playlist, getPlaylistData } = usePlay();
-
+  const navigate = useNavigate();
   return (
     <>
       <NavLink
@@ -22,7 +22,11 @@ const PlaylistCard = ({ playlists }) => {
               <div>
                 <span>{playlists.title}</span>
 
-                <button onClick={() => deletePlaylist(playlists)}>
+                <button
+                  onClick={() => {
+                    deletePlaylist(playlists);
+                  }}
+                >
                   remove
                 </button>
               </div>
