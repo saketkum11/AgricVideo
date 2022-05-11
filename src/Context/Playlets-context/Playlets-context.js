@@ -63,7 +63,6 @@ const PlayProvider = ({ children }) => {
         type: ACTION_TYPE.PLAYLIST,
         payload: response.data.playlists,
       });
-      navigate("/videolist");
     } catch (error) {
       console.error(error);
     }
