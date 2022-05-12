@@ -115,7 +115,7 @@ const PlayProvider = ({ children }) => {
           },
         }
       );
-      console.log("from deleted playlist", response);
+
       videoDispatch({
         type: ACTION_TYPE.DELETED_VIDEO,
         payload: response.data.playlist,
