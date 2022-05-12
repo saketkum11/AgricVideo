@@ -9,6 +9,7 @@ import {
   VideoList,
   WatchLater,
   SinglePlaylist,
+  SingleVideo,
 } from "../Pages";
 
 import Mockman from "mockman-js";
@@ -20,6 +21,7 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videolist" element={<VideoList />} />
+        <Route path="/videolist/:id" element={<SingleVideo />} />
         <Route path="/history" element={<History />} />
         <Route
           path="/watchlater"

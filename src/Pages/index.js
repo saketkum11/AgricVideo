@@ -1,5 +1,3 @@
-import { from } from "form-data";
-
 /* My Page and component*/
 export { Home } from "../Pages/Home/Home";
 export { Header } from "../Component/Header/Header";
@@ -16,5 +14,6 @@ export { VideoModal } from "../Component/VideoModal/VideoModal";
 export { PlaylistCard } from "../Component/PlaylistCard/PlaylistCard";
 export { SinglePlaylist } from "../Pages/PlayList/SinglePlaylist";
 export { SinglePlaylistCard } from "../Component/SinglePlaylistCard/SinglePlaylistCard";
+export { SingleVideo } from "../Pages/VideoPlayList/SingleVideo";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
