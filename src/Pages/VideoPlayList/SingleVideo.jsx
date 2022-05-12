@@ -1,54 +1,65 @@
-import ReactPlayer from "react-player";
 import { useEffect } from "react";
 import { SideNav } from "../index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import axios from "axios";
+import { MdPlaylistAdd } from "react-icons/md";
+import { useParams } from "react-router-dom";
+import { ACTION_TYPE } from "../../Reducer/sevice";
 const SingleVideo = () => {
   const { videoState, videoDispatch } = useVideo();
   const { video } = videoState;
+  const params = useParams();
   const { _id, thumbnail, title, profile, profileName } = video;
-  console.log("video from singlePage", video, _id);
-
+  console.log("video from singlePage", video, "params", params);
   useEffect(() => {
-    const getIndividualVideo = async () => {
+    (async () => {
       try {
-        const response = await axios.get(`/api/video/${_id}`);
-        console.log("response from singleVideo page", response);
+        const response = await axios.get(`/api/video/${params.id}`);
+        videoDispatch({
+          type: ACTION_TYPE.SINGLE_VIDEO,
+          payload: response.data.video,
+        });
       } catch (error) {
         console.error(error);
       }
-    };
-    getIndividualVideo();
+    })();
   }, []);
   return (
     <>
       <main className="flex video-flex ">
         <SideNav />
         <aside className="flex flex-column   m-y-5 justify-center card-main">
-          <div>
-            <input
-              type="text"
-              className=" pd-4  m-y-4 text-s rounded-s search wt-50"
-              placeholder="Search"
-            />
-          </div>
-
           <section className="flex flex-wrap  justify-center  cards">
-            <ReactPlayer
-              className="border-shadow bg-black-9"
-              width="100%"
-              height="100%"
-              url={`https://www.youtube.com/watch?v=${_id}`}
-              controls={true}
-              playing
-              light={true}
-              type="audio/mp3"
-              style={{
-                aspectRatio: 1.777,
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            ></ReactPlayer>
+            <iframe
+              src={`https://www.youtube.com/embed/${params.id}`}
+              frameborder="0"
+              width="90%"
+              height="650px"
+            ></iframe>
+            <div className="flex justify-start wt-100">
+              <button class="bg-black-2 outline-none border-none pd-x-3 pd-y-2 ">
+                <i class="fa-solid fa-thumbs-up"></i>
+                <span className="pd-x-3">Like</span>
+              </button>
+              <button class="bg-black-2  outline-none border-none pd-x-3 pd-y-2">
+                <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
+                <span className="pd-x-3">PlayList</span>
+              </button>
+              <button class="bg-black-2 outline-none border-none pd-x-3 pd-y-2">
+                <i class="fa-solid fa-clock"></i>
+                <span>WatchLater</span>
+              </button>
+            </div>
+            <div className="flex flex-column justify-start">
+              <span>Saksjkdj</span>
+              <div>
+                <span></span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi a
+                provident aliquid facilis debitis.
+              </p>
+            </div>
           </section>
         </aside>
       </main>
