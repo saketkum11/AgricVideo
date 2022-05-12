@@ -1,3 +1,10 @@
 .cards{
     gap: 1rem;
 }
+@media screen and (max-width: 600px)  {
+    .video-flex{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

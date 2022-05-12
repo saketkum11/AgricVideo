@@ -10,7 +10,11 @@ export { Signup } from "../Pages/Auth/Signup";
 export { SideNav } from "../Component/SideNav/SideNav";
 export { Card } from "../Component/Card/Card";
 export { WatchLater } from "../Pages/Watch-later/WatchLater";
+export { Playlist } from "../Pages/PlayList/Playlist";
+export { AddPlaylist } from "../Component/AddPlaylist/AddPlaylist";
+export { VideoModal } from "../Component/VideoModal/VideoModal";
+export { PlaylistCard } from "../Component/PlaylistCard/PlaylistCard";
+export { SinglePlaylist } from "../Pages/PlayList/SinglePlaylist";
+export { SinglePlaylistCard } from "../Component/SinglePlaylistCard/SinglePlaylistCard";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
-
-export { useWatch } from "../Context/WatchLater-context/Watch-context";

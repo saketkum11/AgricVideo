@@ -1,9 +1,10 @@
 import React from "react";
-import { useWatch } from "../../Context/WatchLater-context/Watch-context";
+import { useVideo } from "../../Context/Video-Context/video-context";
 
 import { SideNav, Card } from "../index";
 const WatchLater = () => {
-  const { watchVideo } = useWatch();
+  const { videoState } = useVideo();
+  const { watchlater } = videoState;
   return (
     <>
       <main className="flex">
@@ -12,17 +13,17 @@ const WatchLater = () => {
           <div>
             <input
               type="text"
-              class=" pd-4  m-y-4 text-s rounded-s search wt-50"
+              className=" pd-4  m-y-4 text-s rounded-s search wt-50"
               placeholder="Search"
             />
           </div>
 
           <section className="flex flex-wrap  justify-center  cards">
-            {watchVideo &&
-              watchVideo.map((data) => {
+            {watchlater &&
+              watchlater.map((video) => {
                 return (
                   <>
-                    <Card key={data._id} data={data} />
+                    <Card key={video.id} video={video} />
                   </>
                 );
               })}
