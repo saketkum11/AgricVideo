@@ -10,6 +10,7 @@ import {
   WatchLater,
   SinglePlaylist,
   SingleVideo,
+  Like,
 } from "../Pages";
 
 import Mockman from "mockman-js";
@@ -28,6 +29,14 @@ const MyRoutes = () => {
           element={
             <RequireAuth>
               <WatchLater />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/like"
+          element={
+            <RequireAuth>
+              <Like />
             </RequireAuth>
           }
         />

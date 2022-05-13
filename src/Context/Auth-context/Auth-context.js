@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
 
@@ -8,6 +9,7 @@ const AuthProvider = ({ children }) => {
     tokenData: localStorage.getItem("token"),
     isAuth: localStorage.getItem("token") ? true : false,
   });
+  const navigate = useNavigate();
 
   const { tokenData, isAuth } = credentialData;
   const signupHandler = async ({ email, password, firstName, lastName }) => {
@@ -26,20 +28,24 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginHandler = async ({ email, password }) => {
-    try {
-      const response = await axios.post("/api/auth/login", {
-        email,
-        password,
-      });
+    if (isAuth) {
+      try {
+        const response = await axios.post("/api/auth/login", {
+          email,
+          password,
+        });
 
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
-      setCredentailData({
-        isAuth: true,
-        tokenData: response.data.encodedToken,
-      });
-    } catch (error) {
-      console.error(error);
+        // saving the encodedToken in the localStorage
+        localStorage.setItem("token", response.data.encodedToken);
+        setCredentailData({
+          isAuth: true,
+          tokenData: response.data.encodedToken,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      navigate("/signup");
     }
   };
 

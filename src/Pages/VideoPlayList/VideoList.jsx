@@ -9,7 +9,7 @@ const VideoList = () => {
     <>
       <main className="flex video-flex ">
         <SideNav />
-        <div className="flex flex-column   m-y-5 justify-center card-main">
+        <aside className="flex flex-column   m-y-5 justify-center card-main">
           <div>
             <input
               type="text"
@@ -28,7 +28,7 @@ const VideoList = () => {
                 );
               })}
           </section>
-        </div>
+        </aside>
       </main>
     </>
   );

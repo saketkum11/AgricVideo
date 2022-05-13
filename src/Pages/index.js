@@ -15,6 +15,6 @@ export { PlaylistCard } from "../Component/PlaylistCard/PlaylistCard";
 export { SinglePlaylist } from "../Pages/PlayList/SinglePlaylist";
 export { SinglePlaylistCard } from "../Component/SinglePlaylistCard/SinglePlaylistCard";
 export { SingleVideo } from "../Pages/VideoPlayList/SingleVideo";
-export { Like } from "./Like/Like";
+export { Like } from "../Pages/Like/Like";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
