@@ -16,21 +16,19 @@ export const videos = [
     duration: "8:14",
   },
   {
-    _id: "5Fq6PQl7fr8&t",
-    title:
-      "How did ISRAEL turn the DESERT into an AGRICULTURAL POWER? - VisualPolitik EN",
+    _id: "vPvCEVAiKdc",
+    title: "Aussie doctor turns climate despair into action | Climate Changers",
     description:
-      "With climate change and rising populations, we have to find more sustainable ways to farm our food. ",
+      "For Western Sydney doctor Kim Loo, climate change is a big and complex problem. But at the heart of her advocacy is her local community, her family and her home. ",
     profile:
-      "https://yt3.ggpht.com/ytc/AKedOLTaGdNgJcxAJDkWP8cmWjXCGiepz97qSgMhtSrn=s68-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/ytc/AKedOLS5nGmuLgpVbUKG2mUlvh9AiHd5rRl3b15wbt0T2g=s68-c-k-c0x00ffffff-no-rj",
     profileName: "ABC Science",
-    thumbnail: "https://i.ytimg.com/vi/5Fq6PQl7fr8/hq720.jpg",
+    thumbnail: "https://i.ytimg.com/vi/vPvCEVAiKdc/hq720.jpg",
     duration: "6:02",
   },
   {
     _id: "DI3VqTkbuRA",
-    title:
-      "How did ISRAEL turn the DESERT into an AGRICULTURAL POWER? - VisualPolitik EN",
+    title: "How did ISRAEL turn the DESERT into an AGRICULTURAL POWER?",
     description:
       "Can you imagine a country that irrigates plants with salt water, a country that has managed to transform an arid and barren desert into lush fields of crops, a country located in one of the driest and most arid places on earth that has been able to obtain an almost unlimited supply of water? Well, this is not a mirage or a fantasy, such a country exists and it’s called Israel. ",
     profile:

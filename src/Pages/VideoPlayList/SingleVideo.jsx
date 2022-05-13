@@ -7,9 +7,10 @@ import { useParams } from "react-router-dom";
 import { ACTION_TYPE } from "../../Reducer/sevice";
 const SingleVideo = () => {
   const { videoState, videoDispatch } = useVideo();
-  const { video } = videoState;
+  const { video, singleVideo } = videoState;
   const params = useParams();
-  const { _id, thumbnail, title, profile, profileName } = video;
+  const { _id, thumbnail, title, profile, profileName, description } =
+    singleVideo;
   console.log("video from singlePage", video, "params", params);
   useEffect(() => {
     (async () => {
@@ -36,29 +37,38 @@ const SingleVideo = () => {
               width="90%"
               height="650px"
             ></iframe>
-            <div className="flex justify-start wt-100">
-              <button class="bg-black-2 outline-none border-none pd-x-3 pd-y-2 ">
+            <div className="flex justify-start  wt-100 m-x-11 ">
+              <button class="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center">
                 <i class="fa-solid fa-thumbs-up"></i>
                 <span className="pd-x-3">Like</span>
               </button>
-              <button class="bg-black-2  outline-none border-none pd-x-3 pd-y-2">
+              <button class="bg-black-2  outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center">
                 <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
-                <span className="pd-x-3">PlayList</span>
+                <span className="pd-x-3">Save</span>
               </button>
-              <button class="bg-black-2 outline-none border-none pd-x-3 pd-y-2">
+              <button class="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center">
                 <i class="fa-solid fa-clock"></i>
-                <span>WatchLater</span>
+                <span className="pd-x-3">WatchLater</span>
               </button>
             </div>
-            <div className="flex flex-column justify-start">
-              <span>Saksjkdj</span>
-              <div>
-                <span></span>
+            <div className="flex flex-column justify-start items-start wt-100 m-x-11">
+              <div className="  flex flex-wrap items-start pd-y-2">
+                <span className="text-lg text-semibold">{title}</span>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi a
-                provident aliquid facilis debitis.
-              </p>
+              <div className="flex items-center justify-start pd-y-2">
+                <img
+                  src={profile}
+                  className="object-content card-icon text-lg rounded-full"
+                  alt=""
+                />
+                <span
+                  className="text-semibold  text-color-9 pd-x-3 
+          "
+                >
+                  {profileName}
+                </span>
+              </div>
+              <p className="flex">{description}</p>
             </div>
           </section>
         </aside>
