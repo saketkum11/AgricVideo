@@ -31,6 +31,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         playlist: payload,
       };
+    case ACTION_TYPE.SINGLE_VIDEO:
+      return {
+        ...state,
+        singleVideo: payload,
+      };
     default:
       return state;
   }
