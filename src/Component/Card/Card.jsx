@@ -21,7 +21,7 @@ const Card = ({ video }) => {
       <div className="card flex cards cursor  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
         <Link to={`/videolist/${_id}`}>
           <div className="card_image flex ">
-            <img src={thumbnail} className=" wt-100" alt="" />
+            <img src={thumbnail} className="object-content wt-100" alt="" />
           </div>
         </Link>
 
