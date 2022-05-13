@@ -15,7 +15,6 @@ const SingleVideo = () => {
   const { _id, thumbnail, title, profile, profileName, description } =
     singleVideo;
 
-  console.log("video from singlePage", video, "params", params);
   useEffect(() => {
     (async () => {
       try {

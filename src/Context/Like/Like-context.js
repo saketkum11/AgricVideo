@@ -21,7 +21,6 @@ const LikeProvider = ({ children }) => {
           type: ACTION_TYPE.LIKED_VIDEO,
           payload: response.data.likes,
         });
-        console.log("from liked context likes", response);
       } catch (error) {
         console.error(error);
       }
@@ -46,7 +45,6 @@ const LikeProvider = ({ children }) => {
         type: ACTION_TYPE.LIKED_VIDEO,
         payload: response.data.likes,
       });
-      console.log("from liked video like-context", response);
     } catch (error) {
       console.error(error);
     }
@@ -62,7 +60,6 @@ const LikeProvider = ({ children }) => {
         type: ACTION_TYPE.REMOVE_LIKED_VIDEO,
         payload: response.data.likes,
       });
-      console.log("from deleted video like-context", response);
     } catch (error) {
       console.error(error);
     }
