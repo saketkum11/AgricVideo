@@ -1,8 +1,9 @@
-import { SideNav } from "../../Component/SideNav/SideNav";
 import { useVideo } from "../../Context/Video-Context/video-context";
-
+import { SideNav, Card } from "../index";
 const Like = () => {
   const { videoState, videoDispatch } = useVideo();
+  const { like } = videoState;
+
   return (
     <>
       <main className="flex video-flex ">
@@ -16,7 +17,16 @@ const Like = () => {
             />
           </div>
 
-          <section className="flex flex-wrap  justify-center  cards"></section>
+          <section className="flex flex-wrap  justify-center  cards">
+            {like &&
+              like.map((video) => {
+                return (
+                  <>
+                    <Card video={video} key={video._id} />
+                  </>
+                );
+              })}
+          </section>
         </aside>
       </main>
     </>

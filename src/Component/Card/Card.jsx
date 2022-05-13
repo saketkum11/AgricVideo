@@ -1,13 +1,13 @@
-import { FaShareAlt, FaStopwatch } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Card.css";
 import { useState } from "react";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { AddPlaylist, VideoModal } from "../../Pages/index";
 import { useVideo } from "../../Context/Video-Context/video-context";
+import { useLike } from "../../Context/Like/Like-context";
 
 const Card = ({ video }) => {
   const { _id, thumbnail, title, profile, profileName } = video;
@@ -16,6 +16,9 @@ const Card = ({ video }) => {
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
   const navigate = useNavigate();
+  const { videoState, videoDispatch } = useVideo();
+  const { singleVideo, like } = videoState;
+  const { likedVideo, removeLikedVideo } = useLike();
   return (
     <>
       <div className="card flex cards cursor  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
@@ -54,9 +57,22 @@ const Card = ({ video }) => {
             </button>
 
             <div className="flex items-center justify-btw">
-              <button className="cursor  text-color-9  border-none  outline-none text-color-0  card-icon text-s rounded-full">
-                <MdDelete />
-              </button>
+              {like.find((video) => video._id === _id) ? (
+                <button
+                  onClick={() => removeLikedVideo(_id)}
+                  className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
+                >
+                  <i className="fa-solid fa-thumbs-down"></i>
+                </button>
+              ) : (
+                <button
+                  onClick={() => likedVideo(video)}
+                  className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
+                >
+                  <i className="fa-solid fa-thumbs-up"></i>
+                </button>
+              )}
+
               <button
                 onClick={() => {
                   setShowToggel((showToggel) => !showToggel);

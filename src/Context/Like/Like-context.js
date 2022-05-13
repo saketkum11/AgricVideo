@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect } from "react";
 import { useVideo } from "../Video-Context/video-context";
 import { useAuth } from "../Auth-context/Auth-context";
+import { ACTION_TYPE } from "../../Reducer/sevice";
 const LikeContext = createContext();
 const useLike = () => useContext(LikeContext);
 
@@ -16,6 +17,10 @@ const LikeProvider = ({ children }) => {
             authorization: tokenData,
           },
         });
+        videoDispatch({
+          type: ACTION_TYPE.LIKED_VIDEO,
+          payload: response.data.likes,
+        });
         console.log("from liked context likes", response);
       } catch (error) {
         console.error(error);
@@ -23,8 +28,49 @@ const LikeProvider = ({ children }) => {
     };
     getLiked();
   }, []);
+
+  const likedVideo = async (video) => {
+    try {
+      const response = await axios.post(
+        "/api/user/likes",
+        {
+          video,
+        },
+        {
+          headers: {
+            authorization: tokenData,
+          },
+        }
+      );
+      videoDispatch({
+        type: ACTION_TYPE.LIKED_VIDEO,
+        payload: response.data.likes,
+      });
+      console.log("from liked video like-context", response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const removeLikedVideo = async (videoId) => {
+    try {
+      const response = await axios.delete(`/api/user/likes/${videoId}`, {
+        headers: {
+          authorization: tokenData,
+        },
+      });
+      videoDispatch({
+        type: ACTION_TYPE.REMOVE_LIKED_VIDEO,
+        payload: response.data.likes,
+      });
+      console.log("from deleted video like-context", response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    <LikeContext.Provider value={{ items: 9 }}>{children}</LikeContext.Provider>
+    <LikeContext.Provider value={{ likedVideo, removeLikedVideo }}>
+      {children}
+    </LikeContext.Provider>
   );
 };
 

@@ -36,6 +36,16 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         singleVideo: payload,
       };
+    case ACTION_TYPE.LIKED_VIDEO:
+      return {
+        ...state,
+        like: payload,
+      };
+    case ACTION_TYPE.REMOVE_LIKED_VIDEO:
+      return {
+        ...state,
+        like: payload,
+      };
     default:
       return state;
   }
