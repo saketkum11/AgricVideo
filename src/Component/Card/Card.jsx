@@ -11,7 +11,7 @@ import { useVideo } from "../../Context/Video-Context/video-context";
 
 const Card = ({ video }) => {
   const { _id, thumbnail, title, profile, profileName } = video;
-  const { id } = useParams();
+  const params = useParams();
   const { playlist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
@@ -46,7 +46,7 @@ const Card = ({ video }) => {
           <div className=" flex flex-wrap justify-btw">
             <button
               onClick={() => {
-                addWatchLater(video);
+                navigate(`/videolist/${_id}`);
               }}
               className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
             >
