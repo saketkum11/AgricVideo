@@ -2,11 +2,12 @@ import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import "./AddPlaylist.css";
-const AddPlaylist = ({ video, setPlaylistFlag }) => {
+const AddPlaylist = ({ video, setPlaylistFlag, singleVideo }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { createPlaylist, addedPlaylist } = usePlay();
   const { videoState } = useVideo();
   const { playlist, playlists } = videoState;
+
   return (
     <>
       {
@@ -22,6 +23,7 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
                     className="style-none flex items-center pd-y-2 cursor list-cover"
                     onClick={() => {
                       addedPlaylist(playlists, video);
+                      addedPlaylist(playlists, singleVideo);
                     }}
                   >
                     {playlists.title}
@@ -48,6 +50,7 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             <button
               onClick={() => {
                 setPlaylistFlag((flag) => !flag);
+                setVideoPlaylist((flag) => !flag);
               }}
               class="bg-black-9 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 pd-y-2"
             >

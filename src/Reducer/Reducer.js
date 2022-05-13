@@ -10,6 +10,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         watchlater: payload,
       };
+    case ACTION_TYPE.REMOVE_WATCHLATER_VIDEO:
+      return {
+        ...state,
+        watchlater: payload,
+      };
 
     case ACTION_TYPE.PLAYLIST:
       return {

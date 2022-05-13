@@ -60,7 +60,7 @@ const WatchProvider = ({ children }) => {
         },
       });
       videoDispatch({
-        type: ACTION_TYPE.WATCHLATER_VIDEO,
+        type: ACTION_TYPE.REMOVE_WATCHLATER_VIDEO,
         payload: response.data.watchlater,
       });
     } catch (error) {
