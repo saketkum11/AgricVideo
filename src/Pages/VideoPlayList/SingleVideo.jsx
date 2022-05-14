@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SideNav } from "../index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import axios from "axios";
-import { MdPlaylistAdd } from "react-icons/md";
+
 import { useParams } from "react-router-dom";
 import { ACTION_TYPE } from "../../Reducer/sevice";
 import { useLike } from "../../Context/Like/Like-context";
@@ -20,10 +20,8 @@ const SingleVideo = () => {
   const isInWatchLater = watchlater.find(
     (watchLater) => watchLater._id === singleVideo._id
   );
-  const [videoPlaylist, setVideoPlaylist] = useState(false);
   const { removeWatchLater, addWatchLater } = useWatch();
 
-  console.log("from single video page", videoPlaylist);
   useEffect(() => {
     (async () => {
       try {
@@ -68,21 +66,6 @@ const SingleVideo = () => {
                 </button>
               )}
 
-              <button
-                onClick={() => setVideoPlaylist((flag) => !flag)}
-                className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
-              >
-                <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
-                <span className="pd-x-3">Save</span>
-              </button>
-              {videoPlaylist ? (
-                <AddPlaylist
-                  singleVideo={singleVideo}
-                  setPlaylistFlag={setPlaylistFlag}
-                />
-              ) : (
-                ""
-              )}
               {isInWatchLater ? (
                 <button
                   onClick={() => {
