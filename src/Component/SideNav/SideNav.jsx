@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./SideNav.css";
-import { FaHome, FaVideo, FaHistory, FaStopwatch } from "react-icons/fa";
+import {
+  FaHome,
+  FaVideo,
+  FaHistory,
+  FaStopwatch,
+  FaHeart,
+} from "react-icons/fa";
 import { MdPlaylistAdd } from "react-icons/md";
 
 const SideNav = () => {
@@ -26,7 +32,7 @@ const SideNav = () => {
               to="/"
               className="text-dec text-color-0 sidenav-link pd-4  flex items-center   "
             >
-              <FaHome className="text-xm"></FaHome>
+              <FaHome className="text-xm" />
               <span className="pd-x-6">Home</span>
             </NavLink>
           </li>
@@ -35,7 +41,7 @@ const SideNav = () => {
               to="/videolist"
               className="text-dec text-color-0 sidenav-link pd-4  flex items-center"
             >
-              <FaVideo className="text-xm"></FaVideo>
+              <FaVideo className="text-xm" />
               <span className="pd-x-6">VideoList</span>
             </NavLink>
           </li>
@@ -44,7 +50,7 @@ const SideNav = () => {
               to="/history"
               className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
             >
-              <FaHistory className="text-xm"></FaHistory>
+              <FaHistory className="text-xm" />
               <span className="pd-x-6">History</span>
             </NavLink>
           </li>
@@ -53,7 +59,7 @@ const SideNav = () => {
               to="/watchlater"
               className="text-dec text-color-0 sidenav-link pd-4  items-center flex "
             >
-              <FaStopwatch className="text-xm"></FaStopwatch>
+              <FaStopwatch className="text-xm" />
               <span className="pd-x-6">Watch Later</span>
             </NavLink>
           </li>
@@ -62,8 +68,17 @@ const SideNav = () => {
               to="/playlist"
               className="text-dec text-color-0 sidenav-link pd-y-4 pd-x-4  items-center flex "
             >
-              <MdPlaylistAdd className="text-xm"></MdPlaylistAdd>
+              <MdPlaylistAdd className="text-xm" />
               <span className="pd-x-6">PlayList</span>
+            </NavLink>
+          </li>
+          <li className="wt-100  ">
+            <NavLink
+              to="/like"
+              className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
+            >
+              <FaHeart className="text-xm" />
+              <span className="pd-x-6">Liked</span>
             </NavLink>
           </li>
         </ul>

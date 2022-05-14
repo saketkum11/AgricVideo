@@ -10,6 +10,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         watchlater: payload,
       };
+    case ACTION_TYPE.REMOVE_WATCHLATER_VIDEO:
+      return {
+        ...state,
+        watchlater: payload,
+      };
 
     case ACTION_TYPE.PLAYLIST:
       return {
@@ -35,6 +40,16 @@ const videoReducer = (state, { type, payload }) => {
       return {
         ...state,
         singleVideo: payload,
+      };
+    case ACTION_TYPE.LIKED_VIDEO:
+      return {
+        ...state,
+        like: payload,
+      };
+    case ACTION_TYPE.REMOVE_LIKED_VIDEO:
+      return {
+        ...state,
+        like: payload,
       };
     default:
       return state;
