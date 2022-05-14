@@ -41,7 +41,6 @@ const VideoProvider = ({ children }) => {
     getVideoData();
   }, []);
 
-  console.log("video value", videoState);
   return (
     <VideoContext.Provider value={{ videoState, videoDispatch }}>
       {children}
