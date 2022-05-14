@@ -23,7 +23,6 @@ const AddPlaylist = ({ video, setPlaylistFlag, singleVideo }) => {
                     className="style-none flex items-center pd-y-2 cursor list-cover"
                     onClick={() => {
                       addedPlaylist(playlists, video);
-                      addedPlaylist(playlists, singleVideo);
                     }}
                   >
                     {playlists.title}
