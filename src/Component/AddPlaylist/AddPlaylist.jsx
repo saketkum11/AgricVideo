@@ -2,7 +2,7 @@ import { useState } from "react";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import "./AddPlaylist.css";
-const AddPlaylist = ({ video, setPlaylistFlag, singleVideo }) => {
+const AddPlaylist = ({ video, setPlaylistFlag }) => {
   const [createdPlayList, setCreatedPlayList] = useState({ title: "" });
   const { createPlaylist, addedPlaylist } = usePlay();
   const { videoState } = useVideo();

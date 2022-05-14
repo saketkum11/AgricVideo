@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
@@ -7,6 +7,7 @@ const SinglePlaylistCard = ({ video }) => {
   const { deletedPlaylist } = usePlay();
   const { videoState } = useVideo();
   const { playlist } = videoState;
+  const navigate = useNavigate();
   return (
     <>
       <div className="card flex cards  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
@@ -34,7 +35,7 @@ const SinglePlaylistCard = ({ video }) => {
           <div className=" flex flex-wrap justify-btw">
             <button
               onClick={() => {
-                addWatchLater(video);
+                navigate(`/videolist/${_id}`);
               }}
               className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
             >

@@ -6,7 +6,7 @@ import { SideNav } from "../index";
 const SinglePlaylist = () => {
   const { videoState } = useVideo();
   const { playlist } = videoState;
-  const playlistVideo = playlist?.video;
+  const playlistVideo = playlist?.videos;
   return (
     <>
       <main className="flex  ">

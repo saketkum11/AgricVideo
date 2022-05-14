@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const PlaylistCard = ({ playlists }) => {
@@ -6,11 +6,11 @@ const PlaylistCard = ({ playlists }) => {
   const navigate = useNavigate();
   return (
     <>
-      <NavLink
+      <Link
         onClick={() => {
           getPlaylistData(playlists);
         }}
-        to="/playlist/:playlistId"
+        to={`/playlist/${playlists._id}`}
       >
         <div className="card wt-100 flex cards  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec ">
           <div className="flex  flex-column justify-even pd-5">
@@ -27,7 +27,7 @@ const PlaylistCard = ({ playlists }) => {
             </div>
           </div>{" "}
         </div>
-      </NavLink>
+      </Link>
     </>
   );
 };
