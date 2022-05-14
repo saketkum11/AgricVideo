@@ -23,12 +23,20 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/videolist" element={<VideoList />} />
         <Route path="/videolist/:id" element={<SingleVideo />} />
-        <Route path="/history" element={<History />} />
+
         <Route
           path="/watchlater"
           element={
             <RequireAuth>
               <WatchLater />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <RequireAuth>
+              <History />
             </RequireAuth>
           }
         />

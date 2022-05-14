@@ -3,20 +3,36 @@ import { FaStopwatch } from "react-icons/fa";
 import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
+import { useHistory } from "../../Context/History-context/History-context";
+
 const VideoModal = ({ video, playlistFlag, setPlaylistFlag }) => {
   const { removeWatchLater, addWatchLater } = useWatch();
   const { createPlaylist } = usePlay();
   const { videoState } = useVideo();
-  const { watchlater, playlist } = videoState;
+  const { watchlater, playlist, history } = videoState;
   const isInWatchLater = watchlater.some(
     (watchLater) => watchLater._id === video._id
   );
+  const { removeHistoryVideo } = useHistory();
 
   return (
     <>
       <div className=" bg-black-0  m-auto justify-around flex flex-column pd-4 m-y-8  box-shadow-2">
         <div className="flex flex-column h-100">
           <ul className="flex flex-wrap flex-column items-start ">
+            {history.some((historyVideo) => historyVideo._id === video._id) ? (
+              <li
+                onClick={() => {
+                  removeHistoryVideo(video._id);
+                }}
+                className="style-none flex items-center pd-y-2 cursor"
+              >
+                <MdRemoveCircle className="text-xm"></MdRemoveCircle>
+                <span className="pd-x-3">Remove from history</span>
+              </li>
+            ) : (
+              ""
+            )}
             {isInWatchLater ? (
               <li
                 onClick={() => {

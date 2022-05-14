@@ -51,6 +51,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         like: payload,
       };
+    case ACTION_TYPE.HISTORY:
+      return {
+        ...state,
+        history: payload,
+      };
     default:
       return state;
   }
