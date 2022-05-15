@@ -8,6 +8,7 @@ import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { AddPlaylist, VideoModal } from "../../Pages/index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import { useLike } from "../../Context/Like/Like-context";
+import { useHistory } from "../../Context/History-context/History-context";
 
 const Card = ({ video }) => {
   const { _id, thumbnail, title, profile, profileName } = video;
@@ -19,12 +20,20 @@ const Card = ({ video }) => {
   const { videoState, videoDispatch } = useVideo();
   const { singleVideo, like } = videoState;
   const { likedVideo, removeLikedVideo } = useLike();
+  const { addHistoryVideo } = useHistory();
   return (
     <>
       <div className="card flex cards cursor  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
         <Link to={`/videolist/${_id}`}>
           <div className="card_image flex ">
-            <img src={thumbnail} className="object-content wt-100" alt="" />
+            <img
+              onClick={() => {
+                addHistoryVideo(video);
+              }}
+              src={thumbnail}
+              className="object-content wt-100"
+              alt=""
+            />
           </div>
         </Link>
 
