@@ -21,6 +21,7 @@ const VideoProvider = ({ children }) => {
     dislike: [],
     history: [],
     singleVideo: [],
+    categories: [],
   };
   const [videoState, videoDispatch] = useReducer(videoReducer, initialState);
 

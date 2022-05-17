@@ -10,7 +10,8 @@
     flex-grow: 1;
 }
 .side-position{
-    height: auto;
+    overflow: auto;
+    height: 100vh;
     flex:0 0 300px;
-
+  
 }

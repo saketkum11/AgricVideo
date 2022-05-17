@@ -17,8 +17,8 @@ const Card = ({ video }) => {
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
   const navigate = useNavigate();
-  const { videoState, videoDispatch } = useVideo();
-  const { singleVideo, like } = videoState;
+  const { videoState } = useVideo();
+  const { like } = videoState;
   const { likedVideo, removeLikedVideo } = useLike();
   const { addHistoryVideo } = useHistory();
   return (

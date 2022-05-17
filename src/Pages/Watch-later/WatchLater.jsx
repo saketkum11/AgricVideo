@@ -9,8 +9,8 @@ const WatchLater = () => {
     <>
       <main className="flex">
         <SideNav />
-        <div className="flex flex-column   m-y-5 justify-center card-main">
-          <div>
+        <aside className="flex flex-column h-100  m-y-5 justify-center card-main">
+          <div className="flex justify-center items-start">
             <input
               type="text"
               className=" pd-4  m-y-4 text-s rounded-s search wt-50"
@@ -28,7 +28,7 @@ const WatchLater = () => {
                 );
               })}
           </section>
-        </div>
+        </aside>
       </main>
     </>
   );

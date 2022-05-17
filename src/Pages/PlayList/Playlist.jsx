@@ -11,7 +11,7 @@ const Playlist = () => {
     <>
       <main className="flex  ">
         <SideNav />
-        <div className="flex flex-column   m-y-5 justify-center card-main position-rel">
+        <div className="flex flex-column h-100   m-y-5 justify-center card-main position-rel">
           <div>
             <input
               type="text"

@@ -12,7 +12,7 @@ import { MdPlaylistAdd } from "react-icons/md";
 const SideNav = () => {
   return (
     <>
-      <div className="bg-black-9  flex flex-column   text-color-0 pd-x-2 side-position">
+      <div className="bg-black-9 side-bar flex flex-column  wt-20  text-color-0 pd-x-2 side-position">
         <div className="flex  items-center justify-center  pd-y-8  ">
           <img
             src="./assets/video.jpg"
