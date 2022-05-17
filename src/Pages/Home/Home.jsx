@@ -14,7 +14,6 @@ const Home = () => {
     const getCategories = async () => {
       try {
         const response = await axios.get("/api/categories");
-        console.log("response from caterogies", response);
         videoDispatch({
           type: ACTION_TYPE.CATEGORIES,
           payload: response.data.categories,
