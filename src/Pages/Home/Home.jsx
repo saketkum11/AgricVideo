@@ -1,8 +1,30 @@
-import { Header } from "../index";
+import { Card, Header } from "../index";
 import { FaPlayCircle, FaRegEye } from "react-icons/fa";
 import "../Home/Home.css";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useVideo } from "../../Context/Video-Context/video-context";
+import { ACTION_TYPE } from "../../Reducer/sevice";
 const Home = () => {
+  const { videoState, videoDispatch } = useVideo();
+  const { categories } = videoState;
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios.get("/api/categories");
+        videoDispatch({
+          type: ACTION_TYPE.CATEGORIES,
+          payload: response.data.categories,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getCategories();
+  }, []);
+
   return (
     <>
       <Header></Header>
@@ -37,171 +59,10 @@ const Home = () => {
           <div className="text-m text-semibold flex items-start pd-y-5">
             <span>Recommend Video</span>
           </div>
-          <div className="flex card-gap wrap">
-            <div className="box-shadow-1 wt-30 flex flex-column ">
-              <div className="wt-100 ">
-                <img
-                  src="./assets/farming.jpg"
-                  className="object-content wt-100 h-80 "
-                  alt=""
-                />
-              </div>
-
-              <div className="pd-x-4 flex flex-column">
-                <div className=" flex ">
-                  <span className="text-s flex items-start">
-                    Palm Oil Farming | सरकार उठाएगी खर्च | पाम तेल की खेती |
-                    Palm oil tree | Palm farming subsidy
-                  </span>
-                </div>
-                <div className=" flex items-start   text-semibold">
-                  <div className="flex items-center pd-y-3 pd-x-3">
-                    <img
-                      src="./assets/video.jpg"
-                      className="avatar rounded-full sm"
-                      alt="farming indian"
-                    />
-                    <span className="pd-x-2">Indian Farmer</span>
-                  </div>
-                </div>
-                <div className="flex justify-btw pd-3">
-                  <span>1 day ago</span>
-                  <div className="flex items-center ">
-                    <FaRegEye> </FaRegEye>
-                    <span>16.7k</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-column pd-y-3 justify-btw ">
-                  <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                    Watch Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="box-shadow-1 wt-30 flex flex-column ">
-              <div className="wt-100 ">
-                <img
-                  src="./assets/farming.jpg"
-                  className="object-content wt-100 h-80 "
-                  alt=""
-                />
-              </div>
-
-              <div className="pd-x-4 flex  flex-column">
-                <div className=" flex ">
-                  <span className="text-s flex items-start">
-                    Palm Oil Farming | सरकार उठाएगी खर्च | पाम तेल की खेती |
-                    Palm oil tree | Palm farming subsidy
-                  </span>
-                </div>
-                <div className=" flex items-start   text-semibold">
-                  <div className="flex items-center pd-y-3 pd-x-3">
-                    <img
-                      src="./assets/video.jpg"
-                      className="avatar rounded-full sm"
-                      alt="farming indian"
-                    />
-                    <span className="pd-x-2">Indian Farmer</span>
-                  </div>
-                </div>
-                <div className="flex justify-btw pd-3">
-                  <span>1 day ago</span>
-                  <div className="flex items-center ">
-                    <FaRegEye> </FaRegEye>
-                    <span>16.7k</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-column pd-y-3 justify-btw ">
-                  <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                    Watch Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="box-shadow-1  wt-30 flex flex-column ">
-              <div className="wt-100 ">
-                <img
-                  src="./assets/farming.jpg"
-                  className="object-content wt-100 h-80 "
-                  alt=""
-                />
-              </div>
-
-              <div className="pd-x-4 flex flex-column">
-                <div className=" flex ">
-                  <span className="text-s flex items-start">
-                    Palm Oil Farming | सरकार उठाएगी खर्च | पाम तेल की खेती |
-                    Palm oil tree | Palm farming subsidy
-                  </span>
-                </div>
-                <div className=" flex items-start   text-semibold">
-                  <div className="flex items-center pd-y-3 pd-x-3">
-                    <img
-                      src="./assets/video.jpg"
-                      className="avatar rounded-full sm"
-                      alt="farming indian"
-                    />
-                    <span className="pd-x-2">Indian Farmer</span>
-                  </div>
-                </div>
-                <div className="flex justify-btw pd-3">
-                  <span>1 day ago</span>
-                  <div className="flex items-center ">
-                    <FaRegEye> </FaRegEye>
-                    <span>16.7k</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-column pd-y-3 justify-btw ">
-                  <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                    Watch Now
-                  </button>
-                </div>
-              </div>
-            </div>{" "}
-            <div className="box-shadow-1 flex wt-30 flex-column ">
-              <div className="wt-100 ">
-                <img
-                  src="./assets/farming.jpg"
-                  className="object-content wt-100  "
-                  alt=""
-                />
-              </div>
-
-              <div className="pd-x-4 flex flex-column">
-                <div className=" flex ">
-                  <span className="text-s flex items-start">
-                    Palm Oil Farming | सरकार उठाएगी खर्च | पाम तेल की खेती |
-                    Palm oil tree | Palm farming subsidy
-                  </span>
-                </div>
-                <div className=" flex items-start   text-semibold">
-                  <div className="flex items-center pd-y-3 pd-x-3">
-                    <img
-                      src="./assets/video.jpg"
-                      className="avatar rounded-full sm"
-                      alt="farming indian"
-                    />
-                    <span className="pd-x-2">Indian Farmer</span>
-                  </div>
-                </div>
-                <div className="flex justify-btw pd-3">
-                  <span>1 day ago</span>
-                  <div className="flex items-center ">
-                    <FaRegEye> </FaRegEye>
-                    <span>16.7k</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-column pd-y-3 justify-btw ">
-                  <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                    Watch Now
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-wrap  justify-center  cards">
+            {categories.map((categoriesVideo) => {
+              return <Card key={categoriesVideo._id} video={categoriesVideo} />;
+            })}
           </div>
         </section>
         <footer className="">

@@ -3,8 +3,10 @@
 }
 @media screen and (max-width: 600px)  {
     .video-flex{
-        display: flex;
-        flex-direction: column;
+        display: block;
+    }
+    .side-bar{
+        width: 100%;
     }
     
 }

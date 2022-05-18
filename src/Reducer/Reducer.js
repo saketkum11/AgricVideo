@@ -56,6 +56,11 @@ const videoReducer = (state, { type, payload }) => {
         ...state,
         history: payload,
       };
+    case ACTION_TYPE.CATEGORIES:
+      return {
+        ...state,
+        categories: payload,
+      };
     default:
       return state;
   }

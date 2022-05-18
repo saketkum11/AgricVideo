@@ -3,7 +3,7 @@ import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
   const { videoState } = useVideo();
-  const { video, playlist } = videoState;
+  const { video } = videoState;
 
   return (
     <>

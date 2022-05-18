@@ -15,14 +15,6 @@ const Header = () => {
 
         <div className="flex wt-80 items-center m-auto pd-y-5 text-color-0 ">
           <div className="pd-x-4 cursor flex">
-            <button
-              onClick={() => {
-                setSideNavFlag((flag) => !flag);
-              }}
-              className="rounded-s border-none cursor  outline-none text-color-9 pd-x-5 pd-y-2 bg-transparent "
-            >
-              <FaBars></FaBars>
-            </button>
             <NavLink
               to="/"
               className="text-dec cursor text-color-9 text-lg pd-x-3"
