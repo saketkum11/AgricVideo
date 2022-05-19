@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
 
   const loginHandler = async ({ email, password }) => {
     console.log("data");
-    if (isAuth) {
+   
       try {
         const response = await axios.post("/api/auth/login", {
           email,
@@ -45,8 +45,6 @@ const AuthProvider = ({ children }) => {
       } catch (error) {
         console.error(error);
       }
-    } else {
-      navigate("/signup");
     }
   };
 
