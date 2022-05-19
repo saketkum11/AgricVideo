@@ -29,22 +29,21 @@ const AuthProvider = ({ children }) => {
 
   const loginHandler = async ({ email, password }) => {
     console.log("data");
-   
-      try {
-        const response = await axios.post("/api/auth/login", {
-          email,
-          password,
-        });
 
-        // saving the encodedToken in the localStorage
-        localStorage.setItem("token", response.data.encodedToken);
-        setCredentailData({
-          isAuth: true,
-          tokenData: response.data.encodedToken,
-        });
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email,
+        password,
+      });
+
+      // saving the encodedToken in the localStorage
+      localStorage.setItem("token", response.data.encodedToken);
+      setCredentailData({
+        isAuth: true,
+        tokenData: response.data.encodedToken,
+      });
+    } catch (error) {
+      console.error(error);
     }
   };
 
