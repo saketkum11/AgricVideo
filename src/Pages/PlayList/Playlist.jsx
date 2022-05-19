@@ -11,7 +11,7 @@ const Playlist = () => {
     <>
       <main className="flex  ">
         <SideNav />
-        <div className="flex flex-column h-100   m-y-5 justify-center card-main position-rel">
+        <aside className="flex flex-column h-100   m-y-5 justify-center card-main position-rel">
           <div>
             <input
               type="text"
@@ -19,7 +19,6 @@ const Playlist = () => {
               placeholder="Search"
             />
           </div>
-          <div>{}</div>
 
           <section className="flex flex-wrap  justify-center  cards">
             {playlists &&
@@ -31,7 +30,7 @@ const Playlist = () => {
                 );
               })}
           </section>
-        </div>
+        </aside>
       </main>
     </>
   );

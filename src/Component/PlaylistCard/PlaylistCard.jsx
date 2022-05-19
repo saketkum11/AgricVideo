@@ -16,8 +16,8 @@ const PlaylistCard = ({ playlists }) => {
       >
         <div className="card wt-100 flex cards  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec ">
           <div className="flex  flex-column justify-even pd-5">
-            <div className=" h-100 flex flex-wrap items-start pd-y-2">
-              <span>{playlists.title}</span>
+            <div className=" h-100 wt-20 flex flex-wrap flex-column items-start pd-y-2">
+              <span className="text-bold m-y-4">{playlists.title}</span>
 
               <button
                 onClick={() => {

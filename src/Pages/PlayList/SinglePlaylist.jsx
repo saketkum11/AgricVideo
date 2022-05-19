@@ -11,7 +11,9 @@ const SinglePlaylist = () => {
     <>
       <main className="flex  ">
         <SideNav />
-        <div className="flex flex-column   m-y-5 justify-center card-main position-rel">
+
+        <aside className="flex flex-column h-100  m-y-5 justify-center card-main position-rel">
+          <div className="text-bold text-m ">Single Playlist</div>
           <div>
             <input
               type="text"
@@ -19,7 +21,6 @@ const SinglePlaylist = () => {
               placeholder="Search"
             />
           </div>
-          <div></div>
 
           <section className="flex flex-wrap  justify-center  cards">
             {playlistVideo &&
@@ -31,7 +32,7 @@ const SinglePlaylist = () => {
                 );
               })}
           </section>
-        </div>
+        </aside>
       </main>
     </>
   );
