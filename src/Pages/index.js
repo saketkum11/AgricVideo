@@ -16,5 +16,7 @@ export { SinglePlaylist } from "../Pages/PlayList/SinglePlaylist";
 export { SinglePlaylistCard } from "../Component/SinglePlaylistCard/SinglePlaylistCard";
 export { SingleVideo } from "../Pages/VideoPlayList/SingleVideo";
 export { Like } from "../Pages/Like/Like";
+export { NotFound } from "../Pages/Auth/NotFound";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
+export { RequireAuth } from "../Context/RequireAuth/RequireAuth";

@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginHandler = async ({ email, password }) => {
+    console.log("data");
     if (isAuth) {
       try {
         const response = await axios.post("/api/auth/login", {
