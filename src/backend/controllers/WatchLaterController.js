@@ -49,7 +49,6 @@ export const addItemToWatchLaterVideos = function (schema, request) {
   if (user) {
     const { video } = JSON.parse(request.requestBody);
     if (user.watchlater.some((item) => item.id === video.id)) {
-      console.log("video list");
       return new Response(
         409,
         {},
