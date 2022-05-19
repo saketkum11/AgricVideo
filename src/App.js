@@ -1,5 +1,5 @@
 import "./App.css";
-import { Header, MyRoutes } from "./Pages";
+import { MyRoutes } from "./Pages";
 function App() {
   return (
     <div className="App">
