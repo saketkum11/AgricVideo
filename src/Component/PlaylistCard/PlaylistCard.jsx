@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const PlaylistCard = ({ playlists }) => {
+  const { playlistId } = useParams();
   const { deletePlaylist, playlist, getPlaylistData } = usePlay();
   const navigate = useNavigate();
+  console.log("Pramas", playlistId);
   return (
     <>
       <Link

@@ -49,7 +49,6 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             <button
               onClick={() => {
                 setPlaylistFlag((flag) => !flag);
-                setVideoPlaylist((flag) => !flag);
               }}
               class="bg-black-9 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 pd-y-2"
             >
