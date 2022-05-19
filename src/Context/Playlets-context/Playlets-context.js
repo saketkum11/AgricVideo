@@ -85,7 +85,6 @@ const PlayProvider = ({ children }) => {
   };
 
   const addedPlaylist = async (playlist, video) => {
-    console.log("value", playlist, video);
     try {
       const response = await axios.post(
         `/api/user/playlists/${playlist._id}`,

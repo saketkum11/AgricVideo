@@ -11,9 +11,9 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
   return (
     <>
       {
-        <div class="bg-black-0 wt-50 m-auto justify-around flex flex-column pd-4  box-shadow-2 wt-100">
-          <div class="flex flex-column m-y-6">
-            <span class="text-xm">create playlist</span>
+        <div className="bg-black-0 wt-50 m-auto justify-around flex flex-column pd-4  box-shadow-2 wt-100">
+          <div className="flex flex-column m-y-6">
+            <span className="text-xm">create playlist</span>
           </div>
           <ul>
             {playlists.map((playlists) => {
@@ -44,7 +44,7 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
               }}
             />
           </div>
-          <div class="flex justify-end items-center m-t-2 ">
+          <div className="flex justify-end items-center m-t-2 ">
             (
             <button
               onClick={() => {
@@ -59,7 +59,7 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
               onClick={() => {
                 createPlaylist(createdPlayList);
               }}
-              class="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
+              className="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
             >
               Add
             </button>

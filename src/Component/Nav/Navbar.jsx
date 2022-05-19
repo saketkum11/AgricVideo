@@ -7,7 +7,7 @@ const Navigation = () => {
             Awsome Font
           </a>
         </div>
-        <div className="">
+        <div>
           <input
             type="text"
             className=" pd-4 m-y-5 text-s rounded-m "
@@ -15,7 +15,7 @@ const Navigation = () => {
           />
         </div>
         <div className="m-lf">
-          <ul class="flex style-none justify-around pd-x-4 ">
+          <ul className="flex style-none justify-around pd-x-4 ">
             <li>
               <a href="" className="text-dec  text-color-0 pd-4 ">
                 Home
