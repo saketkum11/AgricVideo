@@ -9,7 +9,8 @@ const VideoList = () => {
     <>
       <main className="flex video-flex ">
         <SideNav />
-        <aside className="flex flex-column   m-y-5 justify-center card-main">
+        <aside className="flex flex-column h-100  m-y-5 justify-center  card-main">
+          <div className="text-bold text-m ">Video List</div>
           <div>
             <input
               type="text"

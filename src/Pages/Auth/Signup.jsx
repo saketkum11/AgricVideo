@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 const Signup = () => {
   const navigate = useNavigate();
@@ -113,9 +113,9 @@ const Signup = () => {
                 SignUp
               </button>
 
-              <NavLink to="/login" className="">
+              <Link to="/login" className="">
                 Already Have Account?
-              </NavLink>
+              </Link>
             </div>
           </form>
         </div>

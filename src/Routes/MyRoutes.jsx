@@ -11,12 +11,14 @@ import {
   SinglePlaylist,
   SingleVideo,
   Like,
+  NotFound,
+  RequireAuth,
 } from "../Pages";
 
 import Mockman from "mockman-js";
-import { RequireAuth } from "../Context/RequireAuth/RequireAuth";
 
 const MyRoutes = () => {
+  1;
   return (
     <>
       <Routes>
@@ -67,6 +69,7 @@ const MyRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );

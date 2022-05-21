@@ -45,11 +45,10 @@ export const getWatchLaterVideosHandler = function (schema, request) {
 
 export const addItemToWatchLaterVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
-  console.log("inside add");
+
   if (user) {
     const { video } = JSON.parse(request.requestBody);
     if (user.watchlater.some((item) => item.id === video.id)) {
-      console.log("video list");
       return new Response(
         409,
         {},
@@ -58,7 +57,7 @@ export const addItemToWatchLaterVideos = function (schema, request) {
         }
       );
     }
-    console.log("video edit");
+
     user.watchlater.push(video);
 
     return new Response(201, {}, { watchlater: user.watchlater });

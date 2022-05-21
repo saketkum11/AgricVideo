@@ -1,33 +1,35 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 
 const PlaylistCard = ({ playlists }) => {
+  const { playlistId } = useParams();
   const { deletePlaylist, playlist, getPlaylistData } = usePlay();
   const navigate = useNavigate();
+  console.log("Pramas", playlistId);
   return (
     <>
-      <Link
-        onClick={() => {
-          getPlaylistData(playlists);
-        }}
-        to={`/playlist/${playlists._id}`}
-      >
-        <div className="card wt-100 flex cards  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec ">
-          <div className="flex  flex-column justify-even pd-5">
-            <div className=" h-100 flex flex-wrap items-start pd-y-2">
-              <span>{playlists.title}</span>
-
-              <button
-                onClick={() => {
-                  deletePlaylist(playlists);
-                }}
-              >
-                remove
-              </button>
-            </div>
-          </div>{" "}
-        </div>
-      </Link>
+      <div className="card wt-100 flex cards rounded-m  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec pd-3 ">
+        <div className=" h-100  flex flex-wrap flex-column items-start pd-3">
+          <span className="text-bold m-y-2">{playlists.title}</span>
+          <Link
+            className="text-dec text-color-9 cursor m-y-5"
+            onClick={() => {
+              getPlaylistData(playlists);
+            }}
+            to={`/playlist/${playlists._id}`}
+          >
+            Open playlist
+          </Link>
+          <button
+            className="bg-black-9 rounded-s border-none cursor outline-none text-color-0 pd-x-3 pd-y-2"
+            onClick={() => {
+              deletePlaylist(playlists);
+            }}
+          >
+            remove
+          </button>
+        </div>{" "}
+      </div>
     </>
   );
 };

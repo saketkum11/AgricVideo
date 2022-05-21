@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Login = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const { loginHandler } = useAuth();
   const [values, setValues] = useState({
     email: "",
@@ -28,7 +26,6 @@ const Login = () => {
                 ...credentialData,
                 isAuth: !credentialData.isAuth,
               });
-              navigate("/");
             }}
           >
             <div className="flex flex-column ">
@@ -80,10 +77,22 @@ const Login = () => {
               >
                 Login
               </button>
-
-              <NavLink to="/signup" className="">
+              <button
+                type="submit"
+                onClick={() => {
+                  setValues({
+                    ...values,
+                    email: "test@gmail.com",
+                    password: "test123",
+                  });
+                }}
+                className="bg-black-9 wt-100  rounded-xs border-none outline-none text-s cursor text-color-0 pd-3 m-y-3 text-light"
+              >
+                Login as Guest
+              </button>
+              <Link to="/signup" className="">
                 Create your account
-              </NavLink>
+              </Link>
             </div>
           </form>
         </div>

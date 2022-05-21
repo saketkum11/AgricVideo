@@ -13,12 +13,7 @@ const SideNav = () => {
   return (
     <>
       <div className="bg-black-9 side-bar flex flex-column  wt-20  text-color-0 pd-x-2 side-position">
-        <div className="flex  items-center justify-center  pd-y-8  ">
-          <img
-            src="./assets/video.jpg"
-            className="object-content wt-20  rounded-full"
-            alt=""
-          />
+        <div className="flex  items-center justify-start  pd-y-8 pd-x-7  ">
           <span
             className="text-semibold  text-color-0 pd-x-3 text-lg
           "
