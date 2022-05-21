@@ -22,14 +22,13 @@ const AuthProvider = ({ children }) => {
       });
       // saving the encodedToken in the localStorage
       localStorage.setItem("token", response.data.encodedToken);
+      navigate("/login");
     } catch (error) {
       console.error(error);
     }
   };
 
   const loginHandler = async ({ email, password }) => {
-    console.log("data");
-
     try {
       const response = await axios.post("/api/auth/login", {
         email,
@@ -42,9 +41,18 @@ const AuthProvider = ({ children }) => {
         isAuth: true,
         tokenData: response.data.encodedToken,
       });
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
+  };
+  const logout = () => {
+    setCredentailData({
+      ...credentialData,
+      tokenData: localStorage.clear(),
+      isAuth: false,
+    });
+    navigate("/");
   };
 
   return (
@@ -56,6 +64,7 @@ const AuthProvider = ({ children }) => {
         setCredentailData,
         isAuth,
         tokenData,
+        logout,
       }}
     >
       {children}

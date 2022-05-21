@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { SideNav } from "../SideNav/SideNav";
 import { FaBars } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Header = () => {
   const [sideNavFlag, setSideNavFlag] = useState(false);
-  const { credentialData, setCredentailData } = useAuth();
+  const { credentialData, setCredentailData, logout } = useAuth();
   const { tokenData, isAuth } = credentialData;
   return (
     <>
@@ -29,23 +29,19 @@ const Header = () => {
                 {isAuth ? (
                   <button
                     onClick={() => {
-                      setCredentailData({
-                        ...credentialData,
-                        isAuth: !credentialData.isAuth,
-                      });
+                      logout();
                     }}
                     className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s"
                   >
-                    <NavLink to="/" className="text-dec text-color-0">
-                      logout
-                    </NavLink>
+                    logout
                   </button>
                 ) : (
-                  <button className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s">
-                    <NavLink to="/login" className="text-dec text-color-0">
-                      login
-                    </NavLink>
-                  </button>
+                  <Link
+                    to="/login"
+                    className="bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-3 text-s"
+                  >
+                    login
+                  </Link>
                 )}
               </li>
             </ul>
