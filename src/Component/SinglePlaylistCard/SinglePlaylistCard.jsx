@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
+import toast from "react-hot-toast";
 const SinglePlaylistCard = ({ video }) => {
   const { _id, thumbnail, title, profile, profileName } = video;
   const { deletedPlaylist } = usePlay();
@@ -44,7 +45,10 @@ const SinglePlaylistCard = ({ video }) => {
 
             <div className="flex items-center justify-btw">
               <button
-                onClick={() => deletedPlaylist(playlist, video)}
+                onClick={() => {
+                  deletedPlaylist(playlist, video);
+                  toast.success("Successfully removed video");
+                }}
                 className="cursor  text-color-9  border-none  outline-none text-color-0  card-icon text-s rounded-full"
               >
                 <MdDelete />

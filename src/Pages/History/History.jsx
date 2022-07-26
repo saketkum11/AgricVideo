@@ -12,13 +12,8 @@ const History = () => {
       <main className="flex video-flex ">
         <SideNav />
         <aside className="flex flex-column h-100   m-y-5 justify-center card-main">
-          <div className="text-bold text-m ">History</div>
+          <div className="text-bold text-m m-y-7">History</div>
           <div>
-            <input
-              type="text"
-              className=" pd-4  m-y-4 text-s rounded-s search wt-50"
-              placeholder="Search"
-            />
             <button
               onClick={() => {
                 removeAllHistoryVideo();
