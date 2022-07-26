@@ -91,7 +91,7 @@ const Card = ({ video }) => {
               {like.find((video) => video._id === _id) ? (
                 <button
                   onClick={handleRemoveLikedVideo}
-                  className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
+                  className="bg-red-6 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
                 >
                   <i className="fa-solid fa-thumbs-down"></i>
                 </button>
