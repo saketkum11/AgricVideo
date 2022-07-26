@@ -9,10 +9,12 @@ import { AddPlaylist, VideoModal } from "../../Pages/index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import { useLike } from "../../Context/Like/Like-context";
 import { useHistory } from "../../Context/History-context/History-context";
+import toast from "react-hot-toast";
+import { useAuth } from "../../Context/Auth-context/Auth-context";
 
 const Card = ({ video }) => {
   const { _id, thumbnail, title, profile, profileName } = video;
-  const params = useParams();
+  const { tokenData } = useAuth();
   const { playlist } = usePlay();
   const [showToggle, setShowToggel] = useState(false);
   const [playlistFlag, setPlaylistFlag] = useState(false);
@@ -21,6 +23,25 @@ const Card = ({ video }) => {
   const { like } = videoState;
   const { likedVideo, removeLikedVideo } = useLike();
   const { addHistoryVideo } = useHistory();
+
+  const handleLikedVideo = () => {
+    if (tokenData) {
+      likedVideo(video);
+      toast.success("Liked video");
+    } else if (!tokenData) {
+      navigate("/login");
+      toast.error("You must login");
+    }
+  };
+  const handleRemoveLikedVideo = () => {
+    if (tokenData) {
+      removeLikedVideo(_id);
+      toast.error("removed liked video");
+    } else if (!tokenData) {
+      navigate("/login");
+      toast.error("You must login");
+    }
+  };
   return (
     <>
       <div className="card flex cards cursor  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
@@ -59,6 +80,7 @@ const Card = ({ video }) => {
             <button
               onClick={() => {
                 navigate(`/videolist/${_id}`);
+                addHistoryVideo(video);
               }}
               className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
             >
@@ -68,14 +90,14 @@ const Card = ({ video }) => {
             <div className="flex items-center justify-btw">
               {like.find((video) => video._id === _id) ? (
                 <button
-                  onClick={() => removeLikedVideo(_id)}
-                  className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
+                  onClick={handleRemoveLikedVideo}
+                  className="bg-red-6 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
                 >
                   <i className="fa-solid fa-thumbs-down"></i>
                 </button>
               ) : (
                 <button
-                  onClick={() => likedVideo(video)}
+                  onClick={handleLikedVideo}
                   className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center   "
                 >
                   <i className="fa-solid fa-thumbs-up"></i>

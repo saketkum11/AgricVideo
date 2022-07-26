@@ -1,11 +1,11 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
+import toast from "react-hot-toast";
 
 const PlaylistCard = ({ playlists }) => {
   const { playlistId } = useParams();
   const { deletePlaylist, playlist, getPlaylistData } = usePlay();
   const navigate = useNavigate();
-  console.log("Pramas", playlistId);
   return (
     <>
       <div className="card wt-100 flex cards rounded-m  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec pd-3 ">
@@ -24,9 +24,10 @@ const PlaylistCard = ({ playlists }) => {
             className="bg-black-9 rounded-s border-none cursor outline-none text-color-0 pd-x-3 pd-y-2"
             onClick={() => {
               deletePlaylist(playlists);
+              toast.error("Deleted playlist");
             }}
           >
-            remove
+            Delete playlist
           </button>
         </div>{" "}
       </div>

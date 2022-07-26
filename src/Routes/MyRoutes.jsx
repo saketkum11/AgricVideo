@@ -18,7 +18,6 @@ import {
 import Mockman from "mockman-js";
 
 const MyRoutes = () => {
-  1;
   return (
     <>
       <Routes>

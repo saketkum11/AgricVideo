@@ -12,14 +12,7 @@ const Playlist = () => {
       <main className="flex  ">
         <SideNav />
         <aside className="flex flex-column h-100   m-y-5 justify-center card-main position-rel">
-          <div className="text-bold text-m ">Playlist</div>
-          <div>
-            <input
-              type="text"
-              className=" pd-4  m-y-4 text-s rounded-s search wt-50"
-              placeholder="Search"
-            />
-          </div>
+          <div className="text-bold text-m m-y-7">Playlist</div>
 
           <section className="flex flex-wrap  justify-center  cards">
             {playlists &&

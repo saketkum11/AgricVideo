@@ -1,3 +1,4 @@
 .list-cover:hover{
-    background-color: red;
+    background-color: green;
+    color: white;
 }
