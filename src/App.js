@@ -5,7 +5,7 @@ import { MyRoutes } from "./Pages";
 function App() {
   return (
     <div className="App">
-      <MyRoutes></MyRoutes>
+      <MyRoutes />
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
