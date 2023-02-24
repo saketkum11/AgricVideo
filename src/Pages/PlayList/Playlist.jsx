@@ -10,7 +10,6 @@ const Playlist = () => {
   return (
     <>
       <main className="flex  ">
-        <SideNav />
         <aside className="flex flex-column h-100   m-y-5 justify-center card-main position-rel">
           <div className="text-bold text-m m-y-7">Playlist</div>
 

@@ -27,28 +27,26 @@ const Home = () => {
 
   return (
     <>
-      <Header></Header>
-
-      <main className="wt-100 m-auto ">
-        <section className=" bg-black-8  wt-100   flex ">
-          <div className="  text-color-0 flex wt-80 m-auto justify-center pd-11">
-            <div className="position-rel">
+      <Header />
+      <main className=" m-auto ">
+        <section className="    m-y-8 pd-9 ">
+          <div className="  text-color-0 flex m-auto justify-center flex-wrap wt-100 gap-2 m-y-6">
+            <div className="width-scaled5-6">
               <img
-                src="./assets/farming.jpg"
-                className="object-content wt-80 rounded-m"
+                src="./assets/tech.jpg"
+                className="object-content rounded-s"
                 alt=""
               />
-              <FaPlayCircle className="fa-3x  fa-5x position-ab text-color-5 icon-position"></FaPlayCircle>
             </div>
 
-            <div className="flex flex-column items-center justify-center">
-              <span className="text-color-0 text-xm pd-y-3">
+            <div className="width-scaled5-8 flex flex-column items-center justify-center">
+              <span className="text-color-grey-9 text-xm pd-y-3">
                 The ultimate goal of farming is not the growing of crops, but
                 the cultivation and perfection of human beings.
               </span>
 
-              <button className="cursor bg-black-9 rounded-xs border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s ">
-                <NavLink to="/videolist" className="text-dec text-color-0">
+              <button className="text-dec bg-red-5 rounded-s text-xm  pd-y-3 pd-x-5 ">
+                <NavLink to="/videolist" className="text-dec text-color-grey-0">
                   Explore Video
                 </NavLink>
               </button>

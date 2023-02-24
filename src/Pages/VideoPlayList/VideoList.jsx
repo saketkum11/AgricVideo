@@ -8,7 +8,6 @@ const VideoList = () => {
   return (
     <>
       <main className="flex video-flex ">
-        <SideNav />
         <aside className="flex flex-column h-100  m-y-5 justify-center  card-main">
           <div className="text-bold text-m m-y-7">Video List</div>
 

@@ -79,29 +79,6 @@ const SideNav = () => {
               <span className="pd-x-6">Liked</span>
             </NavLink>
           </li>
-          {tokenData ? (
-            <li className="bg-black-9 ">
-              <button
-                onClick={() => {
-                  logout();
-                }}
-                className="text-dec outline-none border-none wt-100 bg-black-9 text-color-0 sidenav-link pd-4   items-center flex "
-              >
-                <FiLogOut className="text-xm" />
-                <span className="pd-x-6">Logout</span>
-              </button>
-            </li>
-          ) : (
-            <li className="wt-100  ">
-              <NavLink
-                to="/login"
-                className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
-              >
-                <FiLogIn className="text-xm" />
-                <span className="pd-x-6">Login</span>
-              </NavLink>
-            </li>
-          )}
         </ul>
       </div>
     </>
