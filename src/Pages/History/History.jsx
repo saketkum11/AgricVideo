@@ -1,34 +1,39 @@
 import { Card } from "../../Component/Card/Card";
 import { useHistory } from "../../Context/History-context/History-context";
 import { useVideo } from "../../Context/Video-Context/video-context";
-import { SideNav } from "../index";
-
+import { useEffect } from "react";
 const History = () => {
   const { videoState } = useVideo();
   const { history } = videoState;
-  const { removeAllHistoryVideo } = useHistory();
+  const { removeAllHistoryVideo, getHistory } = useHistory();
+  useEffect(() => {
+    getHistory();
+    document.title = "History";
+  }, []);
   return (
     <>
-      <main className="flex video-flex ">
-        <aside className="flex flex-column h-100   m-y-5 justify-center card-main">
-          <div className="text-bold text-m m-y-7">History</div>
-          <div>
-            <button
-              onClick={() => {
-                removeAllHistoryVideo();
-              }}
-              className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
-            >
-              Remove all history
-            </button>
-          </div>
+      <main className="flex justify-center items-start wt-100 position-sticky top-0">
+        <aside>
+          <div className="flex flex-column">
+            <div className="text-bold text-m m-y-7">History</div>
+            <div>
+              <button
+                onClick={() => {
+                  removeAllHistoryVideo();
+                }}
+                className="cursor bg-red-5 text-color-grey-0 pd-x-4 pd-y-3 text-s "
+              >
+                Remove all history
+              </button>
+            </div>
 
-          <section className="flex flex-wrap  justify-center  cards">
-            {history &&
-              history.map((video) => {
-                return <Card video={video} key={video._id} />;
-              })}
-          </section>
+            <section className="flex flex-wrap  justify-center m-y-8">
+              {history &&
+                [...history].map((video) => {
+                  return <Card video={video} key={video._id} />;
+                })}
+            </section>
+          </div>
         </aside>
       </main>
     </>

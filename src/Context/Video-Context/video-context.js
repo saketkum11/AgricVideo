@@ -25,25 +25,23 @@ const VideoProvider = ({ children }) => {
   };
   const [videoState, videoDispatch] = useReducer(videoReducer, initialState);
 
-  useEffect(() => {
-    const getVideoData = async () => {
-      try {
-        const response = await axios.get("/api/videos");
-        if (response.status === 200) {
-          videoDispatch({
-            type: ACTION_TYPE.DEFAULT_VIDEO,
-            payload: response.data.videos,
-          });
-        }
-      } catch (error) {
-        console.error(error);
+  const getVideoData = async () => {
+    try {
+      const response = await axios.get("/api/videos");
+      document.title = "VideoList";
+      if (response.status === 200) {
+        videoDispatch({
+          type: ACTION_TYPE.DEFAULT_VIDEO,
+          payload: response.data.videos,
+        });
       }
-    };
-    getVideoData();
-  }, []);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <VideoContext.Provider value={{ videoState, videoDispatch }}>
+    <VideoContext.Provider value={{ videoState, videoDispatch, getVideoData }}>
       {children}
     </VideoContext.Provider>
   );

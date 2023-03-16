@@ -10,22 +10,20 @@ const useHistory = () => useContext(HistoryContext);
 const HistoryProvider = ({ children }) => {
   const { tokenData } = useAuth();
   const { videoState, videoDispatch } = useVideo();
-  useEffect(() => {
-    const getHistory = async () => {
-      try {
-        const response = await axios.get("/api/user/history", {
-          headers: { authorization: tokenData },
-        });
-        videoDispatch({
-          type: ACTION_TYPE.HISTORY,
-          payload: response.data.history,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getHistory();
-  }, []);
+
+  const getHistory = async () => {
+    try {
+      const response = await axios.get("/api/user/history", {
+        headers: { authorization: tokenData },
+      });
+      videoDispatch({
+        type: ACTION_TYPE.HISTORY,
+        payload: response.data.history,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const addHistoryVideo = async (video) => {
     try {
@@ -78,7 +76,12 @@ const HistoryProvider = ({ children }) => {
   };
   return (
     <HistoryContext.Provider
-      value={{ addHistoryVideo, removeHistoryVideo, removeAllHistoryVideo }}
+      value={{
+        addHistoryVideo,
+        removeHistoryVideo,
+        removeAllHistoryVideo,
+        getHistory,
+      }}
     >
       {children}
     </HistoryContext.Provider>

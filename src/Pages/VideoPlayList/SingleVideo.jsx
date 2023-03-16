@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SideNav } from "../index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import axios from "axios";
 

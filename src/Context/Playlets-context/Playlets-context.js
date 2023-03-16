@@ -13,22 +13,20 @@ const PlayProvider = ({ children }) => {
   const navigate = useNavigate();
   const { tokenData } = useAuth();
 
-  useEffect(() => {
-    const getPlaylist = async () => {
-      try {
-        const response = await axios.get("/api/user/playlists", {
-          headers: { authorization: tokenData },
-        });
-        videoDispatch({
-          type: ACTION_TYPE.PLAYLIST,
-          payload: response.data.playlists,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getPlaylist();
-  }, []);
+  const getPlaylist = async () => {
+    try {
+      const response = await axios.get("/api/user/playlists", {
+        headers: { authorization: tokenData },
+      });
+      document.title = "PlayList";
+      videoDispatch({
+        type: ACTION_TYPE.PLAYLIST,
+        payload: response.data.playlists,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const createPlaylist = async (playlist) => {
     try {
@@ -132,6 +130,7 @@ const PlayProvider = ({ children }) => {
         deletePlaylist,
         getPlaylistData,
         deletedPlaylist,
+        getPlaylist,
       }}
     >
       {children}

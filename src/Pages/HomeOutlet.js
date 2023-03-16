@@ -4,10 +4,12 @@ import { Header } from "../Component/Header/Header";
 const HomeOutlet = () => {
   return (
     <>
-      <div>
+      <div className="flex flex-column">
         <Header />
-        <SideNav />
-        <Outlet />
+        <div className="flex  ">
+          <SideNav />
+          <Outlet />
+        </div>
       </div>
     </>
   );

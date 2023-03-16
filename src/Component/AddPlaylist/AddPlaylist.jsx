@@ -34,7 +34,7 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             <span className="text-xm">create playlist</span>
           </div>
           <ul>
-            {playlists.map((playlists) => {
+            {[...playlists].map((playlists) => {
               return (
                 <>
                   <li
@@ -51,35 +51,38 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             })}
           </ul>
           <div>
-            <input
-              type="text"
-              className=" pd-y-4 pd-x-4 text-s rounded-s "
-              value={createdPlayList.title}
-              onChange={(e) => {
-                setCreatedPlayList({
-                  ...createdPlayList,
-                  title: e.target.value,
-                });
-              }}
-            />
-          </div>
-          <div className="flex justify-end items-center m-t-2 ">
-            (
-            <button
-              onClick={() => {
-                setPlaylistFlag((flag) => !flag);
-              }}
-              class="bg-black-9 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 pd-y-2"
-            >
-              close
-            </button>
-            <button
-              onClick={handleAddPlaylist}
-              className="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
-            >
-              Add
-            </button>
-            )
+            <form onClick={handleAddPlaylist}>
+              <input
+                type="text"
+                required
+                className="  pd-4 border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9 "
+                value={createdPlayList.title}
+                onChange={(e) => {
+                  setCreatedPlayList({
+                    ...createdPlayList,
+                    title: e.target.value,
+                  });
+                }}
+              />
+              <div className="flex justify-end items-center m-t-2 ">
+                (
+                <button
+                  onClick={() => {
+                    setPlaylistFlag((flag) => !flag);
+                  }}
+                  className=" bg-red-5 cursor rounded-s border-none  outline-none text-color-grey-0 pd-x-3 pd-y-2"
+                >
+                  close
+                </button>
+                <button
+                  type="submit"
+                  className="bg-green-5  cursor rounded-s border-none  outline-none text-color-grey-0 pd-x-3 m-x-2 pd-y-2"
+                >
+                  Add
+                </button>
+                )
+              </div>
+            </form>
           </div>
         </div>
       }

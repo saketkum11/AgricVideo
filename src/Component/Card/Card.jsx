@@ -44,91 +44,85 @@ const Card = ({ video }) => {
   };
   return (
     <>
-      <div className="card flex cards cursor  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
-        <Link to={`/videolist/${_id}`}>
-          <div className="card_image flex ">
-            <img
-              onClick={() => {
-                addHistoryVideo(video);
-              }}
-              src={thumbnail}
-              className="object-content wt-100"
-              alt=""
-            />
-          </div>
-        </Link>
+      <div className="width-scaled4-5 box-shadow-2 rounded-m">
+        <div className="position-rel">
+          <div className=" flex flex-column">
+            <div>
+              <Link to={`/videolist/${_id}`}>
+                <img
+                  onClick={() => {
+                    addHistoryVideo(video);
+                  }}
+                  src={thumbnail}
+                  className="object-content-center rounded-top-3 wt-100"
+                  alt={profileName}
+                />
+              </Link>
+            </div>
 
-        <div className="flex h-100 flex-column justify-even pd-5">
-          <div className="  flex flex-wrap items-start pd-y-2">
-            <span>{title}</span>
-          </div>
-          <div className="flex items-center justify-start pd-y-2">
-            <img
-              src={profile}
-              className="object-content card-icon rounded-full"
-              alt=""
-            />
-            <span
-              className="text-semibold  text-color-9 pd-x-3 
-          "
-            >
-              {profileName}
-            </span>
-          </div>
+            <div className="flex flex-column pd-5 gap-2">
+              <span className="text-start text-s">{title}</span>
+              <div className="flex items-center gap-1">
+                <img src={profile} className="width-2 rounded-full" alt="" />
+                <span className="">{profileName}</span>
+              </div>
+            </div>
 
-          <div className=" flex flex-wrap justify-btw">
-            <button
-              onClick={() => {
-                navigate(`/videolist/${_id}`);
-                addHistoryVideo(video);
-              }}
-              className="cursor bg-black-9  border-none  outline-none text-color-0 pd-x-4 pd-y-3 text-s "
-            >
-              Watch now
-            </button>
-
-            <div className="flex items-center justify-btw">
-              {like.find((video) => video._id === _id) ? (
-                <button
-                  onClick={handleRemoveLikedVideo}
-                  className="bg-red-6 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center"
-                >
-                  <i className="fa-solid fa-thumbs-down"></i>
-                </button>
-              ) : (
-                <button
-                  onClick={handleLikedVideo}
-                  className="bg-black-2 outline-none cursor border-none pd-x-3 pd-y-2 m-x-2 flex items-center   "
-                >
-                  <i className="fa-solid fa-thumbs-up"></i>
-                </button>
-              )}
-
+            <div className="flex justify-btw pd-5">
               <button
                 onClick={() => {
-                  setShowToggel((showToggel) => !showToggel);
+                  navigate(`/videolist/${_id}`);
+                  addHistoryVideo(video);
                 }}
-                className="cursor   border-none  outline-none text-color-9 text-s card-icon rounded-full "
+                className="text-dec bg-red-5 rounded-s text-s text-color-grey-0 pd-y-3 pd-x-3 "
               >
-                <BsThreeDotsVertical />
+                Watch now
               </button>
-              <div className="position-ab z-index card-drawer">
-                {showToggle && (
-                  <VideoModal
-                    video={video}
-                    showPlayFlag={playlistFlag}
-                    setPlaylistFlag={setPlaylistFlag}
-                  />
+
+              <div className="flex ">
+                {like.find((video) => video._id === _id) ? (
+                  <button
+                    onClick={handleRemoveLikedVideo}
+                    className="m-x-2 pd-3 bg-none"
+                  >
+                    <i className=""></i>
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleLikedVideo}
+                    className="m-x-2 pd-3 bg-none"
+                  >
+                    <i className="fa-solid fa-thumbs-up"></i>
+                  </button>
                 )}
-              </div>
-              <div className="position-ab z-index card-drawer">
-                {playlistFlag && (
-                  <AddPlaylist
-                    video={video}
-                    playlist={playlist}
-                    setPlaylistFlag={setPlaylistFlag}
-                  />
-                )}
+
+                <button
+                  onClick={() => {
+                    setShowToggel((showToggel) => !showToggel);
+                  }}
+                  className="pd-3 bg-none"
+                >
+                  <BsThreeDotsVertical />
+                </button>
+
+                <div className="position-ab z-index-1 top-10 left-25 ">
+                  {showToggle && (
+                    <VideoModal
+                      video={video}
+                      showPlayFlag={playlistFlag}
+                      setPlaylistFlag={setPlaylistFlag}
+                    />
+                  )}
+                </div>
+                <div className="position-ab z-index-1 ">
+                  {playlistFlag && (
+                    <AddPlaylist
+                      video={video}
+                      playlist={playlist}
+                      setPlaylistFlag={setPlaylistFlag}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>

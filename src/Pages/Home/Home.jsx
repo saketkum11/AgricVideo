@@ -1,6 +1,5 @@
 import { Card, Header } from "../index";
 import { FaPlayCircle, FaRegEye } from "react-icons/fa";
-import "../Home/Home.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -23,14 +22,15 @@ const Home = () => {
       }
     };
     getCategories();
+    document.title = "Home";
   }, []);
 
   return (
     <>
       <Header />
       <main className=" m-auto ">
-        <section className="    m-y-8 pd-9 ">
-          <div className="  text-color-0 flex m-auto justify-center flex-wrap wt-100 gap-2 m-y-6">
+        <section className=" m-y-8 pd-9 ">
+          <div className=" text-color-0 flex m-auto justify-center flex-wrap wt-100 gap-2 m-y-6">
             <div className="width-scaled5-6">
               <img
                 src="./assets/tech.jpg"
@@ -45,8 +45,11 @@ const Home = () => {
                 the cultivation and perfection of human beings.
               </span>
 
-              <button className="text-dec bg-red-5 rounded-s text-xm  pd-y-3 pd-x-5 ">
-                <NavLink to="/videolist" className="text-dec text-color-grey-0">
+              <button className="text-dec bg-red-5 rounded-s text-xm  pd-y-3 pd-x-5 m-y-9">
+                <NavLink
+                  to="/videolist"
+                  className="text-dec text-color-grey-0 "
+                >
                   Explore Video
                 </NavLink>
               </button>
@@ -58,13 +61,13 @@ const Home = () => {
             <span>Recommend Video</span>
           </div>
           <div className="flex flex-wrap  justify-center  cards">
-            {categories.map((categoriesVideo) => {
+            {[...categories].map((categoriesVideo) => {
               return <Card key={categoriesVideo._id} video={categoriesVideo} />;
             })}
           </div>
         </section>
         <footer className="">
-          <div className="pd-y-7">
+          <div className="pd-11">
             <span>Copyright @2022 Agric Video Library</span>
           </div>
         </footer>

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import "./SideNav.css";
 import {
   FaHome,
   FaVideo,
@@ -8,13 +7,10 @@ import {
   FaHeart,
 } from "react-icons/fa";
 import { MdPlaylistAdd } from "react-icons/md";
-import { useAuth } from "../../Context/Auth-context/Auth-context";
-
-const SideNav = () => {
-  const { tokenData, logout } = useAuth();
+const Navigation = () => {
   return (
     <>
-      <div className=" flex flex-column  text-color-grey-9 pd-x-2 m-y-4 border-right-1 border-right-solid border-black-500 h-100 hide-sideNav">
+      <div className=" flex flex-column  text-color-grey-9 pd-x-2 m-y-4 border-right-1 border-right-solid border-black-500 h-100 sideNav-show">
         <ul className="flex  flex-column style-none pd-x-6 ">
           <li className="wt-100  ">
             <NavLink
@@ -75,4 +71,4 @@ const SideNav = () => {
     </>
   );
 };
-export { SideNav };
+export { Navigation };

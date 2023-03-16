@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { Header } from "../../Component/Header/Header";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 const Signup = () => {
   const navigate = useNavigate();
@@ -13,8 +14,9 @@ const Signup = () => {
   const { signupHandler } = useAuth();
   return (
     <>
-      <div className=" m-auto wt-30 flex m-t-8 flex-column justify-even">
-        <div className="box-shadow-1 text-color-9 justify-even flex flex-column  pd-11">
+      <Header />
+      <div className=" m-y-9 m-x-9 ">
+        <div className="m-auto flex flex-column gap-1 box-shadow-1 pd-11 wt-max-100 width-scaled4-7 rounded-m">
           <form
             onSubmit={(event) => {
               event.preventDefault();
@@ -28,13 +30,12 @@ const Signup = () => {
                 htmlFor="firstName"
                 className="flex items-start text-xm pd-y-5 pd-x-3 text-sm text-light"
               >
-                Password{" "}
+                FirstName
               </label>
-
               <input
                 type="text"
                 id="firstName"
-                className="pd-4 text-s rounded-xs outline-none "
+                className=" wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9"
                 placeholder="FirstName"
                 value={firstName}
                 required
@@ -48,13 +49,13 @@ const Signup = () => {
                 htmlFor="lastName"
                 className="flex items-start text-xm pd-y-5 pd-x-3 text-sm text-light"
               >
-                Password{" "}
+                LastName
               </label>
 
               <input
                 type="text"
                 id="lastName"
-                className="pd-4 text-s rounded-xs outline-none "
+                className=" wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9"
                 placeholder="LastName"
                 value={lastName}
                 required
@@ -74,7 +75,7 @@ const Signup = () => {
               <input
                 id="email"
                 type="email"
-                className=" pd-4   text-s rounded-xs "
+                className=" wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9"
                 placeholder="Email Id"
                 value={email}
                 required
@@ -95,7 +96,7 @@ const Signup = () => {
               <input
                 type="password"
                 id="password"
-                className="pd-4 text-s rounded-xs outline-none "
+                className=" wt-100 pd-4  border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9"
                 placeholder="Password"
                 value={password}
                 required
@@ -105,15 +106,15 @@ const Signup = () => {
               />
             </div>
 
-            <div className="pd-y-9 ">
+            <div className="pd-y-9 flex flex-column gap-1">
               <button
                 type="Submit"
-                className="bg-black-9 wt-100  rounded-xs border-none outline-none text-s cursor text-color-0 pd-3 text-light"
+                className="bg-red-5 wt-100  rounded-s  text-s cursor text-color-grey-0 pd-3 text-light"
               >
                 SignUp
               </button>
 
-              <Link to="/login" className="">
+              <Link to="/login" className="text-dec text-color-grey-9">
                 Already Have Account?
               </Link>
             </div>

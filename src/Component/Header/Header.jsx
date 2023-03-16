@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SideNav } from "../SideNav/SideNav";
 import { FaBars } from "react-icons/fa";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
+import { Navigation } from "../Navigation/Navigation";
 
 const Header = () => {
   const [sideNavFlag, setSideNavFlag] = useState(false);
@@ -12,7 +13,13 @@ const Header = () => {
     <>
       <header className="wt-100 position-sticky top-0 z-index-2 bg-black-0">
         <div className="flex wt-80 items-center justify-btw m-auto pd-y-5 text-color-0 ">
-          <div className="pd-x-4 cursor flex">
+          <div className=" cursor flex gap-1">
+            <button
+              className="cursor bg-none text-m nav-show "
+              onClick={() => setSideNavFlag((flag) => !flag)}
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
             <NavLink
               to="/"
               className="text-dec cursor text-color-red-5 text-lg text-semibold pd-x-3"
@@ -46,6 +53,7 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {sideNavFlag && <Navigation />}
     </>
   );
 };
