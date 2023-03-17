@@ -3,7 +3,6 @@ import { MdDelete } from "react-icons/md";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Card.css";
 import { useState } from "react";
-import { useWatch } from "../../Context/WatchLater-context/Watch-context";
 import { usePlay } from "../../Context/Playlets-context/Playlets-context";
 import { AddPlaylist, VideoModal } from "../../Pages/index";
 import { useVideo } from "../../Context/Video-Context/video-context";
@@ -114,7 +113,7 @@ const Card = ({ video }) => {
                     />
                   )}
                 </div>
-                <div className="position-ab z-index-1 ">
+                <div className="position-ab top-10 left-25 z-index-1 ">
                   {playlistFlag && (
                     <AddPlaylist
                       video={video}

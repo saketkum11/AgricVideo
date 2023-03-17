@@ -18,7 +18,7 @@ const Header = () => {
               className="cursor bg-none text-m nav-show "
               onClick={() => setSideNavFlag((flag) => !flag)}
             >
-              <i class="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars"></i>
             </button>
             <NavLink
               to="/"

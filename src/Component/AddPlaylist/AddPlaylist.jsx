@@ -19,7 +19,6 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
     if (tokenData) {
       createPlaylist(createdPlayList);
       toast.success("created playlist");
-      setCreatedPlayList({ ...createPlaylist, title: "" });
     } else if (!tokenData) {
       toast.error("you must login");
       navigate("/login");
@@ -34,24 +33,29 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             <span className="text-xm">create playlist</span>
           </div>
           <ul>
-            {[...playlists].map((playlists) => {
+            {[...playlists].map((playlist) => {
               return (
                 <>
                   <li
+                    key={playlist.title}
                     className="pd-x-3 m-y-2 style-none flex items-center pd-y-2 cursor list-cover"
                     onClick={() => {
-                      addedPlaylist(playlists, video);
-                      toast.success("Added Video to playlist");
+                      addedPlaylist(playlist, video);
                     }}
                   >
-                    {playlists.title}
+                    {playlist.title}
                   </li>
                 </>
               );
             })}
           </ul>
-          <div>
-            <form onClick={handleAddPlaylist}>
+          <div className="flex">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleAddPlaylist();
+              }}
+            >
               <input
                 type="text"
                 required
@@ -65,7 +69,6 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
                 }}
               />
               <div className="flex justify-end items-center m-t-2 ">
-                (
                 <button
                   onClick={() => {
                     setPlaylistFlag((flag) => !flag);
@@ -80,9 +83,9 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
                 >
                   Add
                 </button>
-                )
               </div>
             </form>
+            <div></div>
           </div>
         </div>
       }
