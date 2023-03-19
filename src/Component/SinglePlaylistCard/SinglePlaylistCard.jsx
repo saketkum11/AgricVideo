@@ -11,7 +11,7 @@ const SinglePlaylistCard = ({ video }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="card flex cards  flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
+      <div className="flex flex-column box-shadow-2 rounded-m bg-black-0 text-color-9 text-dec position-rel">
         <NavLink to="/" className="card_image flex ">
           <img src={thumbnail} className=" wt-100" alt="" />
         </NavLink>

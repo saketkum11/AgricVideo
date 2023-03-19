@@ -8,11 +8,11 @@ const PlaylistCard = ({ playlists }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="card wt-100 flex cards rounded-m  flex-column box-shadow-2  bg-black-0 text-color-9 text-dec pd-3 ">
+      <div className=" width-scaled4-4 flex  rounded-m  flex-column box-shadow-2  text-dec pd-3 ">
         <div className=" h-100  flex flex-wrap flex-column items-start pd-3">
-          <span className="text-bold m-y-2">{playlists.title}</span>
+          <span className="text-bold m-y-2 ">{playlists.title}</span>
           <Link
-            className="text-dec text-color-9 cursor m-y-5"
+            className="text-dec text-color-red-5 cursor m-y-5"
             onClick={() => {
               getPlaylistData(playlists);
             }}
@@ -21,7 +21,7 @@ const PlaylistCard = ({ playlists }) => {
             Open playlist
           </Link>
           <button
-            className="bg-black-9 rounded-s border-none cursor outline-none text-color-0 pd-x-3 pd-y-2"
+            className="bg-red-5 rounded-s border-none cursor outline-none text-color-grey-0 text-xm pd-x-3 pd-y-2"
             onClick={() => {
               deletePlaylist(playlists);
               toast.error("Deleted playlist");

@@ -18,7 +18,7 @@ const SinglePlaylist = () => {
               [...playlistVideo].map((video) => {
                 return (
                   <>
-                    <SinglePlaylistCard key={video._id} video={video} />
+                    <Card key={video._id} video={video} />
                   </>
                 );
               })}
