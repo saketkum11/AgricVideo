@@ -9,24 +9,22 @@ const useLike = () => useContext(LikeContext);
 const LikeProvider = ({ children }) => {
   const { videoState, videoDispatch } = useVideo();
   const { tokenData } = useAuth();
-  useEffect(() => {
-    const getLiked = async () => {
-      try {
-        const response = await axios.get("/api/user/likes", {
-          headers: {
-            authorization: tokenData,
-          },
-        });
-        videoDispatch({
-          type: ACTION_TYPE.LIKED_VIDEO,
-          payload: response.data.likes,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getLiked();
-  }, []);
+
+  const getLiked = async () => {
+    try {
+      const response = await axios.get("/api/user/likes", {
+        headers: {
+          authorization: tokenData,
+        },
+      });
+      videoDispatch({
+        type: ACTION_TYPE.LIKED_VIDEO,
+        payload: response.data.likes,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const likedVideo = async (video) => {
     try {
@@ -65,7 +63,7 @@ const LikeProvider = ({ children }) => {
     }
   };
   return (
-    <LikeContext.Provider value={{ likedVideo, removeLikedVideo }}>
+    <LikeContext.Provider value={{ likedVideo, removeLikedVideo, getLiked }}>
       {children}
     </LikeContext.Provider>
   );

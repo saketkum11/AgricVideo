@@ -13,24 +13,21 @@ const WatchProvider = ({ children }) => {
   const { credentialData } = useAuth();
   const { tokenData, isAuth } = credentialData;
 
-  useEffect(() => {
-    async function getWatchLaterData() {
-      try {
-        const response = await axios.get("/api/user/watchlater", {
-          headers: {
-            authorization: tokenData,
-          },
-        });
-        videoDispatch({
-          type: ACTION_TYPE.WATCHLATER_VIDEO,
-          payload: response.data.watchlater,
-        });
-      } catch (error) {
-        console.error(error);
-      }
+  async function getWatchLaterData() {
+    try {
+      const response = await axios.get("/api/user/watchlater", {
+        headers: {
+          authorization: tokenData,
+        },
+      });
+      videoDispatch({
+        type: ACTION_TYPE.WATCHLATER_VIDEO,
+        payload: response.data.watchlater,
+      });
+    } catch (error) {
+      console.error(error);
     }
-    getWatchLaterData();
-  }, []);
+  }
 
   const addWatchLater = async (video) => {
     try {
@@ -69,7 +66,9 @@ const WatchProvider = ({ children }) => {
   };
 
   return (
-    <WatchContext.Provider value={{ addWatchLater, removeWatchLater }}>
+    <WatchContext.Provider
+      value={{ addWatchLater, removeWatchLater, getWatchLaterData }}
+    >
       {children}
     </WatchContext.Provider>
   );

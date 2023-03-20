@@ -17,6 +17,9 @@ export { SinglePlaylistCard } from "../Component/SinglePlaylistCard/SinglePlayli
 export { SingleVideo } from "../Pages/VideoPlayList/SingleVideo";
 export { Like } from "../Pages/Like/Like";
 export { NotFound } from "../Pages/Auth/NotFound";
+export { HomeOutlet } from "./HomeOutlet";
+export { Footer } from "../Component/Footer/Footer";
+export { Navigation } from "../Component/Navigation/Navigation";
 /*Routes*/
 export { MyRoutes } from "../Routes/MyRoutes";
 export { RequireAuth } from "../Context/RequireAuth/RequireAuth";

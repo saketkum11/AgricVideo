@@ -13,6 +13,7 @@ import {
   Like,
   NotFound,
   RequireAuth,
+  HomeOutlet,
 } from "../Pages";
 
 import Mockman from "mockman-js";
@@ -22,49 +23,18 @@ const MyRoutes = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/videolist" element={<VideoList />} />
-        <Route path="/videolist/:id" element={<SingleVideo />} />
+        <Route element={<HomeOutlet />}>
+          <Route path="/videolist" element={<VideoList />} />
+          <Route path="/videolist/:id" element={<SingleVideo />} />
+          <Route element={<RequireAuth />}>
+            <Route path="/watchlater" element={<WatchLater />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/like" element={<Like />} />
+            <Route path="/playlist" element={<Playlist />} />
+            <Route path="/playlist/:playlistId" element={<SinglePlaylist />} />
+          </Route>
+        </Route>
 
-        <Route
-          path="/watchlater"
-          element={
-            <RequireAuth>
-              <WatchLater />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/history"
-          element={
-            <RequireAuth>
-              <History />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/like"
-          element={
-            <RequireAuth>
-              <Like />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/playlist"
-          element={
-            <RequireAuth>
-              <Playlist />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/playlist/:playlistId"
-          element={
-            <RequireAuth>
-              <SinglePlaylist />
-            </RequireAuth>
-          }
-        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />

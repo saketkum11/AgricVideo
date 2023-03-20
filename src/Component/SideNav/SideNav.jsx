@@ -7,7 +7,6 @@ import {
   FaStopwatch,
   FaHeart,
 } from "react-icons/fa";
-import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { MdPlaylistAdd } from "react-icons/md";
 import { useAuth } from "../../Context/Auth-context/Auth-context";
 
@@ -15,93 +14,62 @@ const SideNav = () => {
   const { tokenData, logout } = useAuth();
   return (
     <>
-      <div className="bg-black-9 side-bar flex flex-column  wt-20  text-color-0 pd-x-2 side-position">
-        <div className="flex  items-center justify-start  pd-y-8 pd-x-7  ">
-          <span
-            className="text-semibold  text-color-0 pd-x-3 text-lg
-          "
-          >
-            Agric
-          </span>
-        </div>
-        <ul className="flex  flex-column side-grow style-none pd-x-6 ">
-          <li className="  wt-100  ">
+      <div className=" flex flex-column  text-color-grey-9 pd-x-2 m-y-4 border-right-1 border-right-solid border-black-500 h-100 hide-sideNav">
+        <ul className="flex  flex-column style-none pd-x-6 ">
+          <li className="wt-100  ">
             <NavLink
               to="/"
-              className="text-dec text-color-0 sidenav-link pd-4  flex items-center   "
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <FaHome className="text-xm" />
               <span className="pd-x-6">Home</span>
             </NavLink>
           </li>
-          <li className="  wt-100   ">
+          <li className="wt-100">
             <NavLink
               to="/videolist"
-              className="text-dec text-color-0 sidenav-link pd-4  flex items-center"
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <FaVideo className="text-xm" />
               <span className="pd-x-6">VideoList</span>
             </NavLink>
           </li>
-          <li className="wt-100  ">
+          <li className="wt-100">
             <NavLink
               to="/history"
-              className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <FaHistory className="text-xm" />
               <span className="pd-x-6">History</span>
             </NavLink>
           </li>
-          <li className=" wt-100 ">
+          <li className="wt-100">
             <NavLink
               to="/watchlater"
-              className="text-dec text-color-0 sidenav-link pd-4  items-center flex "
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <FaStopwatch className="text-xm" />
-              <span className="pd-x-6">Watch Later</span>
+              <span className="pd-x-6">WatchLater</span>
             </NavLink>
           </li>
-          <li className="  wt-100  ">
+          <li className="wt-100">
             <NavLink
               to="/playlist"
-              className="text-dec text-color-0 sidenav-link pd-y-4 pd-x-4  items-center flex "
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <MdPlaylistAdd className="text-xm" />
               <span className="pd-x-6">PlayList</span>
             </NavLink>
           </li>
-          <li className="wt-100  ">
+          <li className="wt-100">
             <NavLink
               to="/like"
-              className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
+              className="text-dec text-color-grey-9 pd-4 items-center flex hover-grey-200 rounded-m"
             >
               <FaHeart className="text-xm" />
               <span className="pd-x-6">Liked</span>
             </NavLink>
           </li>
-          {tokenData ? (
-            <li className="bg-black-9 ">
-              <button
-                onClick={() => {
-                  logout();
-                }}
-                className="text-dec outline-none border-none wt-100 bg-black-9 text-color-0 sidenav-link pd-4   items-center flex "
-              >
-                <FiLogOut className="text-xm" />
-                <span className="pd-x-6">Logout</span>
-              </button>
-            </li>
-          ) : (
-            <li className="wt-100  ">
-              <NavLink
-                to="/login"
-                className="text-dec text-color-0 sidenav-link pd-4   items-center flex "
-              >
-                <FiLogIn className="text-xm" />
-                <span className="pd-x-6">Login</span>
-              </NavLink>
-            </li>
-          )}
         </ul>
       </div>
     </>

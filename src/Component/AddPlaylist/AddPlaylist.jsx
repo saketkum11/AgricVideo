@@ -19,7 +19,6 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
     if (tokenData) {
       createPlaylist(createdPlayList);
       toast.success("created playlist");
-      setCreatedPlayList({ ...createPlaylist, title: "" });
     } else if (!tokenData) {
       toast.error("you must login");
       navigate("/login");
@@ -34,52 +33,59 @@ const AddPlaylist = ({ video, setPlaylistFlag }) => {
             <span className="text-xm">create playlist</span>
           </div>
           <ul>
-            {playlists.map((playlists) => {
+            {[...playlists].map((playlist) => {
               return (
                 <>
                   <li
+                    key={playlist.title}
                     className="pd-x-3 m-y-2 style-none flex items-center pd-y-2 cursor list-cover"
                     onClick={() => {
-                      addedPlaylist(playlists, video);
-                      toast.success("Added Video to playlist");
+                      addedPlaylist(playlist, video);
                     }}
                   >
-                    {playlists.title}
+                    {playlist.title}
                   </li>
                 </>
               );
             })}
           </ul>
-          <div>
-            <input
-              type="text"
-              className=" pd-y-4 pd-x-4 text-s rounded-s "
-              value={createdPlayList.title}
-              onChange={(e) => {
-                setCreatedPlayList({
-                  ...createdPlayList,
-                  title: e.target.value,
-                });
+          <div className="flex">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleAddPlaylist();
               }}
-            />
-          </div>
-          <div className="flex justify-end items-center m-t-2 ">
-            (
-            <button
-              onClick={() => {
-                setPlaylistFlag((flag) => !flag);
-              }}
-              class="bg-black-9 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 pd-y-2"
             >
-              close
-            </button>
-            <button
-              onClick={handleAddPlaylist}
-              className="bg-blue-5 cursor rounded-s border-none  outline-none text-color-0 pd-x-3 m-x-2 pd-y-2"
-            >
-              Add
-            </button>
-            )
+              <input
+                type="text"
+                required
+                className="  pd-4 border-1 border-solid border-black-700  text-s rounded-s text-color-grey-9 "
+                value={createdPlayList.title}
+                onChange={(e) => {
+                  setCreatedPlayList({
+                    ...createdPlayList,
+                    title: e.target.value,
+                  });
+                }}
+              />
+              <div className="flex justify-end items-center m-t-2 ">
+                <button
+                  onClick={() => {
+                    setPlaylistFlag((flag) => !flag);
+                  }}
+                  className=" bg-red-5 cursor rounded-s border-none  outline-none text-color-grey-0 pd-x-3 pd-y-2"
+                >
+                  close
+                </button>
+                <button
+                  type="submit"
+                  className="bg-green-5  cursor rounded-s border-none  outline-none text-color-grey-0 pd-x-3 m-x-2 pd-y-2"
+                >
+                  Add
+                </button>
+              </div>
+            </form>
+            <div></div>
           </div>
         </div>
       }

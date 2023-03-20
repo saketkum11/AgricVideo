@@ -9,18 +9,16 @@ const SinglePlaylist = () => {
   const playlistVideo = playlist?.videos;
   return (
     <>
-      <main className="flex  ">
-        <SideNav />
-
+      <main className="flex justify-center items-start wt-100">
         <aside className="flex flex-column h-100  m-y-5 justify-center card-main position-rel">
           <div className="text-bold text-m ">Single Playlist</div>
 
           <section className="flex flex-wrap  justify-center  cards">
             {playlistVideo &&
-              playlistVideo.map((video) => {
+              [...playlistVideo].map((video) => {
                 return (
                   <>
-                    <SinglePlaylistCard key={video._id} video={video} />
+                    <Card key={video._id} video={video} />
                   </>
                 );
               })}

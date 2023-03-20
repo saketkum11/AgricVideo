@@ -1,20 +1,20 @@
+import { useEffect } from "react";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import { Card, SideNav } from "../index";
 import "./VideoList.css";
 const VideoList = () => {
-  const { videoState } = useVideo();
+  const { videoState, getVideoData } = useVideo();
   const { video } = videoState;
-
+  useEffect(() => {
+    getVideoData();
+  }, []);
   return (
     <>
-      <main className="flex video-flex ">
-        <SideNav />
-        <aside className="flex flex-column h-100  m-y-5 justify-center  card-main">
-          <div className="text-bold text-m m-y-7">Video List</div>
-
-          <section className="flex flex-wrap  justify-center  cards">
+      <main className="flex justify-center items-start wt-100  position-sticky top-0 ">
+        <aside className="flex flex-column h-100  m-y-11 justify-center gap-2">
+          <section className="flex flex-wrap justify-center  gap-2">
             {video &&
-              video.map((video) => {
+              [...video].map((video) => {
                 return (
                   <>
                     <Card key={video._id} video={video} />

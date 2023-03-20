@@ -5,14 +5,14 @@
 
 export const videos = [
   {
-    _id: "AGcYApKfHuY",
-    title: "The High-Tech Vertical Farmer",
+    _id: "97JZMrnRnYM",
+    title: "Modern Agriculture Machines That Are At Another Level ▶10",
     description:
       "In the kale-filled facility at vertical farm startup Bowery Farming, it's a piece of proprietary software that makes most of the critical decisions -- like when to harvest and how much to water each plant. But it still takes humans to carry out many tasks around the farm. Katie Morich, 25, loves the work. But as roboticists make gains, will her employer need her forever? This is the fourth episode of Next Jobs, a series about careers of the future hosted by Bloomberg Technology's Aki Ito. ",
     profile:
-      "https://yt3.ggpht.com/RQNsrBPt7-zWK3jq_l0_txq5aJtP140xCCJRj-QkjGiqjbtoPWKRYjmoePMndR8oqYwNQ7zx=s176-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/ytc/AL5GRJXj5Uu0hBdEM1KyaUlYxSu9GeJUfmvloe3DovQA9A=s88-c-k-c0x00ffffff-no-rj",
     profileName: "Bloomberg Quicktake Original",
-    thumbnail: "https://i.ytimg.com/vi/AGcYApKfHuY/hq720.jpg",
+    thumbnail: "https://i.ytimg.com/vi/97JZMrnRnYM/hq720.jpg",
     duration: "8:14",
   },
   {
@@ -50,8 +50,7 @@ export const videos = [
   },
   {
     _id: "qkqtcXuogu4",
-    title:
-      "With 10 acres of organic farm and traditional wisdom, This family farmer can help you eat right",
+    title: "With 10 acres of organic farm and traditional wisdom ",
     description:
       "Away from the hustles and bustles of the city, Sneh Yadav and Retd Col. Tara Singh are on a mission, to change the way we look at food. Growing up in a traditional farmer family, agriculture was always a part of Sneh's life and when the time came to choose a new adventure, they didn't have to think twice before going back to the land. and that was the beginning of Tijara Organic Farms. ",
     profile:
@@ -74,7 +73,7 @@ export const videos = [
   {
     _id: "OqREBOP7A0I",
     title:
-      "ये सुबह सब्जी लगाते हैं और शाम को नोट छापते हैं | New Business Model | Indian Farmer",
+      "ये सुबह सब्जी लगाते हैं और शाम को नोट छापते हैं | New Business Model ",
     description:
       "To know more about solar energy visit: downtoearth.org.in In the rural village of Kanwarpura, Rajasthan, this doctor turned solar entrepreneur is using the KUSUM Yojana to boost his income by 200 times while providing clean energy to the farming community.The village of Kanmarpura was struggling with a water crisis when Amit Singh decided to seek out a modern solution for his deteriorating farmland and hence became the first person in India to generate income by selling clean energy to DISCOM using the PM- KUSUM Yojana.Amit was always fascinated by the concept of electricity and had already powered his clinic back in the village with a grid solar power system. So when PM KUSUM Yojana provided him with an opportunity to diversify his dream, He didn't hesitate. ",
     profile:

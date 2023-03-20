@@ -54,7 +54,7 @@ const VideoModal = ({ video, playlistFlag, setPlaylistFlag }) => {
                 className="style-none flex items-center pd-y-2 cursor"
               >
                 <MdRemoveCircle className="text-xm"></MdRemoveCircle>
-                <span className="pd-x-3">Remove from watchLater</span>
+                <span className="">Remove from watchLater</span>
               </li>
             ) : (
               <li

@@ -1,3 +1,18 @@
-## Video Library Backend
+# AgricVideo
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+#### AgricVideo is a video list that has a variety of videos with new technology related to agriculture.
+
+* Features 
+  - Login 
+  - Signup
+  - History Video
+  - Watchlater Video
+  - Liked Video
+  - Create Playlist 
+  - Single Video 
+
+#### Responsive Website
+
+[Website](https://agric-video.netlify.app)
+
+![image](https://user-images.githubusercontent.com/46194436/226378732-48471d96-f7bc-47e9-8a99-e4b73c2f71de.png)

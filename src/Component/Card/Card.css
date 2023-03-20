@@ -1,23 +1,5 @@
 
 
-
-
-.card{
-  max-width: 300px;
-}
-.card_image{
-  flex:0 0 200px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.card-main{
-    flex: 1;
-}
-.card-icon{
-  width: 2rem;
-  height: 2rem;
-}
 .card-drawer{
   top:40%;
   right: 0;

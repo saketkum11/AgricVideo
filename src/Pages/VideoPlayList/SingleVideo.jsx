@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SideNav } from "../index";
 import { useVideo } from "../../Context/Video-Context/video-context";
 import axios from "axios";
 
@@ -38,12 +37,10 @@ const SingleVideo = () => {
   return (
     <>
       <main className="flex video-flex ">
-        <SideNav />
         <aside className="flex flex-column   m-y-5 justify-center card-main">
           <section className="flex flex-wrap  justify-center  cards">
             <iframe
               src={`https://www.youtube.com/embed/${params.id}`}
-              frameBorder="0"
               width="90%"
               height="650px"
             ></iframe>
