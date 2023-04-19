@@ -2,7 +2,16 @@
 
 #### AgricVideo is a video list that has a variety of videos with new technology related to agriculture.
 
-* Features 
+Tech Stack
+  - React JS
+  - Html
+  - Webkit-ui
+  - Mockbee Backend
+  
+  
+ 
+
+Features 
   - Login 
   - Signup
   - History Video
